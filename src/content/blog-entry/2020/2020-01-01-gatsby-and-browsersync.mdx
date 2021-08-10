@@ -1,0 +1,100 @@
+---
+title: "Gatsby Journey 03: Do I need Browsersync for this?"
+date: 2020-01-01
+slug: "/blog/do-i-need-browsersync-for-gatsby"
+type: blog
+headerImg: "./images/gatsby-browsersync.png"
+headerBg: "#fff"
+headerTextColor: "#202020"
+tags:
+  - code
+  - gatsby
+description: "Browsersync has been an indispensable tool for many, providing an easy way to review changes in real-time both in browser and on mobile devices, and it's one of the first packages I'd install on any web projects. So, do I need to add this as a dev-dependency for Gatsby projects?"
+---
+
+<p class="excerpt">
+  Browsersync has been an indispensable tool for many, providing an easy way to
+  review changes in real-time both in browser and on mobile devices, and it's
+  one of the first packages I'd install on any web projects. So, do I need to
+  add this as a dev-dependency for Gatsby projects?
+</p>
+
+## What is Browsersync
+
+[The official website](https://browsersync.io/) describes it as _"(a tool for) time-saving synchronised browser testing_". At its barebone, Browsersync makes it incredibly easy to test web projects during development by mirroring the screen on devices and browsers and auto-refreshing them whenever a change occurs.
+
+While there might be other ways to achieve the same results&mdash;e.g. VS Code LiveServer Extension, `http-server` node package, etc&mdash;Browsersync is arguably the most elegant and seamless solution available.
+
+Typically I'd install it globally or locally per project basis as a dev-dependency, and include some additional `npm` scripts in `package.json` as something like below.
+
+```bash
+npm install browser-sync --save-dev
+```
+
+```json filename:package.json
+{
+  // ... other stuff
+  "scripts": {
+    "start": "npm run dev & npm run sync",
+    "sync": "browser-sync start --files 'scripts/**/*.js, styles/**/*.*' --proxy '127.0.0.1:9000' --port 9001",
+    "dev": "some-dev-command"
+    // ... other stuff
+  }
+  // ... other stuff
+}
+```
+
+Then I can simply run `npm start` to initiate my `dev` and `sync` command to see something like following.
+
+```
+[Browsersync] Proxying: http://127.0.0.1:9000
+[Browsersync] Access URLs:
+ ---------------------------------------
+       Local: http://localhost:9001
+    External: http://10.255.251.208:9001
+ ---------------------------------------
+          UI: http://localhost:3001
+ UI External: http://localhost:3001
+ ---------------------------------------
+[Browsersync] Watching files...
+Starting DevelopmentServer
+```
+
+I can mirror/sync pages on any browsers on local computer at `localhost` and easily test it on my phone or tablet at its provided `External` address.
+
+As soon as I started working on this Gatsby site, I found myself frequently (_manually_) refreshing the page and soon wanting to test on my phone. Obviously, it's a solved problem&mdash;I could just install Browsersync and tweak the `package.json` file. But do I need to?
+
+## The Gatsby Way
+
+Apparently, I'm not the first person to think about this. And [there's already a solution](https://github.com/gatsbyjs/gatsby/issues/5801#issuecomment-456890752), which I found through [a blog post](https://asuh.com/gatsbys-hidden-browsersync/).
+
+With no extra dependency installed, you can simply add `-H 0.0.0.0` at the end of `gatsby develop` command. Now after updating `scripts` section of my `package.json` like the following...
+
+```json filename:package.json {5}
+{
+  // ... other stuff
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "start": "npm run develop"
+    // other stuff
+  }
+}
+```
+
+Running `npm start` will show me...
+
+```
+You can now view b-as-in-bald-2020 in the browser.
+
+  Local:            http://localhost:8000/
+  On Your Network:  http://10.255.251.208:8000/
+
+View GraphiQL, an in-browser IDE, to explore your site's data and schema
+
+  Local:            http://localhost:8000/___graphql
+  On Your Network:  http://10.255.251.208:8000/___graphql
+
+```
+
+There you have it. Gatsby's way of doing Browsersync things. No additional dependencies, no lengthy additional commands, just built-in Gatsby option for easy real-time testing.

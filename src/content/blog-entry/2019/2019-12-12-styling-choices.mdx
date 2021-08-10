@@ -1,0 +1,213 @@
+---
+title: "Gatsby Journey 02: Stylng choices"
+date: 2019-12-12
+slug: "/blog/styling-choices-for-me"
+type: blog
+headerImg: "./images/gatsby-styling-choices.svg"
+headerBg: "#0AA1DC"
+headerTextColor: "#ffffff"
+tags:
+  - code
+  - gatsby
+description: "Like anything React, there are a bunch of options for styling in Gatsby: inine styling, global SCSS imports, CSS Modules, CSS-in-JS components, and then some. Here's my exploration into some."
+---
+
+<p class="excerpt">
+  Like anything React, there are a bunch of options for styling in Gatsby: inine
+  styling, global SCSS imports, CSS Modules, CSS-in-JS components, and then
+  some. Here's my exploration into some.
+</p>
+
+## Global (S)CSS and Variables
+
+As I'm keeping most of pre-existing UI styles from the previous site written `SCSS`, I wanted to reuse as much of the existing code as possible.
+
+So, in my `gatsby-browser.js` I imported the global base styles from `base.scss`, which contains bare minimum of global styling and imports `_variables.scss` for certain values.
+
+You'll notice the duplicated hex values in SCSS variables and CSS custom properties. I almost wanted to ditch SCSS variables and keep everything only to CSS custom properties, and there was just one reason why: **Color Functions**. SCSS offers built-in color functions such as `lighten()`, `complement()`. While they can easily be accomplished by packages like [this one](https://www.npmjs.com/package/color), I didn't want an extra dependency just for a simple task like this.
+
+```js filename:gatsby-browser.js
+import "./src/styles/base.scss";
+
+// ... and other stuff
+```
+
+```scss filename:base.scss
+@import url("//path.to/webfonts");
+@import "./variables";
+
+html,
+body {
+  font-family: Raleway, Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  margin: 0;
+}
+
+body {
+  padding-top: 4.5rem;
+}
+```
+
+```scss filename:_variables.scss
+// Colors
+$cyan: #00a2d9;
+$berry: #b7295a;
+$green: #7ab800;
+$yellow: #f2af00;
+$accentColor: $green;
+$bgColor: #fff;
+
+:root {
+  --cyan: #00a2d9;
+  --berry: #b7295a;
+  --green: #7ab800;
+  --yellow: #f2af00;
+}
+
+// ... and other stuff
+```
+
+## (S)CSS Modules
+
+Then importing a clean `scss` into a component felt natural. I like how style definitions are separated from the markup, so I could organize code neatly with no concerns for accidental overriding .
+
+I started the site Header component with this approach.
+
+```scss filename:Header.module.scss
+header {
+  background: var(--berry);
+  position: fixed;
+  // ... stuff
+
+  .BigB {
+    // ... stuff
+  }
+
+  ul.bigNav {
+    // ... stuff
+    a {
+      color: lighten($berry, 25%);
+      // ... stuff
+      &:hover {
+        transform: translateY(-0.25rem);
+        color: #fff;
+      }
+      &.active {
+        color: #fff;
+      }
+    }
+  }
+}
+```
+
+```jsx filename:Header.JS
+import styles from "./Header.module.scss";
+
+const Header = () => (
+  <>
+    <header className={styles.Header}>
+      <div className={styles.BigB}>
+        <Link to="/">B</Link>
+      </div>
+      <ul className={styles.bigNav}>
+        <li>
+          <Link activeClassName={styles.active} to="/">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link activeClassName={styles.active} to="/portfolio">
+            Portfolio
+          </Link>
+        </li>
+      </ul>
+    </header>
+  </>
+);
+```
+
+## Styled-Components
+
+Everything else is a `styled-component`, which provides most of Sass conventions and enables far more dynamic styling via JavaScript. On the home page, `IntroBox.js` component that takes a few props and styles itself accordingly.
+
+```jsx filename:IntroBox.js
+import React from "react";
+import styled from "styled-components";
+// ... and other import statements
+
+const IntroBox = props => {
+  const { iconName, width, back, color, order, mobileOrder, label } = props;
+  const IntroBoxDiv = styled.div`
+    flex-basis: ${width === "1" ? "25%" : "50%"};
+    &:hover .flipper {
+      transform: ${width === "1" ? "rotateY(180deg)" : "rotateX(180deg)"};
+    }
+    span {
+      ${flexUnit(1.3, 13, 26, "vw", "font-size")}
+      color: ${color || "#ffffff"};
+    }
+    // ... and other styling stuff
+  `;
+  return (
+    <IntroBoxDiv>
+      <div className="flipper">
+        <div className="front">
+          <Icon iconName={iconName} />
+          <span>{label}</span>
+        </div>
+        <div className="back">{props.children}</div>
+      </div>
+    </IntroBoxDiv>
+  );
+};
+```
+
+```jsx filename:index.js
+import React, { useState } from "react";
+import styled from "styled-components";
+import Layout from "../components/layout";
+import IntroBox from "../components/IntroBox/IntroBox";
+// ... and other import statements
+
+const IntroBoxContainer = styled.section`
+  background: #282828;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const IndexPage = () => {
+  // ... other stuff...
+
+  return (
+    <Layout>
+      <IntroBoxContainer>
+        <IntroBox
+          iconName="IntroShoes"
+          width="2"
+          order="0"
+          back="#475F7D"
+          mobileOrder="5"
+          label="Industry Experience"
+        >
+          .... content ....
+        </IntroBox>
+        <IntroBox
+          iconName="IntroEducation"
+          width="1"
+          order="1"
+          back="#334d5c"
+          label="Education"
+        >
+          .... content ....
+        </IntroBox>
+      </IntroBoxContainer>
+    </Layout>
+  );
+};
+```
+
+While I do love the convenience of having style declarations and markup in the same file which eliminates the need for constantly jumping _between files_ when debugging, I found myself having to constantly jump up and down _between sections_ within a component file as the styling blocks become larger.
+
+## Why multiple approaches &mdash; what next
+
+I'm still figuring out what works for me and how best to approach styling. Certainly I won't _need_ global `SCSS` import and perhaps won't _need_ SCSS modules either, as there are other `JS`-ways to solve the problem. Just for the sake of getting more procifient, I'm likely to proceed with styled-components only for the most part, and maybe even attempt to get rid of other external `(S)CSS` files in general, but this has been a practical exercise to build something in different ways in any case.

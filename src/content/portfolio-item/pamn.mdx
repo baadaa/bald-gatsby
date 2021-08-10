@@ -1,0 +1,105 @@
+---
+order: 7
+title: Movie Night iOS App
+type: work
+slug: /work/plan-a-movie-night-app
+thumbnail: "./images/pamn-442x330.gif"
+headerImg: "./images/pamn-header.jpg"
+headerTextColor: "#000"
+category:
+  - "interactive"
+  - "visual"
+tags:
+  - UX/UI design
+  - front-end development
+description: "iOS app that help organize movie night events by assessing participants' tastes and suggesting the best film to watch together."
+---
+
+import { SimpleButton, ButtonContainer } from "../../components/SimpleButton";
+
+# iOS app that help organize movie night events by assessing participants' tastes and suggesting the best film to watch together.
+
+<section class="portfolioDetail">
+
+### duties
+
+UX design, front-end design &amp; development _(<small>VIEW</small> component of MVC pattern)_
+
+</section>
+
+<section class="portfolioDetail">
+
+### language
+
+`SWIFT`
+
+</section>
+
+<section class="portfolioDetail">
+
+### Challenge
+
+When organizing a movie night with friends, choosing the film to watch together can be a painful process. The larger the group, the harder to select the perfect movie that _everybody_ would enjoy watching. How do you make it easy to gather friends, pick time and place, and most importantly, select the perfect film to screen?
+
+</section>
+
+<section class="portfolioDetail">
+
+### Solution
+
+The main idea was to devise an impeccable recommendation engine, which will collect users' preferences and insights on a variety of films and present the perfect selections for a movie night by cross-analyzing participants' taste database. Users can browse a huge list of movies provided through <small>[TheMovieDB API](https://www.themoviedb.org/)</small>, and choose to leave quick insights on each film: <span><small>1) did you watch this film? 2) would you watch it with your friends? 3) how bad do you want to watch it?</small></span> When it's time for gathering, users can simply create an event by choosing the date and time, connected via Facebook Event, and inviting friends&mdash;and the app will take care of the rest by recommending the impeccable film to watch together.
+
+</section>
+
+<section class="portfolioDetail">
+
+### Execution
+
+A four-people team divided roles per MVC pattern: <small>MODEL</small>, <small>VIEW</small>, and <small>CONTROLLER</small>. **My responsibility was** to design and build the <small>**VIEW**</small> component&mdash;that is, to 1) architect the user experience, 2) design user interface and layout, and 3) ultimately program the front-end view of the application using iOS native <small>SWIFT</small>. The other members would separately develop <small>MODEL</small> and <small>CONTROLLER</small> components that handle recommendation engine and other back-end functionality, and plug them into the front-end <small>VIEW</small>.
+
+</section>
+
+<section class="portfolioDetail">
+
+### Limitation:
+
+Three-week sprint resulted in functional front-end shell of the app, but the complete app never got to come to fruition. Although <small>API</small> integration was well on its way with Facebook and <small>TMDb</small>, the core recommendation engine development came to a halt as the responsible team members got pulled into other engagements.
+
+</section>
+
+<ButtonContainer>
+  <SimpleButton
+    cta="Download initial UX draft"
+    link="testlink"
+    color="var(--yellow)"
+  />
+  <SimpleButton
+    cta="View GitHub Repo"
+    link="https://github.com/baadaa/plan-a-movie-night"
+    color="var(--green)"
+  />
+</ButtonContainer>
+
+---
+
+![Initial UX hand-sketches](./images/pamn_sketch.jpg)
+_Initial UX hand-sketches_
+
+![Key screens at a glance](./images/pamn-keyscreens.jpg)
+_Key screens at a glance_
+
+<div class="small-gif img-border">
+
+![Login with Facebook](./images/pamn-auth.gif)
+_Login with Facebook_
+
+![Browsing various movie sections](./images/pamn-movie-sections.gif)
+_Browsing various movie sections_
+
+![Viewing movie details and entering insight](./images/pamn-movie-details.gif)
+_Viewing movie details and entering insight_
+
+![Browsing events and RSVPing](./images/pamn-rsvp.gif)
+_Browsing events and RSVPing_
+
+</div>
