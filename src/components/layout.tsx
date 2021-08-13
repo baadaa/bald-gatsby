@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { MDXProvider } from '@mdx-js/react';
 
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
@@ -7,24 +6,10 @@ import styled from 'styled-components';
 import Header from './header';
 import { Footer } from './UIElements';
 import GlobalStyles from '../styles/GlobalStyles';
-import Code from './Blog/code';
 
 type LayoutProps = {
   heading?: string;
   isFullWidth?: boolean;
-};
-const components = {
-  pre: ({ children: { props } }) => {
-    if (props.mdxType === 'code') {
-      return (
-        <Code
-          codeString={props.children.trim()}
-          language={props.className && props.className.replace('language-', '')}
-          {...props}
-        />
-      );
-    }
-  },
 };
 
 const WrapperStyles = styled.main<LayoutProps>`
@@ -57,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({
   children,
   isFullWidth: isPost = false,
 }) => (
-  <MDXProvider components={components}>
+  <>
     <Helmet>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -77,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({
       <div>{children}</div>
     </WrapperStyles>
     <Footer>© {new Date().getFullYear()} by Bumhan Yu</Footer>
-  </MDXProvider>
+  </>
 );
 
 export default Layout;

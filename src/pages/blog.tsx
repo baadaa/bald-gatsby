@@ -8,6 +8,7 @@ import Seo from '../components/seo';
 
 const BlogListStyle = styled.div`
   --thumbnail-size: 13rem;
+  margin-bottom: 8rem;
   article {
     display: flex;
     padding: 1.5rem 0;
