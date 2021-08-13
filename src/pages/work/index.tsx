@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import PortfolioLayout from '../../components/PortfolioLayout';
+import PortfolioList from '../../components/Portfolio/PortfolioList';
 
 const CaseStudyPage = ({ data: { allMdx } }) => {
   const workItems = allMdx.edges.map((edge) => {
@@ -14,7 +14,7 @@ const CaseStudyPage = ({ data: { allMdx } }) => {
       description: frontmatter.description,
     };
   });
-  return <PortfolioLayout category="Case Studies" workItems={workItems} />;
+  return <PortfolioList category="caseStudy" workItems={workItems} />;
 };
 
 export default CaseStudyPage;
@@ -24,7 +24,7 @@ export const query = graphql`
     allMdx(
       sort: { fields: frontmatter___order, order: ASC }
       filter: {
-        frontmatter: { type: { eq: "work" }, category: { eq: "case-study" } }
+        frontmatter: { type: { eq: "work" }, category: { eq: "caseStudy" } }
       }
     ) {
       edges {

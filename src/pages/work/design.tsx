@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import PortfolioLayout from '../../components/PortfolioLayout';
+import PortfolioList from '../../components/Portfolio/PortfolioList';
 
 const DesignSamplePage = ({ data: { allMdx } }) => {
   const workItems = allMdx.edges.map((edge) => {
@@ -15,7 +15,7 @@ const DesignSamplePage = ({ data: { allMdx } }) => {
       tags: frontmatter.tags,
     };
   });
-  return <PortfolioLayout category="Design" workItems={workItems} />;
+  return <PortfolioList category="design" workItems={workItems} />;
 };
 
 export default DesignSamplePage;
