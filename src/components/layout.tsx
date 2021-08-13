@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Header from './header';
 import { Footer } from './UIElements';
 import GlobalStyles from '../styles/GlobalStyles';
-import Code from './code';
+import Code from './Blog/code';
 
 type LayoutProps = {
   heading?: string;
