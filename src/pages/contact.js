@@ -6,9 +6,8 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 
 const ContactPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Contact</h1>
+  <Layout heading="Contact">
+    <Seo title="Contact" />
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <StaticImage

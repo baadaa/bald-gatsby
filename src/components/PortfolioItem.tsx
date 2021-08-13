@@ -2,16 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 // import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-type WorkItemProps = {
-  company?: string;
-  description?: string;
-  title?: string;
-  tags?: Array<string>;
-  industry?: string;
-  image: string;
-  slug: string;
-};
 const WorkItemStyle = styled.article`
   position: relative;
   transition: transform 0.2s;
@@ -37,7 +29,7 @@ const WorkItemStyle = styled.article`
     background: linear-gradient(
       900deg,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 66%
+      rgba(0, 0, 0, 0.75) 66%
     );
     text-shadow: 0 1px 7px rgba(0, 0, 0, 0.5);
     @media screen and (max-width: 480px) {
@@ -49,20 +41,20 @@ const WorkItemStyle = styled.article`
       }
     }
     &[data-short='true'] {
-      @media screen and (max-width: 640px) {
-        color: #202020;
-        position: static;
-        background: transparent;
-        text-shadow: none;
-        padding-top: 1rem;
-        padding: 1rem;
-        h2 {
-          font-size: 1.7rem;
-        }
-        span {
-          margin-bottom: 0;
-        }
+      /* @media screen and (max-width: 640px) { */
+      color: #202020;
+      position: static;
+      background: transparent;
+      text-shadow: none;
+      padding-top: 1rem;
+      padding: 1rem;
+      h2 {
+        font-size: 2rem;
       }
+      span {
+        margin-bottom: 0;
+      }
+      /* } */
     }
   }
   span {
@@ -73,7 +65,10 @@ const WorkItemStyle = styled.article`
     margin-bottom: 1em;
   }
   h2 {
-    font-size: 2.2rem;
+    font-size: 3.1rem;
+    font-weight: 500;
+    margin-top: 0;
+    letter-spacing: -0.75px;
     margin-bottom: 0.5em;
   }
   p {
@@ -82,10 +77,7 @@ const WorkItemStyle = styled.article`
     max-width: 50ch;
   }
   &:hover {
-    img {
-      box-shadow: var(--hover-shadow);
-    }
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.015);
     .info > * {
       animation: pulse 1s infinite;
     }
@@ -103,26 +95,33 @@ const WorkItemStyle = styled.article`
   }
 `;
 
-const WorkItem: React.FC<WorkItemProps> = ({
-  company = '',
+const WorkItem = ({
   description = '',
   industry = '',
   title = '',
   tags = [],
-  image,
+  thumbnail,
+  isShort = false,
   slug,
-}) => (
-  <WorkItemStyle>
-    <Link to={slug}>
-      <img src={image} alt={`${company}: ${description}`} />
-    </Link>
-    <div className="info" data-short={!company}>
-      <h2>{company || title}</h2>
-      {industry && <span>{industry}</span>}
-      {tags && <span>{tags.join(' • ')}</span>}
-      {description && <p>{description}</p>}
-    </div>
-  </WorkItemStyle>
-);
+}) => {
+  const gatsbyImageData = getImage(thumbnail);
+  return (
+    <WorkItemStyle>
+      <Link to={slug}>
+        {gatsbyImageData ? (
+          <GatsbyImage image={gatsbyImageData} alt="" />
+        ) : (
+          <img src={thumbnail.publicURL} alt="" />
+        )}
+      </Link>
+      <div className="info" data-short={isShort}>
+        <h2>{title}</h2>
+        {industry && <span>{industry}</span>}
+        {tags && <span>{tags.join(' • ')}</span>}
+        {!isShort && description && <p>{description}</p>}
+      </div>
+    </WorkItemStyle>
+  );
+};
 
 export default WorkItem;

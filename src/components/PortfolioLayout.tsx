@@ -8,31 +8,19 @@ import Seo from './seo';
 
 import WorkItem from './PortfolioItem';
 
-type WorkPageProps = {
-  category: 'Case Studies' | 'Design Works' | 'Dev Works';
-  workItems: Array<{
-    company?: string;
-    description?: string;
-    title?: string;
-    tags?: Array<string>;
-    industry?: string;
-    image: string;
-    slug: string;
-  }>;
-};
 const WorkListLayout = styled.div`
   display: flex;
   nav {
-    flex-basis: 30rem;
+    flex-basis: 20rem;
     a {
       color: inherit;
       display: block;
-      /* border: 1px solid red; */
+      transition: transform 0.2s;
       padding: 0.75rem 0;
       text-decoration: none;
       &::before {
         content: '\\25B6';
-        color: red;
+        color: var(--red500);
         font-size: small;
         opacity: 0;
         visibility: hidden;
@@ -41,6 +29,9 @@ const WorkListLayout = styled.div`
       &.current::before {
         visibility: visible;
         opacity: 1;
+      }
+      &:hover {
+        transform: translateX(2px);
       }
     }
     ul {
@@ -89,7 +80,6 @@ const WorkListLayout = styled.div`
       top: var(--nav-height);
       z-index: 3;
       padding: 1rem 0;
-      background-color: rgba(255, 255, 255, 0.9);
       li {
         margin: 0;
         font-size: 1.3rem;
@@ -99,13 +89,17 @@ const WorkListLayout = styled.div`
         text-align: center;
         border-radius: 3rem;
         border-bottom: none;
+        &:hover {
+          transform: translateY(-2px);
+        }
       }
       a::before {
         display: none;
       }
       a.current {
         font-weight: 600;
-        background-color: #eee;
+        color: var(--cyan800);
+        background-color: var(--cyan100);
       }
       li + li {
         margin-left: 0.3rem;
@@ -138,10 +132,10 @@ const workSubnav = [
     url: '/work/dev',
   },
 ];
-const PortfolioLayout: React.FC<WorkPageProps> = ({ category, workItems }) => {
-  const columns = category === 'Case Studies' ? 1 : 2;
+const PortfolioLayout = ({ category, workItems }) => {
+  const isShort = category !== 'Case Studies';
   return (
-    <Layout>
+    <Layout heading="Work">
       <Seo title={`Work: ${category}`} />
       <WorkListLayout>
         <nav>
@@ -155,17 +149,17 @@ const PortfolioLayout: React.FC<WorkPageProps> = ({ category, workItems }) => {
             ))}
           </ul>
         </nav>
-        <section data-col={columns}>
+        <section data-col={isShort ? 2 : 1}>
           {workItems.map((item, index) => (
             <WorkItem
               key={index}
-              company={item.company}
               description={item.description}
               industry={item.industry}
               title={item.title}
               tags={item.tags}
-              image={item.image}
               slug={item.slug}
+              isShort={isShort}
+              thumbnail={item.thumbnail}
             />
           ))}
         </section>

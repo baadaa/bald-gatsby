@@ -22,7 +22,52 @@ const HeaderStyles = styled.header`
   }
   .logo {
     font-size: 4rem;
+    font-weight: 700;
     line-height: 1;
+    display: inline-flex;
+    transition: transform 0.2s, text-shadow 0.2s;
+    &:hover {
+      animation: rainbow 3s infinite linear;
+      text-shadow: var(--hover-shadow);
+      transform: translateY(-2px);
+    }
+    &:hover span {
+      animation: rainbowDark 3s infinite linear;
+    }
+  }
+  @keyframes rainbow {
+    0% {
+      color: var(--cyan500);
+    }
+    25% {
+      color: var(--green500);
+    }
+    50% {
+      color: var(--yellow500);
+    }
+    75% {
+      color: var(--red500);
+    }
+    100% {
+      color: var(--cyan500);
+    }
+  }
+  @keyframes rainbowDark {
+    0% {
+      color: var(--cyan600);
+    }
+    25% {
+      color: var(--green600);
+    }
+    50% {
+      color: var(--yellow600);
+    }
+    75% {
+      color: var(--red600);
+    }
+    100% {
+      color: var(--cyan600);
+    }
   }
   nav ul {
     display: flex;
@@ -33,11 +78,19 @@ const HeaderStyles = styled.header`
     align-items: stretch;
   }
   li {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
+    transition: transform 0.2s, text-shadow 0.2s;
+    letter-spacing: -0.5px;
+    &:hover {
+      animation: rainbow 3s infinite linear;
+      transform: translateY(-2px);
+      text-shadow: var(--hover-shadow);
+    }
   }
   a {
-    padding: 1rem;
+    padding: 0.5em 1em;
+    color: var(--cyan800);
     color: inherit;
     display: block;
     text-decoration: none;
@@ -45,6 +98,16 @@ const HeaderStyles = styled.header`
   .menu {
     display: none;
     z-index: 999;
+  }
+  @media screen and (max-width: 1024px) {
+    li {
+      font-size: 2.2rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    li {
+      font-size: 2rem;
+    }
   }
   @media screen and (max-width: 480px) {
     .menu {
@@ -98,14 +161,14 @@ const nav = [
     partialMatch: true,
   },
 ];
-const Header = () => {
+const Header: React.FC = () => {
   const [menuIsActive, setMenuIsActive] = useState(false);
   return (
     <HeaderStyles>
       <div className="wrapper">
         <div className="logo">
           <Link to="/" style={{ padding: 0 }}>
-            B
+            B<span>.</span>
           </Link>
         </div>
         <nav>

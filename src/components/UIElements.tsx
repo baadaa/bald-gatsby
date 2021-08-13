@@ -1,38 +1,39 @@
 import styled from 'styled-components';
 
-const labelPill = styled.li`
+const LabelPill = styled.li`
   font-size: 1.2rem;
-  padding: 0.6rem 1.2rem;
-  background: #e7e7e7;
-  cursor: pointer;
-  color: #4a4a4a;
+  padding: 0.4rem 1rem;
+  background: var(--cyan50);
+  color: var(--cyan800);
+  border: 1px solid var(--cyan200);
   margin: 0.3rem 0.4rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
   transition: transform 0.2s;
-  &:hover {
-    transform: translateY(-0.2rem);
-  }
-  &.active {
-    background: var(--green);
-    color: #fff;
-  }
 `;
 
 const Footer = styled.footer`
-  width: 100%;
   padding: 5px;
   z-index: 90;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
   text-align: right;
-  background: #202020;
   box-sizing: border-box;
   color: #999;
 `;
 
-const PostHeroImgSection = styled.section`
+type PostHeroImgProps = {
+  headerImg: string;
+  headerTextColor?: string;
+  headerBreadcrumbBg?: string;
+  headerShadow?: string;
+};
+const PostHeroImgSection = styled.section<PostHeroImgProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(${props => props.headerImg});
+  background-image: url(${(props) => props.headerImg});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,33 +44,34 @@ const PostHeroImgSection = styled.section`
     text-decoration: none;
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
-    color: ${props => (props.headerTextColor ? props.headerTextColor : '#FFF')};
-    background: ${props =>
+    color: ${(props) =>
+      props.headerTextColor ? props.headerTextColor : '#FFF'};
+    background: ${(props) =>
       props.headerBreadcrumbBg ? props.headerBreadcrumbBg : 'none'};
-    text-shadow: ${props =>
+    text-shadow: ${(props) =>
       props.headerShadow ? '0 1px 3px rgba(0,0,0,.4)' : ''};
   }
   h1 {
-    margin-top: 16rem;
-    margin-bottom: 19rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
-    font-weight: 400;
-    font-size: 3rem;
+    flex-basis: auto;
     line-height: 1.3;
     max-width: 90rem;
-    color: ${props => (props.headerTextColor ? props.headerTextColor : '#FFF')};
-    text-shadow: ${props =>
+    color: ${(props) =>
+      props.headerTextColor ? props.headerTextColor : '#FFF'};
+    text-shadow: ${(props) =>
       props.headerShadow ? '0 2px 6px rgba(0,0,0,.4)' : ''};
   }
   time {
     padding-bottom: 30rem;
     font-size: 1.5rem;
-    color: ${props => (props.headerTextColor ? props.headerTextColor : '#FFF')};
+    color: ${(props) =>
+      props.headerTextColor ? props.headerTextColor : '#FFF'};
   }
 `;
 const PostContentArea = styled.section`
-  max-width: 90rem;
-  margin: 0 auto;
+  max-width: 100%;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   --subheading-width: 15rem;
@@ -79,9 +81,10 @@ const PostContentArea = styled.section`
     flex-direction: column;
     code {
       background: #e0e0e0;
-      font-family: 'Fira Code', Courier, monospace;
+      font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono',
+        'Liberation Mono', Menlo, Courier, monospace;
       font-size: 0.75em;
-      color: var(--berry);
+      color: var(--red500);
       border-radius: 0.5rem;
       padding: 0.2em 0.4em;
     }
@@ -152,7 +155,7 @@ const PostContentArea = styled.section`
   }
   a {
     text-decoration: none;
-    color: var(--berry);
+    color: var(--red500);
   }
   h1 {
     @media screen and (min-width: 900px) {
@@ -254,29 +257,31 @@ const PageHeading = styled.h1`
 `;
 
 const BlogEntry = styled.article`
-  disply: flex;
+  display: flex;
   flex-wrap: wrap;
+  max-width: 90rem;
+  margin: 0 auto;
   a {
     text-decoration: none;
-    color: var(--berry);
+    color: var(--red500);
   }
   h2,
   h3 {
-    font-size: 1.6rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    /* font-size: 1.6rem; */
+    /* margin-top: 2.5rem; */
+    /* margin-bottom: 1rem; */
+    /* font-weight: 700; */
     color: #202020;
   }
   h3 {
     margin-top: 1.5rem;
     color: #666;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
   p {
     display: block;
-    font-size: 1.6rem;
-    line-height: 1.5;
+    font-size: 1.7rem;
+    line-height: 1.56;
     color: #777;
     margin-top: 0;
     margin-bottom: 1.6rem;
@@ -290,7 +295,8 @@ const BlogEntry = styled.article`
   }
   code {
     background: #e0e0e0;
-    font-family: 'Fira Code', Courier, monospace;
+    font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono',
+      'Liberation Mono', Menlo, Courier, monospace;
     font-size: 0.65em;
     color: #202020;
     border-radius: 0.5rem;
@@ -310,7 +316,7 @@ const BlogEntry = styled.article`
     margin-bottom: 3rem;
     border: none;
     color: #ccc;
-    border-left: var(--green) 5px solid;
+    border-left: var(--green500) 5px solid;
 
     &.ql {
       float: left;
@@ -322,8 +328,8 @@ const BlogEntry = styled.article`
   }
   @media screen and (min-width: 600px) {
     h2 {
-      font-size: 1.8rem;
-      margin-top: 3rem;
+      /* font-size: 1.8rem; */
+      /* margin-top: 3rem; */
     }
 
     p {
@@ -379,7 +385,7 @@ const PostNav = styled.nav`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 8rem;
 
   a {
     display: flex;
@@ -396,7 +402,7 @@ const PostNav = styled.nav`
     line-height: 2rem;
     transition: transform 0.2s;
     &:hover {
-      transform: scale(1.035);
+      transform: translateY(-2px);
     }
     &.previous {
       padding-left: 1.5rem;
@@ -442,7 +448,7 @@ const PostNav = styled.nav`
 `;
 
 export {
-  labelPill,
+  LabelPill,
   Footer,
   PostHeroImgSection,
   PageHeading,

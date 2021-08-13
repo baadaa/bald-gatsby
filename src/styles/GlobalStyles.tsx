@@ -6,12 +6,55 @@ const GlobalStyles = createGlobalStyle`
   --base-shadow: 0 1px 10px rgba(0,0,0,.2);
   --hover-shadow: 3px 7px 15px rgba(0,0,0,.1), -1px 3px 25px rgba(0,0,0,.1);
   --nav-height: 8rem;
-  --layout-top-padding: 3rem;
+  --layout-top-padding: 4rem;
+  --post-top-padding: 1rem;
+  --cyan900: #0A2129;
+  --cyan800: #154251;
+  --cyan700: #1F637A;
+  --cyan600: #2984A3;
+  --cyan500: #34A5CB;
+  --cyan400: #5CB7D6;
+  --cyan300: #85C9E0;
+  --cyan200: #AEDBEA;
+  --cyan100: #D6EDF5;
+  --cyan50: #EBF6FA;
+  --green900: #18260D;
+  --green800: #304C1A;
+  --green700: #487227;
+  --green600: #609834;
+  --green500: #79BF42;
+  --green400: #93CB67;
+  --green300: #AED88D;
+  --green200: #C9E5B3;
+  --green100: #E4F2D9;
+  --green50: #F1F9EC;
+  --yellow900: #302303;
+  --yellow800: #5F4707;
+  --yellow700: #8F6A0A;
+  --yellow600: #BF8E0D;
+  --yellow500: #EFB212;
+  --yellow400: #F2C140;
+  --yellow300: #F5D070;
+  --yellow200: #F8E0A0;
+  --yellow100: #FCEFCF;
+  --yellow50: #FDF7E7;
+  --red900: #260D11;
+  --red800: #4D1922;
+  --red700: #732634;
+  --red600: #9A3245;
+  --red500: #C03F56;
+  --red400: #CD6578;
+  --red300: #D98C9A;
+  --red200: #E6B2BB;
+  --red100: #F2D9DD;
+  --red50: #F9ECEE;
+
+
   @media screen and (max-width: 1024px) {
     --nav-height: 6rem;
   }
   @media screen and (max-width: 768px) {
-  --layout-top-padding: 2rem;
+  --layout-top-padding: 3rem;
   }
 }
 html {
@@ -20,12 +63,13 @@ html {
   font: 62.5%/1.45em "Work Sans", sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
+  position: relative;
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
+  color: #202020;
   font-size: 1.6rem;
   line-height: 1.5;
   font-family: "Work Sans", sans-serif;
@@ -88,29 +132,6 @@ strong {
 }
 dfn {
   font-style: italic;
-}
-h1 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-weight: bold;
-  font-family: "Work Sans", sans-serif;
-  text-rendering: optimizeLegibility;
-  font-size: 3.6rem;
-  line-height: 1.1;
-  /* text-align: right; */
-  margin-bottom: 1em;
-  @media screen and (max-width: 768px) {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: .3em;
-  }
 }
 mark {
   background-color: #ff0;
@@ -274,6 +295,31 @@ textarea {
 *:after {
   box-sizing: inherit;
 }
+h1 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  color: inherit;
+  font-weight: 300;
+  font-family: "Work Sans", sans-serif;
+  text-rendering: optimizeLegibility;
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -.5px;
+  margin-bottom: 1em;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    font-size: 3.6rem;
+    margin-bottom: .5em;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 2.8rem;
+  }
+}
 h2 {
   margin-left: 0;
   margin-right: 0;
@@ -282,13 +328,23 @@ h2 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: inherit;
-  font-weight: bold;
+  font-weight: 300;
   font-family: "Work Sans", sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 2.602736rem;
+  font-size: 3.9rem;
+  letter-spacing: -.5px;
   line-height: 1.1;
+  @media screen and (max-width: 768px) {
+    font-size: 2.925rem;
+    font-weight:400;
+    margin-bottom: .5em;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 2.275rem;
+  }
 }
 h3 {
   margin-left: 0;
@@ -298,13 +354,23 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: inherit;
-  font-weight: bold;
+  font-weight: 400;
   font-family: "Work Sans", sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 2.213056rem;
+  letter-spacing: -.6px;
+  font-size: 3.1rem;
   line-height: 1.1;
+  @media screen and (max-width: 768px) {
+    font-size: 2.325rem;
+    font-weight:400;
+    margin-bottom: .5em;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
 }
 h4 {
   margin-left: 0;
@@ -314,12 +380,14 @@ h4 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: inherit;
-  font-weight: bold;
+  font-weight: 600;
   font-family: "Work Sans", sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 1.6rem;
+  letter-spacing: -.5px;
+  font-size: 2.5rem;
   line-height: 1.1;
 }
 h5 {
@@ -330,12 +398,14 @@ h5 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: inherit;
-  font-weight: bold;
+  font-weight: 600;
   font-family: "Work Sans", sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 1.360448rem;
+  font-size: 2rem;
+  letter-spacing: -.3px;
   line-height: 1.1;
 }
 h6 {
@@ -346,12 +416,13 @@ h6 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   color: inherit;
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Work Sans", sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 1.25448rem;
+  font-size: 1.6rem;
   line-height: 1.1;
 }
 hgroup {
@@ -416,6 +487,7 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
+  font-family: Georgia, serif;
   margin-bottom: 1.45rem;
 }
 pre {
@@ -596,12 +668,12 @@ pre code {
   background: none;
   line-height: 1.42;
 }
-code:before,
-code:after,
-tt:before,
-tt:after {
+code::before,
+code::after,
+tt::before,
+tt::after {
   letter-spacing: -0.2em;
-  content: " ";
+  content: "";
 }
 pre code:before,
 pre code:after,

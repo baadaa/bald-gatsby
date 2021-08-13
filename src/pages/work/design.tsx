@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import PortfolioLayout from '../../components/PortfolioLayoutTweak';
+import PortfolioLayout from '../../components/PortfolioLayout';
 
 const DesignSamplePage = ({ data: { allMdx } }) => {
   const workItems = allMdx.edges.map((edge) => {

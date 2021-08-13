@@ -1,36 +1,53 @@
 // If you don't want to use TypeScript you can delete this file!
-import * as React from 'react';
+import React from 'react';
+import { graphql } from 'gatsby';
 
 import PortfolioLayout from '../../components/PortfolioLayout';
 
-const workItems = [
-  {
-    title: 'Homepoint.design',
-    tags: ['React', 'Gatsby', 'Auth0'],
-    image: 'https://picsum.photos/id/1009/300/300',
-    slug: '/work/test-case',
-  },
-  {
-    title: 'Updater.design',
-    tags: ['React', 'Gatsby'],
-    image: 'https://picsum.photos/id/1009/300/300',
-    slug: '/work/test-case',
-  },
-  {
-    title: 'Homepoint.com',
-    tags: ['React', 'Next.js', 'Typescript'],
-    image: 'https://picsum.photos/id/1006/300/300',
-    slug: '/work/test-case',
-  },
-  {
-    title: 'Mortgage.dance',
-    tags: ['React', 'Gatsby', 'Typescript'],
-    image: 'https://picsum.photos/id/1020/300/300',
-    slug: '/work/test-case',
-  },
-];
-const CaseStudyPage: React.FC = () => (
-  <PortfolioLayout category="Dev Works" workItems={workItems} />
-);
+const DevSamplePage = ({ data: { allMdx } }) => {
+  const workItems = allMdx.edges.map((edge) => {
+    const { frontmatter } = edge.node;
+    return {
+      category: frontmatter.category,
+      slug: frontmatter.slug,
+      thumbnail: frontmatter.thumbnail,
+      title: frontmatter.title,
+      description: frontmatter.description,
+      tags: frontmatter.tags,
+    };
+  });
+  return <PortfolioLayout category="Dev" workItems={workItems} />;
+};
 
-export default CaseStudyPage;
+export default DevSamplePage;
+export const query = graphql`
+  query {
+    allMdx(
+      sort: { fields: frontmatter___order, order: ASC }
+      filter: { frontmatter: { type: { eq: "work" }, category: { eq: "dev" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+            category
+            description
+            tags
+            thumbnail {
+              publicURL
+              childImageSharp {
+                gatsbyImageData(
+                  formats: AUTO
+                  width: 884
+                  height: 660
+                  placeholder: BLURRED
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

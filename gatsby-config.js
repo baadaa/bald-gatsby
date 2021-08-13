@@ -6,21 +6,6 @@ module.exports = {
     siteUrl: `https://bald.design/`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-      gatsbyRemarkPlugins: [
-        {
-          resolve: `gatsby-remark-images`,
-          options: {
-            maxWidth: 1200,
-          },
-        },
-        `gatsby-remark-copy-linked-files`,
-      ],
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -47,6 +32,23 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
