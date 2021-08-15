@@ -1,12 +1,7 @@
 import React from 'react';
 
-const IconFigma: React.FC<React.SVGAttributes<SVGElement>> = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 200 300"
-    width="1667"
-    height="2500"
-  >
+export const IconFigma: React.FC<React.SVGAttributes<SVGElement>> = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
     <path
       id="path0_fill"
       fill="#0acf83"

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const IntroCats: React.FC<React.SVGAttributes<SVGElement>> = () => (
-  <svg width="1600" height="800" xmlns="http://www.w3.org/2000/svg">
+export const IntroCats: React.FC<React.SVGAttributes<SVGElement>> = () => (
+  <svg viewBox="0 0 1600 800" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <path
         d="M174 52c-8-8-27-6-35 3l-2 3 8-15c5-11 5-29-16-35-15-5-29 8-32 19l-4 14-2-13C84 6 70-3 54 2 42 6 34 23 41 40l5 15C33 41 17 42 7 53c-9 9-9 30 0 40 8 9 11 8 18 21 5 11 4 51 4 55 0 76-10 214-10 214h144s-12-171-12-248c0-4 2-12 8-20 10-12 18-19 20-27 4-12 6-25-5-36"
@@ -93,5 +93,3 @@ const IntroCats: React.FC<React.SVGAttributes<SVGElement>> = () => (
     </g>
   </svg>
 );
-
-export default IntroCats;

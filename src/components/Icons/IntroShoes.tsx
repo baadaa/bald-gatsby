@@ -1,7 +1,7 @@
 import React from 'react';
 
-const IntroShoes: React.FC<React.SVGAttributes<SVGElement>> = () => (
-  <svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+export const IntroShoes: React.FC<React.SVGAttributes<SVGElement>> = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
     <g fill="none" fillRule="evenodd">
       <path fill="#788FAB" d="M0 0h1200v600H0z" />
       <path
@@ -95,5 +95,3 @@ const IntroShoes: React.FC<React.SVGAttributes<SVGElement>> = () => (
     </g>
   </svg>
 );
-
-export default IntroShoes;

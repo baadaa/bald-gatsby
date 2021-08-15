@@ -86,14 +86,14 @@ const Logo = styled.div<LogoAnimProps>`
     --logo-phrase: ${(props) =>
       props.horizontal ? `calc(var(--logo-width) * 1)` : 'inherit'};
     font-size: var(--logo-phrase);
-    font-family: $sans;
+    letter-spacing: -0.02em;
     padding-left: 0.5em;
     transform-origin: left;
     margin-top: ${(props) =>
       props.horizontal ? '0' : 'calc(var(--logo-phrase) * 0.5)'};
     span {
       font-weight: 700;
-      font-size: calc(var(--logo-phrase) * 0.9);
+      font-size: calc(var(--logo-phrase) * 0.86);
       color: #202020;
     }
     &.error404 {

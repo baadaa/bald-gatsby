@@ -22,7 +22,10 @@ const WrapperStyles = styled.main<LayoutProps>`
   padding: ${(props) => (props.isFullWidth ? '0' : '0 1.5rem')};
   display: flex;
   align-items: flex-start;
+  position: relative;
   h1 {
+    position: sticky;
+    top: calc(var(--nav-height) + 20px);
     flex-basis: ${(props) => (props.isFullWidth ? 'auto' : '25%')};
   }
   & > div {
@@ -33,6 +36,7 @@ const WrapperStyles = styled.main<LayoutProps>`
     flex-direction: column;
     h1 {
       flex-basis: auto;
+      position: static;
       width: 100%;
     }
   }

@@ -10,7 +10,10 @@ import PortfolioListItem from './PortfolioListItem';
 
 const ListLayout = styled.div`
   display: flex;
+  align-items: flex-start;
   nav {
+    position: sticky;
+    top: calc(var(--nav-height) + 20px);
     flex-basis: 20rem;
     a {
       color: inherit;
@@ -74,12 +77,14 @@ const ListLayout = styled.div`
   }
   @media screen and (max-width: 1024px) {
     flex-direction: column;
+    align-items: stretch;
     nav {
       flex-basis: auto;
       position: sticky;
       top: var(--nav-height);
       z-index: 3;
-      padding: 1rem 0;
+      padding: 2rem 0 1rem;
+      background-color: #fff;
       li {
         margin: 0;
         font-size: 1.3rem;

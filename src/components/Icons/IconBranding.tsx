@@ -1,7 +1,7 @@
 import React from 'react';
 
-const IconBranding: React.FC<React.SVGAttributes<SVGElement>> = () => (
-  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+export const IconBranding: React.FC<React.SVGAttributes<SVGElement>> = () => (
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g fillRule="nonzero" fill="none">
       <circle fill="#00B294" cx="50" cy="50" r="50" />
       <g fill="#FFF">
@@ -12,5 +12,3 @@ const IconBranding: React.FC<React.SVGAttributes<SVGElement>> = () => (
     </g>
   </svg>
 );
-
-export default IconBranding;

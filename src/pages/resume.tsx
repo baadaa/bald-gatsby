@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
-const SecondPage = () => (
+const SecondPage: React.FC = () => (
   <Layout>
     <Seo title="Page two" />
     <h1>CSS Basic Elements</h1>

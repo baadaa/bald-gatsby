@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IntroEducation: React.FC<React.SVGAttributes<SVGElement>> = () => (
+export const IntroEducation: React.FC<React.SVGAttributes<SVGElement>> = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
     <defs>
       <clipPath id="a">
@@ -59,5 +59,3 @@ const IntroEducation: React.FC<React.SVGAttributes<SVGElement>> = () => (
     <path fill="#516781" d="M58.8 76.8h-18l6-14.4h6l6 14.4z" />
   </svg>
 );
-
-export default IntroEducation;

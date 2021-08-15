@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IntroCode: React.FC<React.SVGAttributes<SVGElement>> = () => (
+export const IntroCode: React.FC<React.SVGAttributes<SVGElement>> = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
     <path fill="#f1b70e" d="M0 0h600v600H0z" />
     <path
@@ -459,5 +459,3 @@ const IntroCode: React.FC<React.SVGAttributes<SVGElement>> = () => (
     />
   </svg>
 );
-
-export default IntroCode;

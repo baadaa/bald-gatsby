@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
-const IconAdvertising: React.FC<SVGAttributes<SVGElement>> = () => (
-  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+export const IconAdvertising: React.FC<SVGAttributes<SVGElement>> = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
     <g fillRule="nonzero" fill="none">
       <circle fill="#56ACEF" cx="50" cy="50" r="50" />
       <path
@@ -11,5 +11,3 @@ const IconAdvertising: React.FC<SVGAttributes<SVGElement>> = () => (
     </g>
   </svg>
 );
-
-export default IconAdvertising;

@@ -151,6 +151,11 @@ const nav = [
   //   partialMatch: false,
   // },
   {
+    label: 'Uses',
+    url: '/uses',
+    partialMatch: false,
+  },
+  {
     label: 'Blog',
     url: '/blog',
     partialMatch: true,
