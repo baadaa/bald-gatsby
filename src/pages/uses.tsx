@@ -31,7 +31,7 @@ const UsesStyles = styled.div`
       line-height: 1;
       border-radius: 3rem;
       background-color: var(--cyan100);
-      padding: 0.5rem 1.5rem;
+      padding: 0.5rem 1.2rem;
       transition: transform 0.2s, background-color 0.2s;
       &:hover {
         color: var(--cyan900);
@@ -41,6 +41,15 @@ const UsesStyles = styled.div`
     }
     li {
       margin-right: 0.6rem;
+    }
+    @media screen and (max-width: 370px) {
+      li a {
+        font-size: 1.1rem;
+        padding: 0.4rem 1rem;
+      }
+      li {
+        margin-right: 0.4rem;
+      }
     }
   }
   section {
@@ -72,6 +81,9 @@ const UsesStyles = styled.div`
     background-color: #fff;
     color: var(--cyan800);
     border-bottom: 2px solid var(--cyan100);
+    @media screen and (max-width: 370px) {
+      top: calc(var(--nav-height) + 5.3rem);
+    }
   }
   h3,
   p {
@@ -151,7 +163,7 @@ const UsesPage: React.FC = () => (
             <a href="#desk">Desk Setup</a>
           </li>
           <li>
-            <a href="#things">Thingamajig</a>
+            <a href="#misc">Misc</a>
           </li>
         </ul>
       </nav>
@@ -473,8 +485,8 @@ const UsesPage: React.FC = () => (
           </div>
         </section>
       </section>
-      <section id="things">
-        <h2>Thingamajig</h2>
+      <section id="misc">
+        <h2>Miscellaneous</h2>
         <section className="sub">
           <span className="sub-heading">Automechanic</span>
           <div className="content">
