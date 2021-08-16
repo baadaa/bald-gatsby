@@ -15,7 +15,7 @@ import { truncateStr } from '../utils';
 const PortfolioPostLayout = ({ data: { mdx }, pageContext, location }) => {
   const { body } = mdx;
   const { previous, next } = pageContext;
-  const { from } = location.state;
+  const from = location.state ? location.state : undefined;
   const {
     date,
     tags,
