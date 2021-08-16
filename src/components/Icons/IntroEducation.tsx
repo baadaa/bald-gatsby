@@ -3,7 +3,7 @@ import React from 'react';
 export const IntroEducation: React.FC<React.SVGAttributes<SVGElement>> = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
     <defs>
-      <clipPath id="a">
+      <clipPath id="eduPath">
         <path
           d="M21.8 52.4l4.6-9.2a24 24 0 1140.5 17.4 14.4 14.4 0 00-4.5 10.5v5.7h-24v-7.2a2.4 2.4 0 00-2.4-2.4h-3.8a5.8 5.8 0 01-5.8-5.8v-6.2h-2.9a1.8 1.8 0 01-1.7-2.8z"
           fill="none"
@@ -19,7 +19,7 @@ export const IntroEducation: React.FC<React.SVGAttributes<SVGElement>> = () => (
       d="M40.9 45a1.4 1.4 0 00.9-.2 1.5 1.5 0 00.4-1.3 2.4 2.4 0 00-.2-1 .8.8 0 00-.8-.5c-.5.1-.7.6-1.1.7a1 1 0 01-1.1-.9 15.7 15.7 0 00-.2-1.6 2.2 2.2 0 00-2.8-1 4 4 0 00-2.2 2.4 1.3 1.3 0 01-1 1.1l-.7-.3a1.6 1.6 0 00-1.9 1.7c.1 1 1.7.8 2.4.8h8.3zM69.2 48.6h.5a.9.9 0 00.2-.8 1.4 1.4 0 00-.1-.6.5.5 0 00-.5-.3c-.3 0-.4.4-.7.4a.6.6 0 01-.7-.6 9.4 9.4 0 00-.1-1 1.3 1.3 0 00-1.7-.7 2.4 2.4 0 00-1.3 1.5.8.8 0 01-.6.7l-.3-.2a1 1 0 00-1.1 1c.1.6 1 .5 1.5.5h5z"
       fill="#dde1e4"
     />
-    <g clipPath="url(#a)">
+    <g clipPath="url(#eduPath)">
       <path
         d="M65.4 58.8H30.6a.6.6 0 00-.6.6v3h36v-3a.6.6 0 00-.6-.6z"
         fill="#dde1e4"

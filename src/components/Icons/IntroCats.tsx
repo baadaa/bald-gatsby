@@ -5,7 +5,7 @@ export const IntroCats: React.FC<React.SVGAttributes<SVGElement>> = () => (
     <defs>
       <path
         d="M174 52c-8-8-27-6-35 3l-2 3 8-15c5-11 5-29-16-35-15-5-29 8-32 19l-4 14-2-13C84 6 70-3 54 2 42 6 34 23 41 40l5 15C33 41 17 42 7 53c-9 9-9 30 0 40 8 9 11 8 18 21 5 11 4 51 4 55 0 76-10 214-10 214h144s-12-171-12-248c0-4 2-12 8-20 10-12 18-19 20-27 4-12 6-25-5-36"
-        id="a"
+        id="cata"
       />
     </defs>
     <g fill="none" fillRule="evenodd">
@@ -51,14 +51,14 @@ export const IntroCats: React.FC<React.SVGAttributes<SVGElement>> = () => (
         fillRule="nonzero"
       />
       <g transform="translate(102 416)">
-        <mask id="b" fill="#fff">
-          <use xlinkHref="#a" />
+        <mask id="catb" fill="#fff">
+          <use xlinkHref="#cata" />
         </mask>
         <path
           d="M1 208s19 24 55 27c2 0 3 4 0 4-15 3-29 5-55-11v-20m-4 52s44 32 90 29c4 0 5 5 2 6-18 8-49 16-86-3l-6-32m-18 73s45 24 81 27c2 0 2 4 0 4-15 3-55 5-81-11v-20m213-109s-35 25-79 28c-3 0-3 4-1 4 19 3 49 5 80-11v-21m5 53s-29 25-65 28c-2 0-3 4 0 4 15 3 39 4 65-11v-21m10 46s-46 29-102 33c-4 0-4 4 0 5 23 3 62 5 102-14v-24"
           fill="#B87230"
           fillRule="nonzero"
-          mask="url(#b)"
+          mask="url(#catb)"
         />
       </g>
       <path

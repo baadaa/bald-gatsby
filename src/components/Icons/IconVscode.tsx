@@ -3,7 +3,7 @@ import React from 'react';
 export const IconVscode: React.FC<React.SVGAttributes<SVGElement>> = () => (
   <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask
-      id="a"
+      id="gatsbyMask"
       maskUnits="userSpaceOnUse"
       x="0"
       y="0"
@@ -17,7 +17,7 @@ export const IconVscode: React.FC<React.SVGAttributes<SVGElement>> = () => (
         fill="#fff"
       />
     </mask>
-    <g mask="url(#a)">
+    <g mask="url(#gatsbyMask)">
       <path
         d="M247 27.6L194.1 2.2A16 16 0 00176 5.3L3.3 162.8a10.7 10.7 0 000 15.7l14.1 12.9c3.8 3.4 9.6 3.7 13.7.6L239 34.2c7-5.3 17-.3 17 8.5V42a16 16 0 00-9-14.5z"
         fill="#0065A9"

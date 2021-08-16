@@ -4,7 +4,7 @@ export const IntroDesign: React.FC<React.SVGAttributes<SVGElement>> = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
     <defs>
       <linearGradient
-        id="a"
+        id="desGradient"
         x1="148.4"
         y1="350.2"
         x2="500"
@@ -18,7 +18,7 @@ export const IntroDesign: React.FC<React.SVGAttributes<SVGElement>> = () => (
     <path fill="#338489" d="M0 0h500v500H0z" />
     <path
       d="M500 341h-14c-103 1-341-4-337 0l-1 20c35-2 235 1 338-1h14v-19z"
-      fill="url(#a)"
+      fill="url(#desGradient)"
     />
     <path
       d="M114 301c26 1 57 2 94 15l1-16s6-8-47-16a245 245 0 00-46-2zm-2-40c6 1 98 15 102 17 7 3 8-13 8-13s-1-12-108-17c-2 0-2 13-2 13zm13-37c10 4 60 7 89 17 7 3 10-14 10-14s4-10-89-20l-10 17z"
