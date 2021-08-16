@@ -7,7 +7,9 @@ import Seo from '../components/seo';
 const SecondPage: React.FC = () => (
   <Layout>
     <Seo title="Page two" />
-    <h1>CSS Basic Elements</h1>
+    <h1 id="top" style={{ scrollMarginTop: 'var(--nav-height)' }}>
+      CSS Basic Elements
+    </h1>
 
     <p>
       The purpose of this HTML is to help determine what default settings are
@@ -27,16 +29,16 @@ const SecondPage: React.FC = () => (
     <h6>The quick brown fox jumps over the lazy dog</h6>
 
     <small>
-      <a href="#wrapper">[top]</a>
+      <a href="#top">[top]</a>
     </small>
     <hr />
 
     <h1 id="paragraph">Paragraph</h1>
 
-    <img src="http://placehold.it/250x125" alt="CSS | God's Language" />
+    <img src="https://picsum.photos/250/125" alt="CSS | God's Language" />
     <p>
       Lorem ipsum dolor sit amet,{' '}
-      <a href="#" title="test link">
+      <a href="https://google.com" title="test link">
         test link
       </a>{' '}
       adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec
@@ -60,7 +62,7 @@ const SecondPage: React.FC = () => (
     </p>
 
     <small>
-      <a href="#wrapper">[top]</a>
+      <a href="#top">[top]</a>
     </small>
     <hr />
 
@@ -87,7 +89,7 @@ const SecondPage: React.FC = () => (
     </ul>
 
     <small>
-      <a href="#wrapper">[top]</a>
+      <a href="#top">[top]</a>
     </small>
     <hr />
 
@@ -229,37 +231,48 @@ const SecondPage: React.FC = () => (
     </fieldset>
 
     <small>
-      <a href="#wrapper">[top]</a>
+      <a href="#top">[top]</a>
     </small>
     <hr />
 
     <h1 id="tables">Tables</h1>
 
     <table cellSpacing="0" cellPadding="0">
-      <tr>
-        <th>Table Header 1</th>
-        <th>Table Header 2</th>
-        <th>Table Header 3</th>
-      </tr>
-      <tr>
-        <td>Division 1</td>
-        <td>Division 2</td>
-        <td>Division 3</td>
-      </tr>
-      <tr>
-        <td>Division 1</td>
-        <td>Division 2</td>
-        <td>Division 3</td>
-      </tr>
-      <tr>
-        <td>Division 1</td>
-        <td>Division 2</td>
-        <td>Division 3</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Table Header 1</th>
+          <th>Table Header 2</th>
+          <th>Table Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Division 1</td>
+          <td>Division 2</td>
+          <td>Division 3</td>
+        </tr>
+        <tr>
+          <td>Division 1</td>
+          <td>Division 2</td>
+          <td>Division 3</td>
+        </tr>
+        <tr>
+          <td>Division 1</td>
+          <td>Division 2</td>
+          <td>Division 3</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Table Footer 1</td>
+          <td>Table Footer 2</td>
+          <td>Table Footer 3</td>
+        </tr>
+      </tfoot>
     </table>
 
     <small>
-      <a href="#wrapper">[top]</a>
+      <a href="#top">[top]</a>
     </small>
     <hr />
 
@@ -299,7 +312,7 @@ const SecondPage: React.FC = () => (
     </blockquote>
 
     <small>
-      <a href="#wrapper">[top]</a>
+      <a href="#top">[top]</a>
     </small>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
