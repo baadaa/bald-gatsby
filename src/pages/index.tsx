@@ -277,7 +277,6 @@ const IntroBoxContainer = styled.section`
 `;
 const IndexPage = () => {
   const [curtainIsDown, setCurtainIsDown] = useState(false);
-  console.log(curtainIsDown);
   return (
     <Layout isFullWidth>
       <Seo title="Home" />

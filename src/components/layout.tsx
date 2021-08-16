@@ -23,7 +23,7 @@ const WrapperStyles = styled.main<LayoutProps>`
   display: flex;
   align-items: flex-start;
   position: relative;
-  h1 {
+  h1.side {
     position: sticky;
     top: calc(var(--nav-height) + 20px);
     flex-basis: ${(props) => (props.isFullWidth ? 'auto' : '25%')};
@@ -34,7 +34,7 @@ const WrapperStyles = styled.main<LayoutProps>`
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    h1 {
+    h1.side {
       flex-basis: auto;
       position: static;
       width: 100%;
@@ -62,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({
     <GlobalStyles />
     <Header />
     <WrapperStyles isFullWidth={isPost}>
-      {heading && <h1>{heading}</h1>}
+      {heading && <h1 className="side">{heading}</h1>}
       <div>{children}</div>
     </WrapperStyles>
     <Footer>© {new Date().getFullYear()} by Bumhan Yu</Footer>

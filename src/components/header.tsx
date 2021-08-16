@@ -108,6 +108,9 @@ const HeaderStyles = styled.header`
     li {
       font-size: 2rem;
     }
+    a {
+      padding: 0.5em 0.6em;
+    }
   }
   @media screen and (max-width: 480px) {
     .menu {
@@ -124,7 +127,7 @@ const HeaderStyles = styled.header`
       padding: 1rem 3rem;
       right: 1.5rem;
       flex-direction: column;
-      transform: translateY(-300px);
+      transform: translateY(-7rem);
       &[data-mobile='true'] {
         transform: translateY(0);
         opacity: 1;
