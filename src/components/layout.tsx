@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Header from './header';
 import { Footer } from './UIElements';
 import GlobalStyles from '../styles/GlobalStyles';
+import EasterEggs from './EasterEggs';
 
 type LayoutProps = {
   heading?: string;
@@ -66,6 +67,7 @@ const Layout: React.FC<LayoutProps> = ({
       <div>{children}</div>
     </WrapperStyles>
     <Footer>© {new Date().getFullYear()} by Bumhan Yu</Footer>
+    <EasterEggs />
   </>
 );
 

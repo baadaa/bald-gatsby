@@ -64,6 +64,7 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
   position: relative;
+  transition: transform .2s, filter .2s;
 }
 body {
   margin: 0;
@@ -80,6 +81,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  
 }
 article,
 aside,

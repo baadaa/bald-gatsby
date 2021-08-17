@@ -132,8 +132,11 @@ const Curtain = ({ isDown = false, toggle = () => {} }) => (
       quality={70}
       alt="Pretend I am a goat"
       objectFit="contain"
+      width={614}
+      height={1280}
       objectPosition="right"
       className="goatie"
+      aspectRatio={0.4796875}
       style={{
         position: 'absolute',
         top: 0,

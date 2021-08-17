@@ -20,7 +20,9 @@ const UsesStyles = styled.div`
       list-style: none;
       flex-wrap: wrap;
       margin: 0;
-      /* justify-content: center; */
+      @media screen and (max-width: 768px) {
+        justify-content: center;
+      }
     }
     li a {
       font-size: 1.3rem;
