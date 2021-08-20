@@ -95,10 +95,14 @@ const UsesStyles = styled.div`
     font-size: 1.7rem;
     font-weight: 400;
     margin-bottom: 0.75rem;
+    em,
     span {
       font-style: italic;
       font-size: 1.4rem;
       color: #888;
+    }
+    em {
+      /* font-size: 1.5rem; */
     }
   }
   p,
@@ -112,6 +116,10 @@ const UsesStyles = styled.div`
   li {
     margin-bottom: 0.5rem;
   }
+  p + ul,
+  ul + p {
+    margin-top: 0.5rem;
+  }
   h3 + h3,
   p + h3,
   ul + h3 {
@@ -120,7 +128,8 @@ const UsesStyles = styled.div`
   a {
     color: inherit;
     transition: color 0.2s;
-    text-decoration: var(--yellow400) underline;
+    text-decoration: underline;
+    text-decoration-color: var(--yellow400);
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
     &:hover {
@@ -270,7 +279,7 @@ const UsesPage: React.FC = () => (
                 </a>{' '}
                 •{' '}
                 <a href="https://github.com/baadaa/timer-over-photos">
-                  Custom web app
+                  Custom web app{' '}
                 </a>
                 •{' '}
                 <a href="https://www.amazon.com/gp/product/B0153R2A9I/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1">
@@ -326,14 +335,61 @@ const UsesPage: React.FC = () => (
                 Canon EOS 60D
               </a>
             </h3>
-            <p>Lenses: 10mm, 15mm, 20mm, 24–85mm, 145mm</p>
-            <h3>Lumix</h3>
+            <p>
+              Mostly{' '}
+              <a href="https://www.usa.canon.com/internet/portal/us/home/support/self-help-center/eos-webcam-utility">
+                using it as a webcam
+              </a>{' '}
+              with a{' '}
+              <a href="https://www.amazon.com/gp/product/B08ZCW4N6V/ref=ppx_yo_dt_b_search_asin_title">
+                table mount arm
+              </a>
+            </p>
+            <ul>
+              <li>
+                <a href="https://www.amazon.com/Sigma-Aspherical-Angle-Digital-Cameras/dp/B00005RKSK">
+                  Sigma 20mm Wide Angle, f/1.8
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Canon-24-85mm-3-5-4-5-Standard-Cameras/dp/B000053HHD">
+                  Canon EF 24-85mm Standard Zoom, f/3.5-4.5 USM
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Canon-50mm-1-8-Camera-Lens/dp/B00007E7JU">
+                  Canon EF 50mm Standard, f/1.8 II
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Canon-EF-S-55-250mm-4-0-5-6-Telephoto/dp/B0011NVMO8">
+                  Canon EF-S 55-250mm Telephoto Zoom, f/4.0-5.6 IS II
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Rokinon-FE8M-C-Fisheye-Fixed-Canon/dp/B002LTXQUE">
+                  Rokinson 8mm Fisheye, f/3.5
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Holga-60mm-Lens-Canon-Black/dp/B005OFK89E">
+                  Holga 60mm Toy lens, f/8
+                </a>
+              </li>
+            </ul>
             <h3>
-              <a href="https://en.wikipedia.org/wiki/Lomo_LC-A">
-                Lomo LC-A <span>(35mm)</span>
+              <a href="https://en.wikipedia.org/wiki/Panasonic_Lumix_DMC-LX3">
+                Panasonic Lumix DMC-LX3{' '}
+                <span>(24mm wide angle, f/2.0–2.8)</span>
               </a>
             </h3>
-            <p>Used to be obsessed with this one in 2000s</p>
+            <p>Leica lens with full manual control can do magic</p>
+            <h3>
+              <a href="https://en.wikipedia.org/wiki/Lomo_LC-A">
+                Lomo LC-A <span>(32mm, f/2.8)</span>
+              </a>
+            </h3>
+            <p>Produces brilliant colors, but gathering dust in a drawer</p>
           </div>
         </section>
         <section className="sub">
@@ -352,8 +408,8 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <p>
-              Surprisingly versatile and powerful. Japanese-only, and unusable
-              when underlit.
+              Surprisingly versatile and powerful. PIA: Japanese-only UI,
+              unusable in underlit conditions.
             </p>
           </div>
         </section>
@@ -384,13 +440,19 @@ const UsesPage: React.FC = () => (
                 </a>
               </li>
               <li>
-                <a href="https://ohmyz.sh/">Zsh</a>
+                <a href="https://ohmyz.sh/">Zsh</a> •{' '}
+                <a href="https://github.com/zsh-users/zsh-syntax-highlighting">
+                  Syntax Highlighting
+                </a>
               </li>
             </ul>
             <h3>
               <a href="https://fonts.google.com/specimen/Fira+Code?preview.text=!(font%20!%3D%3D%20fira%20%7C%7C%20weight%20%3C%3D%20400)%20&preview.text_type=custom">
                 Fira Code Font
               </a>
+            </h3>
+            <h3>
+              Dot files, configs, aliases <span>(repo coming soon)</span>
             </h3>
           </div>
         </section>
@@ -503,9 +565,14 @@ const UsesPage: React.FC = () => (
             </h3>
             <p>To view calendar, weather, multiple timezones on desktop</p>
             <h3>
-              <a href="https://www.notion.so/">Notion</a>
+              <a href="https://www.notion.so/">Notion</a> •{' '}
+              <a href="https://miro.com/">Miro</a> •{' '}
+              <a href="https://www.mural.co/">Mural</a>
             </h3>
-            <p>For organizing thoughts and plans</p>
+            <p>
+              For organizing thoughts, planning things out, and collaborating
+              with others
+            </p>
             <h3>
               <a href="alfredapp.com">Alfred</a>
             </h3>
@@ -536,16 +603,75 @@ const UsesPage: React.FC = () => (
         <section className="sub">
           <span className="sub-heading">Computer Accessories</span>
           <div className="content">
-            <h3>Dual monitor arm with cable management</h3>
-            <h3>Laptop stand</h3>
-            <h3>Microphone Boom arm</h3>
-            <h3>DSLR arm stand</h3>
-            <h3>Apple Magic Mouse</h3>
-            <h3>Apple Magic Keyboard</h3>
-            <h3>Wacom Tablet</h3>
-            <h3>Ivanky Dock</h3>
-            <h3>HP Printer/Scanner</h3>
-            <h3>Canon Scanner</h3>
+            <h3>Monitor stands & mounts</h3>
+            <ul>
+              <li>
+                <a href="https://www.amazon.com/gp/product/B009S750LA/ref=ppx_yo_dt_b_search_asin_title">
+                  VIVO Dual Monitor Arm
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/gp/product/B08F1ZQSDS/ref=ppx_yo_dt_b_search_asin_title">
+                  Pannon Foldable Laptop Stand
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/gp/product/B08L3TMM2X/ref=ppx_yo_dt_b_search_asin_title">
+                  BoYata Monitor Stand
+                </a>
+              </li>
+            </ul>
+            <h3>
+              <a href="https://www.amazon.com/gp/product/B08PP8HYR9/ref=ppx_yo_dt_b_search_asin_title">
+                iVANKY MacBook Pro Docking Station
+              </a>
+            </h3>
+            <p>
+              Runs two external monitors via <small>HDMI</small>, connects
+              multiple <small>USB</small> devices, and handles <small>SD</small>{' '}
+              cards <em>simultaneously</em> without a hitch
+            </p>
+            <h3>Printers & Scanners</h3>
+            <ul>
+              <li>
+                <a href="https://www.amazon.com/HP-Laserjet-Multi-Function-Wireless-W2G55A/dp/B087CB66X1/ref=sr_1_4">
+                  HP LaserJet MPF M28W (scanner & printer)
+                </a>
+              </li>
+              <li>
+                <a href="https://www.usa.canon.com/internet/portal/us/home/support/details/scanners/support-scanners-canoscan-series/canoscan-lide-25">
+                  Canon CanoScan LiDE 25
+                </a>
+              </li>
+            </ul>
+            <h3>Generic Input Devices</h3>
+            <ul>
+              <li>
+                <a href="https://www.amazon.com/Wacom-Intuos-Medium-CTH680-Version/dp/B00EN27UC2">
+                  Wacom Intuos CTH680 Pen and Touch Tablet
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Wacom-CTE-430-Tablet-Model-Cte-430/product-reviews/B001BXUW7G">
+                  Wacom Graphire CTE430 Pen Tablet
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Wacom-Bamboo-Small-Tablet-Cordless/dp/B0055ZWBA2">
+                  Wacom Bamboo CTE450 Pen Tablet
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Apple-Wireless-Keyboard-Silver-MLA22LL/dp/B01NABDNPH">
+                  Apple Magic Keyboard 2 (A1644)
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/Apple-Magic-Mouse-Wireless-Rechargable/dp/B016QO5YNG">
+                  Apple Magic Mouse 2 (A1657)
+                </a>
+              </li>
+            </ul>
           </div>
         </section>
         <section className="sub">
@@ -560,63 +686,121 @@ const UsesPage: React.FC = () => (
                 Adils legs
               </a>
             </h3>
-            <h3>IKEA chair</h3>
+            <h3>
+              <a href="https://www.amazon.com/gp/product/B00IIFW2L4/ref=ppx_yo_dt_b_search_asin_title">
+                Amazon Basic Mesh Chair
+              </a>
+            </h3>
             <h3>Cutting mat & blades</h3>
             <h3>T-square & tape measure</h3>
             <h3>Bunch of external HDDs</h3>
-          </div>
-        </section>
-        <section className="sub">
-          <span className="sub-heading">Productivity</span>
-          <div className="content">
-            <h3>Notion</h3>
-            <h3>Alfred</h3>
-            <h3>Boostnote</h3>
-            <h3>Joplin</h3>
-            <h3>Bitwarden</h3>
-            <h3>Spectacle & Rectangle</h3>
-            <h3>Rocket</h3>
+            <h3>Piles of paper, Post-Its, pens, and pencils</h3>
           </div>
         </section>
       </section>
       <section id="misc">
         <h2>Miscellaneous</h2>
         <section className="sub">
-          <span className="sub-heading">Automechanic</span>
+          <span className="sub-heading">Gizmos</span>
           <div className="content">
             <h3>
-              <a href="https://www.fixd.com/">FIXD</a>
+              <a href="https://www.fixd.com/">FIXD Automotive Sensor</a>
             </h3>
-            <h3>Microphone Boom arm</h3>
-            <h3>DSLR arm stand</h3>
-            <h3>Apple Magic Mouse</h3>
-            <h3>Apple Magic Keyboard</h3>
-            <h3>Wacom Tablet</h3>
-            <h3>Ivanky Dock</h3>
-            <h3>HP Printer/Scanner</h3>
-            <h3>Canon Scanner</h3>
+            <h3>EGO Power Tools</h3>
+            <ul>
+              <li>
+                <a href="https://egopowerplus.com/21-inch-self-propelled-mower/">
+                  21" Self-Propelled Mower
+                </a>
+              </li>
+              <li>
+                <a href="https://egopowerplus.com/14-inch-chain-saw/">
+                  14" Chain Saw
+                </a>
+              </li>
+              <li>
+                <a href="https://egopowerplus.com/blower-530cfm/">
+                  530 CFM Blower
+                </a>
+              </li>
+            </ul>
+            <h3>Home Security</h3>
+            <ul>
+              <li>
+                <a href="https://www.amazon.com/gp/product/B08DXD8LSR/ref=ppx_yo_dt_b_search_asin_title">
+                  Eufy Video Doorbell
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/gp/product/B07W1HKYQK/ref=ppx_yo_dt_b_search_asin_title">
+                  Eufy Security Cameras
+                </a>{' '}
+                with{' '}
+                <a href="https://www.amazon.com/gp/product/B08L3NN3W2/ref=ppx_yo_dt_b_search_asin_title">
+                  Solar Panels
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/gp/product/B0868GS77L/ref=ppx_yo_dt_b_search_asin_title">
+                  ICNX Solar Powered Flood Light
+                </a>
+              </li>
+            </ul>
           </div>
         </section>
         <section className="sub">
-          <span className="sub-heading">Desk Setup</span>
+          <span className="sub-heading">Favorite Podcasts</span>
           <div className="content">
-            <h3>IKEA desk</h3>
-            <h3>IKEA chair</h3>
-            <h3>Sketch</h3>
-            <h3>Principle</h3>
-            <h3>Zeplin</h3>
-          </div>
-        </section>
-        <section className="sub">
-          <span className="sub-heading">Productivity</span>
-          <div className="content">
-            <h3>Notion</h3>
-            <h3>Alfred</h3>
-            <h3>Boostnote</h3>
-            <h3>Joplin</h3>
-            <h3>Bitwarden</h3>
-            <h3>Spectacle & Rectangle</h3>
-            <h3>Rocket</h3>
+            <h3>
+              <a href="https://www.designmattersmedia.com/">
+                Design Matters <em>by Debbie Millman</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://www.ridehome.info/show/techmeme-ride-home/">
+                Techmeme Ride Home <em>by Brian McCullough</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://www.thenewsworthy.com/">
+                The Newsworthy <em>by Erica Mandy</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://syntax.fm/">
+                Syntax <em>by Scott Tolinski &amp; Wes Bos</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://shoptalkshow.com/">
+                ShopTalk Show <em>by Dave Rupert &amp; Chris Coyier</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://devchat.tv/show/javascript-jabber/">
+                JavaScript Jabber <em>by Devchat.tv</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://changelog.com/jsparty">
+                JS Party <em>by Changelog</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://www.designbetter.co/podcast">
+                The Design Better <em>by InVision</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://developertea.com/">
+                Developer Tea <em>by Jonathan Cutrell</em>
+              </a>
+            </h3>
+            <h3>
+              <a href="https://www.heavybit.com/library/podcasts/jamstack-radio/">
+                JAMstack Radio <em>by Heavybit</em>
+              </a>
+            </h3>
           </div>
         </section>
       </section>
