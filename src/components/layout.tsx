@@ -10,6 +10,7 @@ import EasterEggs from './EasterEggs';
 
 type LayoutProps = {
   heading?: string;
+  subheading?: string;
   isFullWidth?: boolean;
 };
 
@@ -28,6 +29,15 @@ const WrapperStyles = styled.main<LayoutProps>`
     position: sticky;
     top: calc(var(--nav-height) + 20px);
     flex-basis: ${(props) => (props.isFullWidth ? 'auto' : '25%')};
+    &::after {
+      content: '${(props) => props.subheading}';
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 400;
+      max-width: 16ch;
+      line-height: 1.5;
+      margin-top: 0.6em;
+    }
   }
   & > div {
     width: 100%;
@@ -39,11 +49,15 @@ const WrapperStyles = styled.main<LayoutProps>`
       flex-basis: auto;
       position: static;
       width: 100%;
+      &::after {
+        max-width: 100%;
+      }
     }
   }
 `;
 const Layout: React.FC<LayoutProps> = ({
   heading = '',
+  subheading = '',
   children,
   isFullWidth: isPost = false,
 }) => (
@@ -62,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({
     </Helmet>
     <GlobalStyles />
     <Header />
-    <WrapperStyles isFullWidth={isPost}>
+    <WrapperStyles isFullWidth={isPost} subheading={subheading}>
       {heading && <h1 className="side">{heading}</h1>}
       <div>{children}</div>
     </WrapperStyles>

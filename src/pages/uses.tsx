@@ -113,7 +113,8 @@ const UsesStyles = styled.div`
     margin-bottom: 0.5rem;
   }
   h3 + h3,
-  p + h3 {
+  p + h3,
+  ul + h3 {
     margin-top: 1.4rem;
   }
   a {
@@ -143,7 +144,7 @@ const UsesStyles = styled.div`
   }
 `;
 const UsesPage: React.FC = () => (
-  <Layout heading="Uses">
+  <Layout heading="Uses" subheading="A non-exhaustive list of things I use">
     <Helmet>
       <style>
         {`html {
@@ -175,19 +176,28 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Computer</span>
           <div className="content">
             <h3>
-              MacBook Pro 16" 2019 <span>(Catalina 10.15.7)</span>
+              <a href="https://support.apple.com/kb/SP809?locale=en_US">
+                MacBook Pro 16" 2019 <span>(Catalina 10.15.7)</span>
+              </a>
             </h3>
             <p>Primary laptop for design and development work</p>
             <h3>
-              MacBook Pro 17" 2016 <span>(Catalina 10.15.7)</span>
+              <a href="https://support.apple.com/kb/sp719?locale=en_US">
+                MacBook Pro 15" Mid-2015 <span>(High Sierra 10.13.6)</span>
+              </a>
             </h3>
             <p>Secondary laptop for personal documents and archive</p>
             <h3>
-              HP XYX <span>(Windows 10.15.7)</span>
+              <a href="https://support.hp.com/us-en/document/c06336530">
+                HP Zbook 14u G6{' '}
+                <span>(Windows 10 Pro V.1909 Build 18363.1500)</span>
+              </a>
             </h3>
             <p>Company-issued laptop for Windows tasks</p>
             <h3>
-              Pinebook Pro <span>(Linux Debian)</span>
+              <a href="https://www.pine64.org/pinebook-pro/">
+                Pinebook Pro <span>(Linux Debian)</span>
+              </a>
             </h3>
             <p>Personal tinkering and goofing around</p>
           </div>
@@ -196,27 +206,78 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Screens</span>
           <div className="content">
             <h3>
-              HP <span>(3B+ • SMB • DLNA)</span>
+              <a href="https://support.hp.com/us-en/document/c05802914">
+                HP EliteDisplay E243 <span>(23.8")</span>
+              </a>
             </h3>
+            <p>
+              Two screens connected to primary MacBook Pro via{' '}
+              <small>HDMI</small>
+            </p>
             <h3>
-              ASUS <span>(3B+ • RetroPie)</span>
+              <a href="https://www.asus.com/me-en/Commercial-Monitors/VH236H/">
+                ASUS VH236H <span>(23")</span>
+              </a>
             </h3>
-            <h3>
-              LG <span>(3B+ • touchscreen)</span>
-            </h3>
+            <p>Used for secondary MacBook Pro and Raspberry Pi devices.</p>
           </div>
         </section>
         <section className="sub">
           <span className="sub-heading">Raspberry Pi</span>
           <div className="content">
             <h3>
-              NAS Drive <span>(3B+ • SMB • DLNA)</span>
+              NAS Drive{' '}
+              <span>
+                (
+                <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">
+                  3B+
+                </a>{' '}
+                •{' '}
+                <a href="https://en.wikipedia.org/wiki/Server_Message_Block">
+                  SMB
+                </a>{' '}
+                •{' '}
+                <a href="https://en.wikipedia.org/wiki/Digital_Living_Network_Alliance">
+                  DLNA
+                </a>
+                )
+              </span>
             </h3>
             <h3>
-              Retro Gaming Module <span>(3B+ • RetroPie)</span>
+              Retro Gaming Module{' '}
+              <span>
+                (
+                <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">
+                  3B+
+                </a>{' '}
+                • <a href="https://retropie.org.uk/">RetroPie</a> •{' '}
+                <a href="https://retroflag.com/nespi-case-plus.html">
+                  NESPi Case+
+                </a>{' '}
+                •{' '}
+                <a href="https://www.digikey.com/en/products/detail/adafruit-industries-llc/3368/6680553">
+                  Cooling Fan
+                </a>
+                )
+              </span>
             </h3>
             <h3>
-              Photoframe • Pomodoro Timer <span>(3B+ • touchscreen)</span>
+              Photoframe • Pomodoro Timer{' '}
+              <span>
+                (
+                <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">
+                  3B+
+                </a>{' '}
+                •{' '}
+                <a href="https://github.com/baadaa/timer-over-photos">
+                  Custom web app
+                </a>
+                •{' '}
+                <a href="https://www.amazon.com/gp/product/B0153R2A9I/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1">
+                  Touch Screen
+                </a>
+                )
+              </span>
             </h3>
           </div>
         </section>
@@ -267,7 +328,12 @@ const UsesPage: React.FC = () => (
             </h3>
             <p>Lenses: 10mm, 15mm, 20mm, 24–85mm, 145mm</p>
             <h3>Lumix</h3>
-            <h3>Lomo</h3>
+            <h3>
+              <a href="https://en.wikipedia.org/wiki/Lomo_LC-A">
+                Lomo LC-A <span>(35mm)</span>
+              </a>
+            </h3>
+            <p>Used to be obsessed with this one in 2000s</p>
           </div>
         </section>
         <section className="sub">
@@ -285,7 +351,10 @@ const UsesPage: React.FC = () => (
                 Sharp E-note WG-S50
               </a>
             </h3>
-            <p>Can't beat the price for its features. Japanese-only UI</p>
+            <p>
+              Surprisingly versatile and powerful. Japanese-only, and unusable
+              when underlit.
+            </p>
           </div>
         </section>
       </section>
@@ -300,14 +369,10 @@ const UsesPage: React.FC = () => (
             <ul>
               <li>
                 <a href="https://github.com/sdras/night-owl-vscode-theme">
-                  Night Owl theme
+                  Night Owl Theme
                 </a>
               </li>
-              <li>
-                <a href="https://github.com/BriteSnow/vscode-toggle-quotes">
-                  Toggle Quotes
-                </a>
-              </li>
+              <li>Fira Code font • two spaces • non-blinking block cursor</li>
             </ul>
             <h3>
               <a href="https://iterm2.com/">iTerm2</a>
@@ -321,9 +386,6 @@ const UsesPage: React.FC = () => (
               <li>
                 <a href="https://ohmyz.sh/">Zsh</a>
               </li>
-              <li>
-                <a href="https://github.com/agkozak/zsh-z">Z</a>
-              </li>
             </ul>
             <h3>
               <a href="https://fonts.google.com/specimen/Fira+Code?preview.text=!(font%20!%3D%3D%20fira%20%7C%7C%20weight%20%3C%3D%20400)%20&preview.text_type=custom">
@@ -335,8 +397,11 @@ const UsesPage: React.FC = () => (
         <section className="sub">
           <span className="sub-heading">Tools & Frameworks</span>
           <div className="content">
-            <h3>JS•HTML•CSS</h3>
-            <h3>TypeScript</h3>
+            <h3>JavaScript • TypeScript</h3>
+            <ul>
+              <li>Prefer semicolon, arrow functions, and named exports</li>
+            </ul>
+            <h3>HTML • CSS</h3>
             <h3>JS Frameworks</h3>
             <ul>
               <li>
@@ -380,7 +445,13 @@ const UsesPage: React.FC = () => (
                 </a>
               </li>
               <li>
+                <a href="https://github.com/agkozak/zsh-z">Z</a>
+              </li>
+              <li>
                 <a href="https://cmus.github.io/">CMUS</a>
+              </li>
+              <li>
+                <a href="https://github.com/ytdl-org/youtube-dl">youtube-dl</a>
               </li>
             </ul>
           </div>
@@ -401,9 +472,6 @@ const UsesPage: React.FC = () => (
               </li>
               <li>
                 <a href="https://www.apple.com/logic-pro/">Logic Pro X</a>
-              </li>
-              <li>
-                <a href="https://cmus.github.io/">CMUS</a>
               </li>
             </ul>
 
@@ -430,13 +498,36 @@ const UsesPage: React.FC = () => (
         <section className="sub">
           <span className="sub-heading">Productivity</span>
           <div className="content">
-            <h3>Notion</h3>
-            <h3>Alfred</h3>
-            <h3>Boostnote</h3>
-            <h3>Joplin</h3>
-            <h3>Bitwarden</h3>
-            <h3>Spectacle & Rectangle</h3>
-            <h3>Rocket</h3>
+            <h3>
+              <a href="https://tracesof.net/uebersicht/">Übersicht</a>
+            </h3>
+            <p>To view calendar, weather, multiple timezones on desktop</p>
+            <h3>
+              <a href="https://www.notion.so/">Notion</a>
+            </h3>
+            <p>For organizing thoughts and plans</p>
+            <h3>
+              <a href="alfredapp.com">Alfred</a>
+            </h3>
+            <p>For improved search and automation</p>
+            <h3>
+              <a href="https://boostnote.io/">Boostnote</a> •{' '}
+              <a href="https://joplinapp.org/">Joplin</a>
+            </h3>
+            <p>For markdown note-taking</p>
+            <h3>
+              <a href="https://bitwarden.com/">Bitwarden</a>
+            </h3>
+            <p>Open source password manager</p>
+            <h3>
+              <a href="https://www.spectacleapp.com/">Spectacle</a> •{' '}
+              <a href="https://rectangleapp.com/">Rectangle</a>
+            </h3>
+            <p>Simple windows management</p>
+            <h3>
+              <a href="https://matthewpalmer.net/rocket/">Rocket</a>
+            </h3>
+            <p>Slack-like emoji typing</p>
           </div>
         </section>
       </section>
@@ -445,6 +536,7 @@ const UsesPage: React.FC = () => (
         <section className="sub">
           <span className="sub-heading">Computer Accessories</span>
           <div className="content">
+            <h3>Dual monitor arm with cable management</h3>
             <h3>Laptop stand</h3>
             <h3>Microphone Boom arm</h3>
             <h3>DSLR arm stand</h3>
@@ -469,9 +561,9 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <h3>IKEA chair</h3>
-            <h3>Sketch</h3>
-            <h3>Principle</h3>
-            <h3>Zeplin</h3>
+            <h3>Cutting mat & blades</h3>
+            <h3>T-square & tape measure</h3>
+            <h3>Bunch of external HDDs</h3>
           </div>
         </section>
         <section className="sub">
@@ -492,7 +584,9 @@ const UsesPage: React.FC = () => (
         <section className="sub">
           <span className="sub-heading">Automechanic</span>
           <div className="content">
-            <h3>Laptop stand</h3>
+            <h3>
+              <a href="https://www.fixd.com/">FIXD</a>
+            </h3>
             <h3>Microphone Boom arm</h3>
             <h3>DSLR arm stand</h3>
             <h3>Apple Magic Mouse</h3>

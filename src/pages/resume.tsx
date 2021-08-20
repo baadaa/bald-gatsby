@@ -1,321 +1,494 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import styled from 'styled-components';
 
+import { StaticImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import {
+  IconGitHub,
+  IconPhone,
+  IconMail,
+  IconLinkedIn,
+} from '../components/Icons';
 
-const SecondPage: React.FC = () => (
+const ResumeStyles = styled.div`
+  display: flex;
+  padding-bottom: 6rem;
+  p,
+  ul {
+    color: #444;
+  }
+  .impression {
+    --headshot-size: 20rem;
+    margin-right: calc(var(--headshot-size) / 3);
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      margin-left: 0.5rem;
+    }
+    a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0.4rem;
+      font-size: 1.4rem;
+      color: var(--cyan600);
+    }
+    svg {
+      width: 2rem;
+      margin-right: 0.5rem;
+      height: 2rem;
+    }
+    @media screen and (max-width: 768px) {
+      margin-right: calc(var(--headshot-size) / 5);
+    }
+    @media screen and (max-width: 640px) {
+      margin-right: calc(var(--headshot-size) / 5.5);
+      .contact svg {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .contact {
+        display: none;
+      }
+    }
+  }
+  .intro a.download {
+    background-color: var(--yellow500);
+    color: var(--yellow900);
+    font-size: 1.4rem;
+    letter-spacing: -0.05rem;
+    padding: 0.7rem 1.8rem;
+    display: inline-block;
+    border-radius: 4rem;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    &:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: var(--base-shadow);
+      background-color: var(--yellow400);
+    }
+  }
+  .headshot {
+    border-radius: var(--headshot-size);
+    width: var(--headshot-size);
+    height: var(--headshot-size);
+    display: block;
+    margin-bottom: calc(var(--headshot-size) / 7);
+    @media screen and (max-width: 1200px) {
+      --headshot-size: 15vw;
+    }
+    @media screen and (max-width: 768px) {
+      --headshot-size: 12rem;
+    }
+    @media screen and (max-width: 640px) {
+      --headshot-size: 10rem;
+    }
+  }
+  .mainColumn {
+    flex: 1;
+    padding-top: 2rem;
+    a {
+      color: var(--cyan800);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  h1 {
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    font-size: 1.2rem;
+    margin: 0 0 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+    color: var(--cyan800);
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--cyan100);
+  }
+  h3,
+  h4 {
+    margin: 0;
+  }
+  h3 {
+    font-size: 1.7rem;
+    color: var(--cyan800);
+    font-weight: 600;
+    margin-bottom: 0.65em;
+  }
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+  }
+  h5,
+  time {
+    font-size: 1.3rem;
+    color: #888;
+    font-weight: 400;
+  }
+  h5 {
+    margin: 0 0 0.55em 0;
+    color: var(--cyan800);
+    &::before {
+      content: '(';
+    }
+    &::after {
+      content: ')';
+    }
+  }
+  p {
+    max-width: 65rem;
+  }
+  ul li {
+    letter-spacing: -0.025em;
+    font-size: 1.5rem;
+    margin-bottom: 0.33em;
+  }
+  .intro {
+    margin-bottom: 4rem;
+  }
+  .period + .period {
+    margin-top: 4rem;
+  }
+  .education .period .overview {
+    flex-basis: 34rem;
+  }
+  .education .details p {
+    max-width: 33rem;
+  }
+  .period {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2rem;
+    .overview {
+      flex-basis: 24rem;
+    }
+    .details {
+      flex: 1;
+    }
+    @media screen and (max-width: 900px) {
+      display: block;
+      h3 {
+        margin-bottom: 1rem;
+      }
+      h4,
+      h5 {
+        display: inline-block;
+      }
+      h4 {
+        margin-right: 0.5rem;
+      }
+      time {
+        display: block;
+        margin-bottom: 1.2rem;
+      }
+    }
+  }
+  .box-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 550px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  h6 {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--cyan800);
+    margin: 0 0 0.5em;
+  }
+  section + section {
+    margin-top: 6rem;
+  }
+  @media screen and (max-width: 768px) {
+    h1 {
+      text-align: left;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .mainColumn {
+      padding-top: 1rem;
+    }
+    display: block;
+  }
+`;
+const experiences = [
+  {
+    title: 'Design Director',
+    company: 'Homepoint',
+    industry: 'Financial Services',
+    time: '2020–Present',
+    link: 'https://homepointfinancial.com',
+    summary:
+      'Responsible for ensuring consistent brand experience via visual, motion, verbal, and UX design. Collaborate with marketing, engineering, and product design teams to  develop solutions that drive measurable results. Guide direct reports and manage external vendors. Accomplishments include:',
+    bullets: [
+      'Leading the corporate rebrand and developing the branding strategy',
+      'Outlining brand guidelines and developing the tooling in React/Gatsby',
+      'Designing, developing, and launching the new website in React/Next.JS',
+      'Prototyping and developing various proof-of-concept applications in React',
+      'Creating a roadmap and leading the UX design for major B2B application',
+    ],
+  },
+  {
+    title: 'Brand Designer',
+    company: 'Updater Inc.',
+    industry: 'Software • IT',
+    time: '2018–2020',
+    link: 'https://updater.com',
+    summary:
+      'Manage all brand communications, creative-direct and execute a variety of marketing materials, and participate in UI/UX design of the product features. Collaborate with engineering and product teams. Accomplishments include:',
+    bullets: [
+      'Developing branding strategy, visual identity, and design system',
+      'Establishing the new design system in React',
+      'Designing, developing, and launching the new website in custom stack',
+      'Designing and developing internal tools for marketing team in React',
+      'Leading several major feature releases as a product designer',
+    ],
+  },
+  {
+    title: 'Digital Solutionist',
+    company: 'The Moderns Ltd.',
+    industry: 'Branding Agency',
+    time: '2013–2016',
+    link: null,
+    summary:
+      'Project-manage, develop and execute digital & non-digital design solutions to various branding, communications, and marketing challenges. Manage client relations and help organize brand workshops. Responsibilities include:',
+    bullets: [
+      'Developing brand strategy and visual identity systems',
+      'Creating communication design and motion graphics',
+      'Lead UI/UX design and create wireframes',
+      'Develop front-end/digital deliverable',
+    ],
+  },
+  {
+    title: 'Lead Designer/Developer',
+    company: 'Young & Rubicam Group',
+    industry: 'Advertising Agency',
+    time: '2009–2013',
+    link: null,
+    summary:
+      'Provide creative and technical solutions for advertising & marketing via various channels of print, interactive, and motion media as a team lead. Collaborate with other teams and functions. Responsibilities include:',
+    bullets: [
+      'Visual identity systems',
+      'Typography-based designs and editorial layout',
+      'New business pitch materials, ad materials for print/digital/outdoor media',
+      'Custom digital deliverables, including motion, websites, ads, and emails',
+    ],
+  },
+];
+const education = [
+  {
+    major: 'Communications Design',
+    school: 'Pratt Institute',
+    degree: 'M.S.',
+    time: '2010–2013',
+    summary:
+      'Graduated with Distinction, with focus on digital design and communications.',
+  },
+  {
+    major: 'Clinical & Counseling Psychology',
+    school: 'Korea Univeristy',
+    degree: 'M.A. (incomplete)',
+    time: '2003–2004',
+    summary:
+      'One year coursework completed. Participated in a research program as a co-author.',
+  },
+  {
+    major: 'Linguistics & Psychology',
+    school: 'Korea Univeristy',
+    degree: 'B.A.',
+    time: '1999–2003',
+    summary: 'Graduaded Cum Laude, double-major.',
+  },
+];
+const skills = [
+  {
+    category: 'Visual Design',
+    items:
+      'Branding & identity, motion design, UX/UI, typography, data visualization',
+  },
+  {
+    category: 'Frontend Code',
+    items:
+      'JavaScript/TypeScript, React/Gatsby/Next.JS, Node.JS tooling, CSS-in-JS, HTML/CSS',
+  },
+  {
+    category: 'Software Tools',
+    items:
+      'Adobe CC, Figma, Sketch, Principle, Git, Visual Studio Code, command-line shell',
+  },
+  {
+    category: 'Soft Skills',
+    items:
+      'Verbal & written communications, constant learning, team-first mindset',
+  },
+];
+const misc = [
+  {
+    category: 'Millitary Disciplined',
+    items:
+      'Served in ROK Army. Result-oriented, team-first, and stress-tested. Has an ego as tiny as an ant.',
+  },
+  {
+    category: 'Veteran Translator',
+    items:
+      'Skilled communicator with cross-cultural and multidisciplinary perspectives',
+  },
+  {
+    category: 'Problem Solving',
+    items:
+      'Calm disposition and detail-orientation while investigating solutions under stress',
+  },
+  {
+    category: 'Other Titles',
+    items:
+      'Husband, dad, marathoner, black belt, agnostic, omnivore, guitar/piano lover',
+  },
+];
+const contactList = [
+  {
+    icon: <IconPhone />,
+    link: 'tel:3473618412',
+    label: '(347) 361-8412',
+  },
+  {
+    icon: <IconMail />,
+    link: 'mailto:hello@bald.design',
+    label: 'hello@bald.design',
+  },
+  {
+    icon: <IconGitHub />,
+    link: 'https://github.com/baadaa',
+    label: '@baadaa',
+  },
+  {
+    icon: <IconLinkedIn />,
+    link: 'https://www.linkedin.com/in/bumhan/',
+    label: '/in/bumhan',
+  },
+];
+const ResumePage: React.FC = () => (
   <Layout>
-    <Seo title="Page two" />
-    <h1 id="top" style={{ scrollMarginTop: 'var(--nav-height)' }}>
-      CSS Basic Elements
-    </h1>
-
-    <p>
-      The purpose of this HTML is to help determine what default settings are
-      with CSS and to make sure that all possible HTML Elements are included in
-      this HTML so as to not miss any possible Elements when designing a site.
-    </p>
-
-    <hr />
-
-    <h1 id="headings">Headings</h1>
-
-    <h1>The quick brown fox jumps over the lazy dog</h1>
-    <h2>The quick brown fox jumps over the lazy dog</h2>
-    <h3>The quick brown fox jumps over the lazy dog</h3>
-    <h4>The quick brown fox jumps over the lazy dog</h4>
-    <h5>The quick brown fox jumps over the lazy dog</h5>
-    <h6>The quick brown fox jumps over the lazy dog</h6>
-
-    <small>
-      <a href="#top">[top]</a>
-    </small>
-    <hr />
-
-    <h1 id="paragraph">Paragraph</h1>
-
-    <img src="https://picsum.photos/250/125" alt="CSS | God's Language" />
-    <p>
-      Lorem ipsum dolor sit amet,{' '}
-      <a href="https://google.com" title="test link">
-        test link
-      </a>{' '}
-      adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec
-      faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero
-      nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent
-      mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat
-      enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien
-      fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at,
-      commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
-    </p>
-
-    <p>
-      Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing
-      elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus.
-      Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi,
-      imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis,
-      massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim
-      diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien
-      fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at,
-      commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
-    </p>
-
-    <small>
-      <a href="#top">[top]</a>
-    </small>
-    <hr />
-
-    <h1 id="list_types">List Types</h1>
-
-    <h3>Definition List</h3>
-    <dl>
-      <dt>Definition List Title</dt>
-      <dd>This is a definition list division.</dd>
-    </dl>
-
-    <h3>Ordered List</h3>
-    <ol>
-      <li>List Item 1</li>
-      <li>List Item 2</li>
-      <li>List Item 3</li>
-    </ol>
-
-    <h3>Unordered List</h3>
-    <ul>
-      <li>List Item 1</li>
-      <li>List Item 2</li>
-      <li>List Item 3</li>
-    </ul>
-
-    <small>
-      <a href="#top">[top]</a>
-    </small>
-    <hr />
-
-    <h1 id="form_elements">Fieldsets, Legends, and Form Elements</h1>
-
-    <fieldset>
-      <legend>Legend</legend>
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
-        dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis
-        suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at,
-        tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis
-        luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget
-        metus.
-      </p>
-
-      <form>
-        <h2>Form Element</h2>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
-          dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis
-          suscipit dui.
-        </p>
-
-        <p>
-          <label htmlFor="text_field">
-            Text Field:
-            <br />
-            <input type="text" id="text_field" />
-          </label>
-        </p>
-
-        <p>
-          <label htmlFor="text_area">
-            Text Area:
-            <br />
-            <textarea id="text_area" />
-          </label>
-        </p>
-
-        <p>
-          <label htmlFor="select_element">
-            Select Element:
-            <br />
-            <select name="select_element">
-              <optgroup label="Option Group 1">
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-              </optgroup>
-              <optgroup label="Option Group 2">
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-              </optgroup>
-            </select>
-          </label>
-        </p>
-
-        <p>
-          <label htmlFor="radio_buttons">
-            Radio Buttons:
-            <br />
-            <input
-              type="radio"
-              className="radio"
-              name="radio_button"
-              value="radio_1"
-            />{' '}
-            Radio 1<br />
-            <input
-              type="radio"
-              className="radio"
-              name="radio_button"
-              value="radio_2"
-            />{' '}
-            Radio 2<br />
-            <input
-              type="radio"
-              className="radio"
-              name="radio_button"
-              value="radio_3"
-            />{' '}
-            Radio 3<br />
-          </label>
-        </p>
-
-        <p>
-          <label htmlFor="checkboxes">
-            Checkboxes:
-            <br />
-            <input
-              type="checkbox"
-              className="checkbox"
-              name="checkboxes"
-              value="check_1"
-            />{' '}
-            Radio 1<br />
-            <input
-              type="checkbox"
-              className="checkbox"
-              name="checkboxes"
-              value="check_2"
-            />{' '}
-            Radio 2<br />
-            <input
-              type="checkbox"
-              className="checkbox"
-              name="checkboxes"
-              value="check_3"
-            />{' '}
-            Radio 3<br />
-          </label>
-        </p>
-
-        <p>
-          <label htmlFor="password">
-            Password:
-            <br />
-            <input type="password" className="password" name="password" />
-          </label>
-        </p>
-
-        <p>
-          <label htmlFor="file">
-            File Input:
-            <br />
-            <input type="file" className="file" name="file" />
-          </label>
-        </p>
-
-        <p>
-          <input className="button" type="reset" value="Clear" />{' '}
-          <input className="button" type="submit" value="Submit" />
-        </p>
-      </form>
-    </fieldset>
-
-    <small>
-      <a href="#top">[top]</a>
-    </small>
-    <hr />
-
-    <h1 id="tables">Tables</h1>
-
-    <table cellSpacing="0" cellPadding="0">
-      <thead>
-        <tr>
-          <th>Table Header 1</th>
-          <th>Table Header 2</th>
-          <th>Table Header 3</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Division 1</td>
-          <td>Division 2</td>
-          <td>Division 3</td>
-        </tr>
-        <tr>
-          <td>Division 1</td>
-          <td>Division 2</td>
-          <td>Division 3</td>
-        </tr>
-        <tr>
-          <td>Division 1</td>
-          <td>Division 2</td>
-          <td>Division 3</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td>Table Footer 1</td>
-          <td>Table Footer 2</td>
-          <td>Table Footer 3</td>
-        </tr>
-      </tfoot>
-    </table>
-
-    <small>
-      <a href="#top">[top]</a>
-    </small>
-    <hr />
-
-    <h1 id="misc">Misc Stuff - abbr, acronym, pre, code, sub, sup, etc.</h1>
-
-    <p>
-      Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer
-      adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.{' '}
-      <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam
-      libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent
-      mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat
-      enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien
-      fringilla nonummy.{' '}
-      <acronym title="National Basketball Association">NBA</acronym> Mauris a
-      ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc.
-      Morbi imperdiet augue quis tellus. <abbr title="Avenue">AVE</abbr>
-    </p>
-
-    <pre>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
-        dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis
-        suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at,
-        tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis
-        luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget
-        metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla
-        nonummy. <acronym title="National Basketball Association">NBA</acronym>{' '}
-        Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae,
-        feugiat in, nunc. Morbi imperdiet augue quis tellus.{' '}
-        <abbr title="Avenue">AVE</abbr>
-      </p>
-    </pre>
-
-    <blockquote>
-      "This stylesheet is going to help so freaking much."{' '}
-      <cite>Blockquote</cite>
-    </blockquote>
-
-    <small>
-      <a href="#top">[top]</a>
-    </small>
-    <Link to="/">Go back to the homepage</Link>
+    <Seo title="Resume" />
+    <ResumeStyles>
+      <div className="impression">
+        <StaticImage
+          src="../images/bumhan_yu.jpg"
+          quality={70}
+          alt="Bumhan Yu"
+          objectFit="cover"
+          width={200}
+          height={200}
+          className="headshot"
+        />
+        <div className="contact">
+          {contactList.map((item, index) => (
+            <a key={`contact${index}`} href={item.link}>
+              {item.icon}
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="mainColumn">
+        <section className="intro">
+          <h1>
+            Bumhan &ldquo;<strong>B</strong>&rdquo; Yu
+          </h1>
+          <p>
+            Designer who writes front-end code—with a career built around
+            psychology, communications, design, and technology. Big believer in
+            design thinking and scientific methods. Experienced across
+            advertising, branding, and software, and financial industries.
+          </p>
+          <a className="download" href="/resume_bumhan_yu_2021.pdf">
+            Download resume as PDF
+          </a>
+          {/* <p>
+            Passionate about creating excellent human experience and delivering
+            measurable results. Genuinely interested in human connection and
+            communication through diverse channels. Always eager to keep
+            learning and growing.
+          </p> */}
+        </section>
+        <section className="experience">
+          <h2>Experience</h2>
+          {experiences.map((experience, index) => (
+            <div className="period" key={`exp${index}`}>
+              <div className="overview">
+                <h3>{experience.title}</h3>
+                <h4>
+                  {experience.link ? (
+                    <a href={experience.link}>{experience.company}</a>
+                  ) : (
+                    experience.company
+                  )}
+                </h4>
+                <h5>{experience.industry}</h5>
+                <time>{experience.time}</time>
+              </div>
+              <div className="details">
+                <p>{experience.summary}</p>
+                <ul>
+                  {experience.bullets.map((bullet, i) => (
+                    <li key={`${index}${i}`}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </section>
+        <section className="education">
+          <h2>Education</h2>
+          {education.map((ed, index) => (
+            <div className="period" key={`exp${index}`}>
+              <div className="overview">
+                <h3>{ed.major}</h3>
+                <h4>
+                  {ed.school}, <em>{ed.degree}</em>
+                </h4>
+                <time>{ed.time}</time>
+              </div>
+              <div className="details">
+                <p>{ed.summary}</p>
+              </div>
+            </div>
+          ))}
+        </section>
+        <section className="skills">
+          <h2>Skills &amp; Expertise</h2>
+          <div className="box-wrapper">
+            {skills.map((skill, index) => (
+              <div className="box" key={`exp${index}`}>
+                <h6>{skill.category}</h6>
+                <p>{skill.items}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="misc">
+          <h2>miscellaneous</h2>
+          <div className="box-wrapper">
+            {misc.map((thing, index) => (
+              <div className="box" key={`exp${index}`}>
+                <h6>{thing.category}</h6>
+                <p>{thing.items}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </ResumeStyles>
   </Layout>
 );
 
-export default SecondPage;
+export default ResumePage;
