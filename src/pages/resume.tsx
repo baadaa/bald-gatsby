@@ -317,7 +317,7 @@ const skills = [
       'Branding & identity, motion design, UX/UI, typography, data visualization',
   },
   {
-    category: 'Frontend Code',
+    category: 'Front-End Code',
     items:
       'JavaScript/TypeScript, React/Gatsby/Next.JS, Node.JS tooling, CSS-in-JS, HTML/CSS',
   },

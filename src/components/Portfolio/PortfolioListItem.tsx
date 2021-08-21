@@ -6,54 +6,31 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 const Styles = styled.article`
   position: relative;
   transition: transform 0.2s;
-  img {
+  .thumb {
     border-radius: 1rem;
+    /* border: 1px solid #ddd; */
+    box-shadow: var(--pale-shadow);
     width: 100%;
     margin: 0;
     display: block;
-    transition: box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   .info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
     border-radius: 0.8rem;
     padding: 2rem;
-    padding-top: 5rem;
-    color: #fff;
     transform-origin: bottom left;
-    /* background: rgb(0, 0, 0); */
-    background: linear-gradient(
-      900deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.75) 66%
-    );
-    text-shadow: 0 1px 7px rgba(0, 0, 0, 0.5);
-    @media screen and (max-width: 480px) {
-      p {
-        display: none;
-      }
-      span {
-        margin-bottom: 0;
-      }
-    }
     &[data-short='true'] {
-      /* @media screen and (max-width: 640px) { */
       color: #202020;
       position: static;
-      background: transparent;
       text-shadow: none;
       padding-top: 1rem;
-      padding: 1rem;
+      padding: 1.8rem 1rem;
       h2 {
         font-size: 2rem;
       }
       span {
         margin-bottom: 0;
       }
-      /* } */
     }
   }
   span {
@@ -64,7 +41,7 @@ const Styles = styled.article`
     margin-bottom: 1em;
   }
   h2 {
-    font-size: 3.1rem;
+    font-size: 2.5rem;
     font-weight: 500;
     margin-top: 0;
     letter-spacing: -0.75px;
@@ -72,12 +49,20 @@ const Styles = styled.article`
   }
   p {
     margin-bottom: 0;
-    font-size: 1.4rem;
-    max-width: 50ch;
+    font-family: 'Work sans', sans-serif;
+    font-size: 1.5rem;
+    /* max-width: 50ch; */
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   &:hover {
-    transform: translateY(-2px) scale(1.015);
-    .info > * {
+    .thumb {
+      transform: translateY(-2px);
+      box-shadow: var(--hover-shadow);
+    }
+    .info {
       animation: pulse 1s infinite;
     }
   }
@@ -109,16 +94,18 @@ const PortfolioListItem = ({
     <Styles>
       <Link to={slug} state={{ from: category }}>
         {gatsbyImageData ? (
-          <GatsbyImage image={gatsbyImageData} alt="" />
+          <GatsbyImage className="thumb" image={gatsbyImageData} alt="" />
         ) : (
-          <img src={thumbnail.publicURL} alt="" />
+          <img src={thumbnail.publicURL} className="thumb" alt="" />
         )}
       </Link>
       <div className="info" data-short={isShort}>
-        <h2>{title}</h2>
-        {industry && <span>{industry}</span>}
-        {tags && <span>{tags.join(' • ')}</span>}
-        {!isShort && description && <p>{description}</p>}
+        <Link to={slug} state={{ from: category }}>
+          <h2>{title}</h2>
+          {industry && <span>{industry}</span>}
+          {tags && <span>{tags.join(' • ')}</span>}
+          {!isShort && description && <p>{description}</p>}
+        </Link>
       </div>
     </Styles>
   );

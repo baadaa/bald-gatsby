@@ -110,6 +110,9 @@ const UsesStyles = styled.div`
     font-size: 1.4rem;
     color: #555;
   }
+  ul {
+    margin-left: 1.7rem;
+  }
   ul:last-of-type {
     margin-bottom: 0;
   }

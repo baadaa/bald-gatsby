@@ -14,6 +14,7 @@ type LogoAnimProps = {
   horizontal?: boolean;
   noScale?: boolean;
   click?: any;
+  logoOnly?: boolean;
 };
 
 const Logo = styled.div<LogoAnimProps>`
@@ -155,6 +156,7 @@ const LogoAnimation: React.FC<LogoAnimProps> = ({
   horizontal,
   noScale,
   click,
+  logoOnly = false,
 }) => (
   <Logo
     size={size}
@@ -179,11 +181,13 @@ const LogoAnimation: React.FC<LogoAnimProps> = ({
         </div>
       </div>
     </div>
-    <div className="logo-phrase-container">
-      <div className="logo-phrase">
-        <span>B</span> as in <span>BALD</span>
+    {!logoOnly && (
+      <div className="logo-phrase-container">
+        <div className="logo-phrase">
+          <span>B</span> as in <span>BALD</span>
+        </div>
       </div>
-    </div>
+    )}
   </Logo>
 );
 

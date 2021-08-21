@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 :root {
   --max-width: 1140px;
+  --pale-shadow: 0 2px 15px rgba(0,0,0,.075);
   --base-shadow: 0 1px 10px rgba(0,0,0,.2);
   --hover-shadow: 3px 7px 15px rgba(0,0,0,.1), -1px 3px 25px rgba(0,0,0,.1);
   --nav-height: 8rem;

@@ -76,7 +76,7 @@ const industryBullets = [
   },
   {
     icon: IconDevRed,
-    main: 'Frontend Engineering',
+    main: 'Front-end Engineering',
   },
 ];
 const proficiencyBullets = [
@@ -98,7 +98,7 @@ const proficiencyBullets = [
   },
   {
     icon: IconDev,
-    main: 'Frontend Development',
+    main: 'Front-end Development',
   },
 ];
 const educationBullets = [
@@ -303,7 +303,7 @@ const IndexPage = () => {
         </h3>
         <h5>Nice to meet you.</h5>
         <h1>
-          I am a design director and frontend engineer with backgrounds in
+          I am a design director and front-end engineer with backgrounds in
           psychology, linguistics, and branding.
         </h1>
         <Link className="resume" to="/resume">
