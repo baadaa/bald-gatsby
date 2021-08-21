@@ -15,13 +15,14 @@ const BlogListStyle = styled.div`
     align-items: center;
     background-color: #fff;
     * {
-      transition: transform 0.2s;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
     &:first-of-type {
       padding-top: 0;
     }
     &:hover > .thumbnail {
-      transform: translateX(2px);
+      transform: translateY(-2px);
+      box-shadow: var(--hover-shadow);
     }
     &:hover > .postInfo {
       transform: translateX(-2px);
@@ -59,6 +60,7 @@ const BlogListStyle = styled.div`
     font-size: 2.2rem;
     line-height: 1.4;
     letter-spacing: -0.5px;
+    margin-top: 0;
     margin-bottom: 0.2em;
   }
   ul {

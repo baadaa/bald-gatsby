@@ -17,7 +17,6 @@ const PortfolioPostLayout = ({ data: { mdx }, pageContext, location }) => {
   const { previous, next } = pageContext;
   const from = location.state ? location.state.from : undefined;
   const {
-    date,
     tags,
     title,
     category,
@@ -45,8 +44,11 @@ const PortfolioPostLayout = ({ data: { mdx }, pageContext, location }) => {
         headerBreadcrumbBg={headerBreadcrumbBg}
       >
         <Link to={back}>Work</Link>
-        <h1 style={{ width: '100%' }}>{title}</h1>
-        <time dateTime={date}>{date}</time>
+        <h1
+          style={{ marginTop: '16rem', marginBottom: '19rem', width: '100%' }}
+        >
+          {title}
+        </h1>
       </PostHeroImgSection>
       <BlogEntry>
         <PostContentArea>

@@ -63,18 +63,18 @@ const Styles = styled.article`
       box-shadow: var(--hover-shadow);
     }
     .info {
-      animation: pulse 1s infinite;
+      animation: pulseSideways 1s infinite;
     }
   }
-  @keyframes pulse {
+  @keyframes pulseSideways {
     0% {
-      transform: translateY(0);
+      transform: translateX(0);
     }
     33% {
-      transform: translateY(-3px);
+      transform: translateX(3px);
     }
     100% {
-      transform: translateY(0);
+      transform: translateX(0);
     }
   }
 `;

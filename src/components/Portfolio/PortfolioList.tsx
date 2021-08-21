@@ -140,16 +140,23 @@ const workSubnav = [
 const PortfolioList = ({ category, workItems }) => {
   const isShort = category !== 'caseStudy';
   return (
-    <Layout heading="Work">
+    <Layout
+      heading="Work"
+      subheading="🤦‍♂️ This section is embarassingly out of date. Working to get it updated soon."
+    >
       <Seo title={`Work: ${category}`} />
       <ListLayout>
         <nav>
           <ul>
             {workSubnav.map((item, index) => (
               <li key={index}>
-                <Link to={item.url} activeClassName="current">
-                  {item.label}
-                </Link>
+                {item.url ? (
+                  <Link to={item.url} activeClassName="current">
+                    {item.label}
+                  </Link>
+                ) : (
+                  item.label
+                )}
               </li>
             ))}
           </ul>

@@ -60,13 +60,14 @@ const Logo = styled.div<LogoAnimProps>`
   flex-wrap: ${(props) => (props.horizontal ? 'wrap' : '')};
 
   .logo-container {
-    margin-top: ${(props) => (props.noMargin ? '0' : '18vh')};
+    margin-top: ${(props) => (props.noMargin ? '5vh' : '18vh')};
     display: flex;
     width: var(--logo-width);
     height: calc(var(--base-unit) * 3);
     perspective: calc(var(--logo-width) * 1.5);
     &.error404 {
       width: calc(var(--logo-width) * 3);
+      margin-top: 10vh;
     }
   }
   .logo-column {
@@ -250,7 +251,7 @@ const Flip404Animation = ({ size, noMargin, horizontal, noScale, click }) => (
         style={{ lineHeight: 1, marginBottom: '1rem' }}
       >
         <span style={{ fontSize: '1em' }}>404</span> as in <br />
-        <span style={{ fontSize: '.7em' }}>NOT FOUND</span>
+        <span style={{ fontSize: '.77em' }}>NOT FOUND</span>
       </div>
     </div>
   </Logo>

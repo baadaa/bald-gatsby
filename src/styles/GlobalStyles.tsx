@@ -49,6 +49,26 @@ const GlobalStyles = createGlobalStyle`
   --red200: #E6B2BB;
   --red100: #F2D9DD;
   --red50: #F9ECEE;
+  --coolGray900: #141c1f;
+  --coolGray800: #27383f;
+  --coolGray700: #3b545e;
+  --coolGray600: #3b545e;
+  --coolGray500: #628c9d;
+  --coolGray400: #81a3b1;
+  --coolGray300: #a1bac4;
+  --coolGray200: #c0d1d8;
+  --coolGray100: #e0e8eb;
+  --coolGray50: #eff4f5;
+  --gray900: #1a1a1a;
+  --gray800: #333333;
+  --gray700: #4d4d4d;
+  --gray600: #666666;
+  --gray500: #808080;
+  --gray400: #999999;
+  --gray300: #B3B3B3;
+  --gray200: #CCCCCC;
+  --gray100: #E6E6E6;
+  --gray50: #F2F2F2;
 
 
   @media screen and (max-width: 1024px) {
@@ -71,7 +91,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #202020;
+  color: var(--gray900);
   font-size: 1.6rem;
   line-height: 1.5;
   font-family: "Work Sans", sans-serif;

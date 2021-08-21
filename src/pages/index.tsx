@@ -254,11 +254,11 @@ const ScrollDown = styled.button`
   top: -1.5em;
   left: calc(50% - 1.5rem);
   opacity: 0.85;
-  animation: pulse 3s infinite;
+  animation: pulseScale 3s infinite;
   &:hover {
     animation-play-state: initial;
   }
-  @keyframes pulse {
+  @keyframes pulseScale {
     0% {
       transform: scale(1);
     }
