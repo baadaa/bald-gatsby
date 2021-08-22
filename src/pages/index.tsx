@@ -280,8 +280,8 @@ const IndexPage = () => {
   return (
     <Layout isFullWidth>
       <Seo
-        title="B | About"
-        description="Bumhan Yu, aka B as in Bald, is a designer and developer based in New York City."
+        title="About"
+        description="Bumhan Yu is a NYC-based visual designer and developer with backgrounds in psychology, linguistics, translation, and communications design."
         meta={[
           {
             property: `og:image`,

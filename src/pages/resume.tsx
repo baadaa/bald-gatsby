@@ -229,8 +229,8 @@ const ResumeStyles = styled.div`
 const ResumePage: React.FC = () => (
   <Layout>
     <Seo
-      title="B | Resume"
-      description="Bumhan Yu, aka B as in Bald, is a designer and developer based in New York City."
+      title="Resume"
+      description="Download the resume or view it online. Bumhan Yu is a NYC-based visual designer and developer with backgrounds in psychology, linguistics, translation, and communications design."
       meta={[
         {
           property: `og:image`,

@@ -115,7 +115,7 @@ const BlogPage = ({ data: { allMdx } }) => {
   return (
     <Layout heading="Blog">
       <Seo
-        title="B | Blog"
+        title="Blog"
         description="Stuff I've been thinking about and/or working on."
         meta={[
           {

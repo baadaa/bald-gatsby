@@ -9,7 +9,19 @@ import { Flip404Animation } from '../components/LogoAnimation/LogoAnimation';
 
 const NotFoundPage = () => (
   <Layout>
-    <Seo title="404: Not found" />
+    <Seo
+      title="404: Not found"
+      meta={[
+        {
+          name: 'googlebot',
+          content: 'noindex,nofollow',
+        },
+        {
+          name: 'robots',
+          content: 'noindex,nofollow',
+        },
+      ]}
+    />
     <Flip404Animation size="5rem" />
     <div style={{ margin: '0 auto', maxWidth: '330px' }}>
       <h1
@@ -25,26 +37,16 @@ const NotFoundPage = () => (
       </h1>
       <div
         style={{
-          fontSize: '1.3rem',
+          fontSize: '1.2rem',
           lineHeight: '1.5',
           background: '#f0f0f0',
-          padding: '1rem 2rem',
+          padding: '2rem 3rem',
           marginTop: '2rem',
           marginBottom: '1.3rem',
         }}
       >
-        This is either because:
-        <ul
-          style={{ paddingLeft: '1.5rem', marginTop: '1rem', fontSize: '1rem' }}
-        >
-          <li>
-            There is an error in the URL entered into your web browser. Please
-            check the URL and try again.
-          </li>
-          <li style={{ marginTop: '.5rem' }}>
-            The page you are looking for has been moved or deleted.
-          </li>
-        </ul>
+        Maybe there's a typo in the URL. Maybe the page has been moved or
+        deleted. In any case, nothing to see here.
       </div>
       <Link
         to="/"

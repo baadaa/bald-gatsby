@@ -12,7 +12,7 @@ import {
 } from '../UIElements';
 import { truncateStr } from '../utils';
 
-const BlogPostLayout = ({ data: { mdx }, pageContext }) => {
+const BlogPostLayout = ({ data: { mdx, site }, pageContext }) => {
   const { body } = mdx;
   const { previous, next } = pageContext;
   const {
@@ -24,11 +24,24 @@ const BlogPostLayout = ({ data: { mdx }, pageContext }) => {
     headerTextColor,
     description,
   } = mdx.frontmatter;
+  const { siteUrl } = site.siteMetadata;
+  const ogImage = headerImg.publicURL.endsWith('svg')
+    ? 'https://bald.design/home-og-image.jpg'
+    : `${siteUrl}${headerImg.publicURL}`;
   const prevArticle = previous && previous.frontmatter;
   const nextArticle = next && next.frontmatter;
   return (
     <Layout isFullWidth>
-      <Seo title={title} />
+      <Seo
+        title={title}
+        description={description}
+        meta={[
+          {
+            property: `og:image`,
+            content: ogImage,
+          },
+        ]}
+      />
       <PostHeroImgSection
         headerImg={headerImg.publicURL}
         headerTextColor={headerTextColor}
@@ -90,6 +103,11 @@ export const blogQuery = graphql`
         }
         headerBg
         headerTextColor
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

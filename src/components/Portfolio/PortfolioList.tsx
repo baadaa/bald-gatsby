@@ -139,13 +139,18 @@ const workSubnav = [
 ];
 const PortfolioList = ({ category, workItems }) => {
   const isShort = category !== 'caseStudy';
+  const seoCategory = {
+    caseStudy: 'Case Studies',
+    design: 'Design Works',
+    dev: 'Dev Works',
+  };
   return (
     <Layout
       heading="Work"
       subheading="🤦‍♂️ This section is embarassingly out of date. Working to get it updated soon."
     >
       <Seo
-        title={`Work: ${category}`}
+        title={`Work: ${seoCategory[category]}`}
         description="Work samples."
         meta={[
           {

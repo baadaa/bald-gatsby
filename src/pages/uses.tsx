@@ -165,12 +165,12 @@ const UsesPage: React.FC = () => (
       </style>
     </Helmet>
     <Seo
-      title="B | Uses"
+      title="Uses"
       description="A non-exhaustive list of things I use"
       meta={[
         {
           property: `og:image`,
-          content: 'https://bald.design/home-og-image.jpg',
+          content: 'https://bald.design/uses-og-image.jpg',
         },
       ]}
     />

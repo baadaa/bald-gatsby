@@ -70,7 +70,7 @@ const HeroArea = styled(BaldBackgroundSection)`
 const ContactPage = () => (
   <Layout isFullWidth>
     <Seo
-      title="B | Contact"
+      title="Contact"
       description="Always open to new ideas. Let us connect."
       meta={[
         {

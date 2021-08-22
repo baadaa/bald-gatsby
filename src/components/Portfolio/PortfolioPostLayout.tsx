@@ -12,19 +12,28 @@ import {
 } from '../UIElements';
 import { truncateStr } from '../utils';
 
-const PortfolioPostLayout = ({ data: { mdx }, pageContext, location }) => {
+const PortfolioPostLayout = ({
+  data: { mdx, site },
+  pageContext,
+  location,
+}) => {
   const { body } = mdx;
+  const { siteUrl } = site.siteMetadata;
   const { previous, next } = pageContext;
   const from = location.state ? location.state.from : undefined;
   const {
     tags,
     title,
     category,
+    description,
     headerImg,
     headerShadow,
     headerBreadcrumbBg,
     headerTextColor,
   } = mdx.frontmatter;
+  const ogImage = headerImg.publicURL.endsWith('svg')
+    ? 'https://bald.design/home-og-image.jpg'
+    : `${siteUrl}${headerImg.publicURL}`;
   const parentPaths = {
     caseStudy: '/work',
     design: '/work/design',
@@ -36,7 +45,16 @@ const PortfolioPostLayout = ({ data: { mdx }, pageContext, location }) => {
   const nextArticle = next && next.frontmatter;
   return (
     <Layout isFullWidth>
-      <Seo title={title} />
+      <Seo
+        title={title}
+        description={description}
+        meta={[
+          {
+            property: `og:image`,
+            content: ogImage,
+          },
+        ]}
+      />
       <PostHeroImgSection
         headerImg={headerImg.publicURL}
         headerTextColor={headerTextColor}
@@ -107,6 +125,11 @@ export const portfolioQuery = graphql`
         headerShadow
         headerBreadcrumbBg
         headerTextColor
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }
