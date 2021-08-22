@@ -2,7 +2,7 @@
   "name": "bald-design-gatsby",
   "private": true,
   "description": "Another round of personal site by Bumhan Yu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Bumhan Yu <bumhan.yu@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -64,9 +64,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/baadaa/bald-gatsby.git"
   }
 }
