@@ -144,7 +144,16 @@ const PortfolioList = ({ category, workItems }) => {
       heading="Work"
       subheading="🤦‍♂️ This section is embarassingly out of date. Working to get it updated soon."
     >
-      <Seo title={`Work: ${category}`} />
+      <Seo
+        title={`Work: ${category}`}
+        description="Work samples."
+        meta={[
+          {
+            property: `og:image`,
+            content: 'https://bald.design/portfolio-og-image.jpg',
+          },
+        ]}
+      />
       <ListLayout>
         <nav>
           <ul>

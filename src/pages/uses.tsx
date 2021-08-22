@@ -164,7 +164,16 @@ const UsesPage: React.FC = () => (
           }`}
       </style>
     </Helmet>
-    <Seo title="Uses" />
+    <Seo
+      title="B | Uses"
+      description="A non-exhaustive list of things I use"
+      meta={[
+        {
+          property: `og:image`,
+          content: 'https://bald.design/home-og-image.jpg',
+        },
+      ]}
+    />
     <UsesStyles>
       <nav>
         <ul>

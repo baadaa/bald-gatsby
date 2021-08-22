@@ -69,7 +69,16 @@ const HeroArea = styled(BaldBackgroundSection)`
 `;
 const ContactPage = () => (
   <Layout isFullWidth>
-    <Seo title="Contact" />
+    <Seo
+      title="B | Contact"
+      description="Always open to new ideas. Let us connect."
+      meta={[
+        {
+          property: `og:image`,
+          content: 'https://bald.design/contact-og-image.jpg',
+        },
+      ]}
+    />
     <HeroArea>
       <LogoAnimation size="8rem" logoOnly noMargin />
       <h1 style={{ marginTop: '.5em', marginBottom: '.2em' }}>

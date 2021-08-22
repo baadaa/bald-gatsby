@@ -279,7 +279,16 @@ const IndexPage = () => {
   const [curtainIsDown, setCurtainIsDown] = useState(false);
   return (
     <Layout isFullWidth>
-      <Seo title="Home" />
+      <Seo
+        title="B | About"
+        description="Bumhan Yu, aka B as in Bald, is a designer and developer based in New York City."
+        meta={[
+          {
+            property: `og:image`,
+            content: 'https://bald.design/home-og-image.jpg',
+          },
+        ]}
+      />
       <HeroArea>
         <LogoAnimation
           size="8rem"

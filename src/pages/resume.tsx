@@ -228,7 +228,16 @@ const ResumeStyles = styled.div`
 
 const ResumePage: React.FC = () => (
   <Layout>
-    <Seo title="Resume" />
+    <Seo
+      title="B | Resume"
+      description="Bumhan Yu, aka B as in Bald, is a designer and developer based in New York City."
+      meta={[
+        {
+          property: `og:image`,
+          content: 'https://bald.design/home-og-image.jpg',
+        },
+      ]}
+    />
     <ResumeStyles>
       <div className="impression">
         <StaticImage

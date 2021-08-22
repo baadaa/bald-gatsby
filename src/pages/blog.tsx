@@ -114,7 +114,16 @@ const BlogPage = ({ data: { allMdx } }) => {
   const posts = allMdx.edges.map((edge) => edge.node);
   return (
     <Layout heading="Blog">
-      <Seo title="Blog" />
+      <Seo
+        title="B | Blog"
+        description="Stuff I've been thinking about and/or working on."
+        meta={[
+          {
+            property: `og:image`,
+            content: 'https://bald.design/home-og-image.jpg',
+          },
+        ]}
+      />
       <BlogListStyle>
         {posts.map((post) => {
           const gatsbyImageData = getImage(post.frontmatter.headerImg);
