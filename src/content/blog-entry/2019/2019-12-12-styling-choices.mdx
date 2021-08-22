@@ -1,5 +1,5 @@
 ---
-title: "Gatsby Journey 02: Stylng choices"
+title: "Stylng choices for Gatsby"
 date: 2019-12-12
 slug: "/blog/styling-choices-for-me"
 type: blog
@@ -12,11 +12,14 @@ tags:
 description: "Like anything React, there are a bunch of options for styling in Gatsby: inine styling, global SCSS imports, CSS Modules, CSS-in-JS components, and then some. Here's my exploration into some."
 ---
 
-<p class="excerpt">
-  Like anything React, there are a bunch of options for styling in Gatsby: inine
-  styling, global SCSS imports, CSS Modules, CSS-in-JS components, and then
-  some. Here's my exploration into some.
-</p>
+```
+NOTES (2021-08-22)
+---
+When I first wrote this, I wanted to keep as much of existing SCSS/CSS
+as possible since I was converting an existing Jekyll repo into Gatsby.
+While the post content is still relevant, I've since rewritten significant
+portions of this site and kept only to `css-in-js` approaches.
+```
 
 ## Global (S)CSS and Variables
 
@@ -135,7 +138,7 @@ import React from "react";
 import styled from "styled-components";
 // ... and other import statements
 
-const IntroBox = props => {
+const IntroBox = (props) => {
   const { iconName, width, back, color, order, mobileOrder, label } = props;
   const IntroBoxDiv = styled.div`
     flex-basis: ${width === "1" ? "25%" : "50%"};

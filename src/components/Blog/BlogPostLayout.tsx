@@ -15,8 +15,15 @@ import { truncateStr } from '../utils';
 const BlogPostLayout = ({ data: { mdx }, pageContext }) => {
   const { body } = mdx;
   const { previous, next } = pageContext;
-  const { date, tags, title, headerImg, headerBg, headerTextColor } =
-    mdx.frontmatter;
+  const {
+    date,
+    tags,
+    title,
+    headerImg,
+    headerBg,
+    headerTextColor,
+    description,
+  } = mdx.frontmatter;
   const prevArticle = previous && previous.frontmatter;
   const nextArticle = next && next.frontmatter;
   return (
@@ -42,6 +49,7 @@ const BlogPostLayout = ({ data: { mdx }, pageContext }) => {
               <LabelPill key={index}>{tag}</LabelPill>
             ))}
           </ul>
+          <p className="excerpt">{description}</p>
           <MDXRenderer>{body}</MDXRenderer>
           <PostNav>
             {prevArticle ? (

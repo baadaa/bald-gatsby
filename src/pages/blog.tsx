@@ -33,6 +33,7 @@ const BlogListStyle = styled.div`
     flex-basis: var(--thumbnail-size);
     height: var(--thumbnail-size);
     border: 1px solid #eee;
+    box-sizing: content-box;
     img.notGatsby {
       flex-basis: var(--thumbnail-size);
       width: var(--thumbnail-size);
@@ -132,6 +133,9 @@ const BlogPage = ({ data: { allMdx } }) => {
                       className="notGatsby"
                       src={post.frontmatter.headerImg.publicURL}
                       alt=""
+                      loading="lazy"
+                      width="130"
+                      height="130"
                     />
                   )}
                 </Link>

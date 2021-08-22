@@ -55,8 +55,8 @@ module.exports = {
         name: `bald-design`,
         short_name: `bald-design`,
         start_url: `/`,
-        background_color: `#33A1CE`,
-        theme_color: `#33A1CE`,
+        background_color: `#34A5CB`,
+        theme_color: `#34A5CB`,
         display: `minimal-ui`,
         icon: `src/images/circle.png`, // This path is relative to the root of the site.
       },

@@ -17,7 +17,7 @@ const ResumeStyles = styled.div`
   padding-bottom: 6rem;
   p,
   ul {
-    color: #444;
+    color: var(--gray700);
   }
   .impression {
     --headshot-size: 20rem;
