@@ -37,6 +37,8 @@ A quick look at the important directories.
 
 ## What next?
 
+- Update `seo` component to `tsx`
+- Add `og` images and other page metadata
 - Remove redundant, verbose code blocks
 - Remove unused definitions and styles inherited from previous iterations
 - Continue to iterate and improve
