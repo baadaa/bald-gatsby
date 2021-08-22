@@ -8,6 +8,7 @@ const CaseStudyPage = ({ data: { allMdx } }) => {
     const { frontmatter } = edge.node;
     return {
       category: frontmatter.category,
+      industry: frontmatter.industry,
       slug: frontmatter.slug,
       thumbnail: frontmatter.thumbnail,
       title: frontmatter.title,
@@ -33,6 +34,7 @@ export const query = graphql`
             title
             slug
             category
+            industry
             description
             thumbnail {
               publicURL

@@ -34,10 +34,10 @@ const Styles = styled.article`
     }
   }
   span {
-    display: block;
+    display: inline-block;
     font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: 600;
+    /* text-transform: uppercase; */
+    /* font-weight: 600; */
     margin-bottom: 1em;
   }
   h2 {
@@ -52,6 +52,28 @@ const Styles = styled.article`
     font-family: 'Work sans', sans-serif;
     font-size: 1.5rem;
     /* max-width: 50ch; */
+  }
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  span,
+  li {
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: capitalize;
+    padding: 0.4rem 0.8rem;
+    background: var(--cyan50);
+    color: var(--cyan800);
+    border: 1px solid var(--cyan200);
+    margin-top: 0.3rem;
+    border-radius: 2rem;
+  }
+  li + li {
+    margin-left: 0.5rem;
   }
   a {
     color: inherit;
@@ -90,6 +112,7 @@ const PortfolioListItem = ({
   category,
 }) => {
   const gatsbyImageData = getImage(thumbnail);
+  console.log(industry);
   return (
     <Styles>
       <Link to={slug} state={{ from: category }}>
@@ -103,7 +126,13 @@ const PortfolioListItem = ({
         <Link to={slug} state={{ from: category }}>
           <h2>{title}</h2>
           {industry && <span>{industry}</span>}
-          {tags && <span>{tags.join(' • ')}</span>}
+          {tags && (
+            <ul>
+              {tags.map((tag, i) => (
+                <li key={i}>{tag}</li>
+              ))}
+            </ul>
+          )}
           {!isShort && description && <p>{description}</p>}
         </Link>
       </div>

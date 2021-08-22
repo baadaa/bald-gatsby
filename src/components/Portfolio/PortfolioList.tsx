@@ -121,6 +121,21 @@ const ListLayout = styled.div`
       margin-left: 0;
     }
   }
+  @media screen and (max-width: 550px) {
+    section[data-col='2'] {
+      article {
+        flex-basis: 100%;
+        width: 100%;
+        margin-top: 2rem;
+        &:nth-of-type(1) {
+          margin-top: 0rem;
+        }
+        &:nth-of-type(2) {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
 `;
 
 const workSubnav = [
