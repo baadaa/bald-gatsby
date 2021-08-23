@@ -72,6 +72,9 @@ const UsesStyles = styled.div`
     font-size: 1.3rem;
     text-transform: uppercase;
   }
+  .content {
+    flex: 1;
+  }
   h2 {
     flex-basis: 20%;
     margin: 0 0 2rem;
@@ -466,6 +469,75 @@ const UsesPage: React.FC = () => (
             <h3>
               Dot files, configs, aliases <span>(repo coming soon)</span>
             </h3>
+          </div>
+        </section>
+        <section className="sub">
+          <span className="sub-heading">
+            Browser &amp;
+            <br /> Email
+          </span>
+          <div className="content">
+            <h3>Chrome</h3>
+            <p>
+              Primary for browsing and DevTools. Chromium on Linux machines.
+              Otherwise regular ol' Chrome, not Canary.
+            </p>
+            <ul>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/go-back-with-backspace/eekailopagacbcdloonjhbiecobagjci">
+                  Go Back with Backspace
+                </a>
+              </li>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl">
+                  Full Page Screen Capture
+                </a>{' '}
+                &amp;{' '}
+                <a href="https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg">
+                  ColorPick Eyedropper
+                </a>
+              </li>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">
+                  JSON Formatter
+                </a>
+              </li>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/tabox-save-and-share-tab/bdbliblipiempfdkkkjohnecmeknnpoa?hl=en">
+                  Tabox
+                </a>{' '}
+                &amp;{' '}
+                <a href="https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall">
+                  OneTab
+                </a>
+              </li>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk">
+                  Video Speed Controller
+                </a>
+              </li>
+              <li>
+                <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">
+                  React Developer Tools
+                </a>
+              </li>
+            </ul>
+            <h3>
+              <a href="https://www.mozilla.org/en-US/firefox/developer/">
+                Firefox Developer Edition
+              </a>
+            </h3>
+            <p>Really neat visual DevTools</p>
+            <h3>
+              <a href="https://apps.apple.com/us/app/gmail-email-by-google/id422689480">
+                Gmail for iOS
+              </a>
+            </h3>
+            <p>More intuitive than native Apple Mail app</p>
+            <h3>
+              <a href="https://www.zoho.com/mail/">Zoho Mail</a>
+            </h3>
+            <p>Useful when setting up email address on custom domains</p>
           </div>
         </section>
         <section className="sub">
