@@ -10,6 +10,8 @@ import {
   LabelPill,
   PostNav,
 } from '../UIElements';
+import Claps from '../Claps/Claps';
+import TotalClaps from '../Claps/TotalClaps';
 import { truncateStr } from '../utils';
 
 const BlogPostLayout = ({ data: { mdx, site }, pageContext }) => {
@@ -23,6 +25,7 @@ const BlogPostLayout = ({ data: { mdx, site }, pageContext }) => {
     headerBg,
     headerTextColor,
     description,
+    slug,
   } = mdx.frontmatter;
   const { siteUrl } = site.siteMetadata;
   const ogImage = headerImg.publicURL.endsWith('svg')
@@ -62,8 +65,11 @@ const BlogPostLayout = ({ data: { mdx, site }, pageContext }) => {
               <LabelPill key={index}>{tag}</LabelPill>
             ))}
           </ul>
+          <TotalClaps slug={slug} />
           <p className="excerpt">{description}</p>
           <MDXRenderer>{body}</MDXRenderer>
+          <Claps slug={slug} />
+
           <PostNav>
             {prevArticle ? (
               <Link to={prevArticle.slug} className="previous">
@@ -97,6 +103,7 @@ export const blogQuery = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         tags
+        slug
         description
         headerImg {
           publicURL

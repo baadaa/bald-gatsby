@@ -1,6 +1,7 @@
 export * from './IconAdvertising';
 export * from './IconAfterEffects';
 export * from './IconBranding';
+export * from './IconClap';
 export * from './IconCutter';
 export * from './IconDesignThinking';
 export * from './IconDev';

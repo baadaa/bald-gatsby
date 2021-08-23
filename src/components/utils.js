@@ -59,3 +59,8 @@ export const copyToClipboard = (str) => {
 
   return clipboard.writeText(str);
 };
+
+export const inflect =
+  (singular, plural = `${singular}s`) =>
+  (quantity) =>
+    Math.abs(quantity) === 1 ? singular : plural;

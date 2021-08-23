@@ -112,7 +112,6 @@ const PortfolioListItem = ({
   category,
 }) => {
   const gatsbyImageData = getImage(thumbnail);
-  console.log(industry);
   return (
     <Styles>
       <Link to={slug} state={{ from: category }}>
