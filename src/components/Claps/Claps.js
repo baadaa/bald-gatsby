@@ -14,7 +14,7 @@ import { getFirebase } from '../../firebase';
 // Learned from
 // https://github.com/kyleshevlin/blog/blob/main/src/components/BeardStrokes.js
 
-const LOCAL_STORAGE_KEY = 'baldDesign:highFives';
+const LOCAL_STORAGE_KEY = 'baldDesign:claps';
 
 const ClapperStyles = styled.div`
   display: flex;
@@ -82,7 +82,7 @@ function setClicksForPostInLocalStorage(slug, count) {
   window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(update));
 }
 
-function addClicksToDatabase({ database, slug, count, lastUpdateCount }) {
+function addClicksToDatabase({ count, lastUpdateCount, slug, database }) {
   if (database) {
     database
       .ref(`posts/${slug}`)
@@ -129,13 +129,13 @@ const useClap = (slug) => {
 
   const storeClaps = useMemo(
     () =>
-      debounce(({ clapCount, db, lastUpdateClapCount, targetSlug }) => {
-        setClicksForPostInLocalStorage(targetSlug, clapCount);
+      debounce(({ count, database, lastUpdateCount, slug }) => {
+        setClicksForPostInLocalStorage(slug, count);
         addClicksToDatabase({
-          clapCount,
-          db,
-          lastUpdateClapCount,
-          targetSlug,
+          count,
+          database,
+          lastUpdateCount,
+          slug,
         });
         setLastUpdateCount(count);
       }, 500),
