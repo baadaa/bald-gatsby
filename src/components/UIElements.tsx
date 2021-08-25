@@ -135,8 +135,9 @@ const PostContentArea = styled.section`
   h3 {
     margin-top: 1.5rem;
     color: var(--cyan800);
-    margin-bottom: 0.5em;
-    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75em;
+    font-size: 2.1rem;
     line-height: 1.6;
   }
   a {
