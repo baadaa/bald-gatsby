@@ -87,6 +87,9 @@ html {
   position: relative;
   transition: transform .2s, filter .2s;
 }
+body::-webkit-scrollbar {
+  width: 11px;
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -102,8 +105,18 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  
+  scrollbar-width: thin;
+  scrollbar-color: var(--yellow500) var(--cyan700);
 }
+body::-webkit-scrollbar-track {
+  background: var(--gray100);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--yellow500);
+  border-radius: 6px;
+  border: 3px solid transparent;
+}
+
 article,
 aside,
 details,
