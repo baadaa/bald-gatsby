@@ -115,38 +115,34 @@ const InfoWrapperStyles = styled.div`
 
 type SiteInfoProps = { isVisible: boolean; cb: any };
 
-const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => {
-  console.log(isVisible);
-
-  return (
-    <InfoWrapperStyles data-active={isVisible}>
-      <div className="card">
-        <div className="chrome">
-          <button className="close" type="button" onClick={cb}>
-            &times;
-          </button>
-          <span className="button" />
-          <span className="button" />
-        </div>
-        <LogoAnimation size="7rem" noMargin noScale logoOnly click={cb} />
-        <h5>
-          <span>B</span> as in <span>BALD</span>
-        </h5>
-        <p style={{ marginTop: '1rem', marginBottom: '2rem' }}>Version 0.1.1</p>
-        <p>
-          Built with <a href="https://gatsbyjs.org/">Gatsby</a> &{' '}
-          <a href="https://styled-components.com/">styled-components</a>
-        </p>
-        <p>
-          Repo at <a href="https://github.com/baadaa/bald-gatsby">GitHub</a> &
-          Hosted via <a href="https://www.netlify.com/">Netlify</a>
-        </p>
-        <p style={{ marginTop: '2rem' }}>
-          &copy; {new Date().getFullYear()} by Bumhan Yu
-        </p>
+const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
+  <InfoWrapperStyles data-active={isVisible}>
+    <div className="card">
+      <div className="chrome">
+        <button className="close" type="button" onClick={cb}>
+          &times;
+        </button>
+        <span className="button" />
+        <span className="button" />
       </div>
-    </InfoWrapperStyles>
-  );
-};
+      <LogoAnimation size="7rem" noMargin noScale logoOnly click={cb} />
+      <h5>
+        <span>B</span> as in <span>BALD</span>
+      </h5>
+      <p style={{ marginTop: '1rem', marginBottom: '2rem' }}>Version 0.1.1</p>
+      <p>
+        Built with <a href="https://gatsbyjs.org/">Gatsby</a> &{' '}
+        <a href="https://styled-components.com/">styled-components</a>
+      </p>
+      <p>
+        Repo at <a href="https://github.com/baadaa/bald-gatsby">GitHub</a> &
+        Hosted via <a href="https://www.netlify.com/">Netlify</a>
+      </p>
+      <p style={{ marginTop: '2rem' }}>
+        &copy; {new Date().getFullYear()} by Bumhan Yu
+      </p>
+    </div>
+  </InfoWrapperStyles>
+);
 
 export default SiteInfo;
