@@ -119,6 +119,9 @@ const InfoWrapperStyles = styled.div`
       font-weight: 600;
       text-align: center;
     }
+    .gr {
+      display: inline-block;
+    }
     kbd {
       display: inline-block;
       font-weight: 600;
@@ -168,19 +171,28 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
       </p>
       <hr />
       <h6>Available Konami codes</h6>
-      <kbd>s</kbd>
-      <kbd>h</kbd>
-      <kbd>a</kbd>
-      <kbd>k</kbd>
-      <kbd>e</kbd> • <kbd>b</kbd>
-      <kbd>l</kbd>
-      <kbd>u</kbd>
-      <kbd>r</kbd> • <kbd>r</kbd>
-      <kbd>e</kbd>
-      <kbd>s</kbd>
-      <kbd>e</kbd>
-      <kbd>t</kbd>
-      <br />
+      <span className="gr">
+        <kbd>s</kbd>
+        <kbd>h</kbd>
+        <kbd>a</kbd>
+        <kbd>k</kbd>
+        <kbd>e</kbd>
+      </span>{' '}
+      •{' '}
+      <span className="gr">
+        <kbd>b</kbd>
+        <kbd>l</kbd>
+        <kbd>u</kbd>
+        <kbd>r</kbd>
+      </span>{' '}
+      •{' '}
+      <span className="gr">
+        <kbd>r</kbd>
+        <kbd>e</kbd>
+        <kbd>s</kbd>
+        <kbd>e</kbd>
+        <kbd>t</kbd>
+      </span>
     </div>
   </InfoWrapperStyles>
 );
