@@ -9,6 +9,7 @@ const InfoWrapperStyles = styled.div`
   right: 0;
   bottom: 0;
   z-index: 91;
+  padding: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +22,8 @@ const InfoWrapperStyles = styled.div`
   }
   .card {
     background-color: #2d2d2d;
-    width: 32rem;
+    width: 100%;
+    max-width: 32rem;
     box-sizing: border-box;
     border-radius: 0.7rem;
     box-shadow: var(--base-shadow);
@@ -88,6 +90,17 @@ const InfoWrapperStyles = styled.div`
         background-color: var(--green500);
       }
     }
+    h5 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin: 1.5rem 0 0;
+      font-weight: 400;
+      color: #999;
+      span {
+        font-weight: 700;
+        color: #fff;
+      }
+    }
     p {
       font-family: 'Work sans', sans-serif;
       font-size: 1.2rem;
@@ -115,7 +128,10 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => {
           <span className="button" />
           <span className="button" />
         </div>
-        <LogoAnimation size="6rem" noMargin click={cb} />
+        <LogoAnimation size="7rem" noMargin noScale logoOnly click={cb} />
+        <h5>
+          <span>B</span> as in <span>BALD</span>
+        </h5>
         <p style={{ marginTop: '1rem', marginBottom: '2rem' }}>Version 0.1.1</p>
         <p>
           Built with <a href="https://gatsbyjs.org/">Gatsby</a> &{' '}
