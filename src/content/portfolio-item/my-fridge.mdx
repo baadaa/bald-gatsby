@@ -1,9 +1,9 @@
 ---
-order: 12
+order: 0
 title: My Fridge App
 type: work
 slug: /work/my-fridge-app
-thumbnail: "./images/myfridge-442x330.jpg"
+thumbnail: "./images/fridge-884x660.jpg"
 headerImg: "./images/myfridge.jpg"
 headerTextColor: "#000"
 category:
@@ -11,13 +11,13 @@ category:
   - design
 tags:
   - UX/UI
-  - JS
-description: "Open source web app that help better manage food inventory in refrigerator and keep track of fresh items."
+  - React
+description: "Simple SPA hat help better manage food inventory in refrigerator and keep track of fresh items."
 ---
 
 import { SimpleButton, ButtonContainer } from "../../components/SimpleButton";
 
-###### Open source web app that help better manage food inventory in refrigerator and keep track of fresh items.
+###### Simple SPA hat help better manage food inventory in refrigerator and keep track of fresh items.
 
 <section class="portfolioDetail">
 
@@ -31,7 +31,7 @@ design, develop
 
 ### tools
 
-`JS`, `HTML/SCSS`, Firebase, OAuth (Google & Facebook)
+`create-react-app`, `styled-components`, Firebase, OAuth (Google & Facebook)
 
 </section>
 
@@ -49,21 +49,33 @@ Keeping track of what's in your fridge can be a hassle&mdash;_what's there, when
 
 <div>
 
-- Google/Facebook sign-in for easy access from multiple devices.
-
 - Manage fridge and freezer inventory
 
   - Quickly add/remove items per section
-
   - Track added date and expiration date
-
   - Attach a photo of each item
-
   - Update quantity of individual item
+
+- Use `localStorage` for data storage
 
 - Manage shopping list
 
 - Open source and free to use
+
+</div>
+</section>
+
+<section class="portfolioDetail">
+
+### TODO
+
+<div>
+
+- Use Firebase for cloud sync
+
+- Add authentication
+
+- Add food expiration warning
 
 </div>
 </section>
@@ -76,7 +88,7 @@ Keeping track of what's in your fridge can be a hassle&mdash;_what's there, when
   />
   <SimpleButton
     cta="View GitHub Repo"
-    link="https://github.com/baadaa/myfridge"
+    link="https://github.com/baadaa/remember-fridge-react"
     color="var(--green500)"
   />
 </ButtonContainer>

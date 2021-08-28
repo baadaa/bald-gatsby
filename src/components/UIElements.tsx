@@ -94,7 +94,7 @@ const PostContentArea = styled.section`
   --subheading-width: 15rem;
   .portfolioDetail {
     display: flex;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     flex-direction: column;
     code {
       font-size: 0.75em;
@@ -108,25 +108,34 @@ const PostContentArea = styled.section`
         content: ':';
       }
     }
+    p {
+      margin: 0;
+    }
     ul {
       margin-top: 0;
       margin-bottom: 0;
       justify-content: flex-start;
       display: flex;
       flex-direction: column;
-      list-style: none;
+      /* list-style: none; */
       padding: 0;
       // padding: 0 0 0 1.5em;
-      border-left: 3px solid #ddd;
+      /* border-left: 3px solid #ddd; */
       li {
         margin-left: 1.5em;
         &:last-of-type {
           margin-bottom: 0;
         }
+        ul {
+          margin-top: 0.5rem;
+        }
+      }
+      p {
+        margin: 0;
       }
     }
-    li {
-      margin-bottom: 1rem;
+    li + li {
+      margin-top: 0.5rem;
     }
     @media screen and (min-width: 600px) {
       flex-direction: row;
@@ -274,12 +283,12 @@ const PostContentArea = styled.section`
   .simple-button {
     color: #fff;
     padding: 1.3rem 2rem;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     border: none;
-    border-radius: 2rem;
+    border-radius: 5rem;
     font-family: inherit;
     margin-right: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     width: 100%;
     transition: transform 0.2s;
     &:hover {
