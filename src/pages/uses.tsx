@@ -467,7 +467,9 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <h3>
-              Dot files, configs, aliases <span>(repo coming soon)</span>
+              <a href="https://github.com/baadaa/dotfiles">
+                Dot files, configs, aliases
+              </a>
             </h3>
           </div>
         </section>
@@ -588,6 +590,11 @@ const UsesPage: React.FC = () => (
               <li>
                 <a href="https://github.com/so-fancy/diff-so-fancy">
                   diff-so-fancy
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/http-party/http-server">
+                  http-server
                 </a>
               </li>
               <li>
