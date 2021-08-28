@@ -11,7 +11,7 @@ const CurtainStyles = styled.div`
   padding: 2rem;
   animation: pulsing 20s linear infinite;
   transform: translateY(-105vh);
-  transition: transform 0.5s, opacity 0.5s;
+  transition: transform 0.75s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 0;
   display: flex;
   align-items: center;
