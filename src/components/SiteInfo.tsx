@@ -13,12 +13,13 @@ const InfoWrapperStyles = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-100vw) scale(0.8);
+  transform: translateX(-100vw) rotate3d(0.025, 1, 0, 2.5turn) scale(0.5);
   opacity: 0;
-  transition: transform 0.75s ease-out, opacity 0.5s ease-out;
+  transition: transform 2s cubic-bezier(0.47, 1.64, 0.41, 0.8),
+    opacity 0.5s ease-out;
   &[data-active='true'] {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: translateX(0) rotate3d(0, 0, 0, 0) scale(1);
   }
   .card {
     background-color: #2d2d2d;
