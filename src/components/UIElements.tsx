@@ -36,6 +36,123 @@ type PostHeroImgProps = {
   headerBreadcrumbBg?: string;
   headerShadow?: string;
 };
+const PortfolioHeroSection = styled.section`
+  display: flex;
+  align-items: stretch;
+  height: calc(100vh - var(--nav-height));
+  margin-bottom: 7rem;
+  .text-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 500px;
+    padding: 1.5rem;
+    --sideMargin: 5rem;
+    margin-left: var(--sideMargin);
+    margin-right: var(--sideMargin);
+  }
+  .image-area {
+    flex: 1;
+  }
+  .gatsby-img {
+    width: 100%;
+    height: 100%;
+  }
+  .non-gatsby-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+  }
+  a {
+    text-decoration: none;
+    color: var(--cyan700);
+    flex: 0;
+    font-size: 1.5rem;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--yellow500);
+      color: var(--cyan600);
+    }
+  }
+  h1 {
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+    flex: 0;
+    line-height: 1.3;
+  }
+  p {
+    font-size: 2.1rem;
+    color: var(--coolGray500);
+  }
+  ul.post-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  @media screen and (max-width: 1500px) {
+    .text-area {
+      flex-basis: 400px;
+      --sideMargin: 4rem;
+    }
+    h1 {
+      font-size: 4.5rem;
+    }
+    p {
+      font-size: 1.9rem;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .text-area {
+      flex-basis: 350px;
+      --sideMargin: 3.5rem;
+    }
+    h1 {
+      font-size: 4.2rem;
+    }
+    p {
+      font-size: 1.7rem;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    display: block;
+    margin-bottom: 5rem;
+    height: auto;
+    h1 {
+      text-align: left;
+    }
+    .text-area {
+      --sideMargin: auto;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      max-width: 80rem;
+    }
+    .image-area {
+      padding: 0 1.5rem;
+      max-width: 90rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 3rem;
+    h1 {
+      font-size: 3.6rem;
+    }
+    ul.post-tags {
+      margin-bottom: 0rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2.8rem;
+    }
+  }
+`;
 const PostHeroImgSection = styled.section<PostHeroImgProps>`
   display: flex;
   flex-direction: column;
@@ -52,7 +169,6 @@ const PostHeroImgSection = styled.section<PostHeroImgProps>`
     text-decoration: none;
     flex: 0;
     font-size: 1.5rem;
-    padding: 0.5rem 1rem;
     color: ${(props) =>
       props.headerTextColor ? props.headerTextColor : '#FFF'};
     background: ${(props) =>
@@ -103,6 +219,7 @@ const PostContentArea = styled.section`
     h3 {
       margin-top: 0;
       margin-bottom: 0.5em;
+      font-size: 1.8rem;
       &::after {
         display: inline;
         content: ':';
@@ -135,7 +252,7 @@ const PostContentArea = styled.section`
       }
     }
     li + li {
-      margin-top: 0.5rem;
+      margin-top: 0.125rem;
     }
     @media screen and (min-width: 600px) {
       flex-direction: row;
@@ -177,13 +294,13 @@ const PostContentArea = styled.section`
     margin: 5rem auto;
     width: 10rem;
     border: none;
-    border-top: 2px solid #ddd;
+    border-top: 1px solid #ddd;
     &::after {
-      content: 'creatives';
+      content: ' ';
       text-align: center;
       display: block;
-      padding: 0.5rem;
-      font-size: 1.4rem;
+      padding: 0.2rem;
+      font-size: 1rem;
       color: #333;
       border-bottom: 2px solid #ddd;
     }
@@ -448,6 +565,7 @@ const PostNav = styled.nav`
 export {
   LabelPill,
   Footer,
+  PortfolioHeroSection,
   PostHeroImgSection,
   PageHeading,
   PostContentArea,

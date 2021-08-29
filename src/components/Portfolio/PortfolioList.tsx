@@ -140,16 +140,16 @@ const ListLayout = styled.div`
 
 const workSubnav = [
   {
-    label: 'Case Studies',
-    url: '/work',
-  },
-  {
     label: 'Design Works',
     url: '/work/design',
   },
   {
     label: 'Dev Works',
     url: '/work/dev',
+  },
+  {
+    label: 'Case Studies',
+    url: '/work',
   },
 ];
 const PortfolioList = ({ category, workItems }) => {

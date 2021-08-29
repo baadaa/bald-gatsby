@@ -1,17 +1,44 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Seo from '../seo';
 import Layout from '../layout';
 import {
   BlogEntry,
-  PostHeroImgSection,
+  PortfolioHeroSection,
   PostContentArea,
   LabelPill,
   PostNav,
 } from '../UIElements';
 import { truncateStr } from '../utils';
 
+const getBreadcrumb = (fromPath, baseCategory) => {
+  const parentPaths = {
+    caseStudy: {
+      path: '/work',
+      label: 'Case Studies',
+    },
+    design: {
+      path: '/work/design',
+      label: 'Design Works',
+    },
+    dev: {
+      path: '/work/dev',
+      label: 'Dev Works',
+    },
+  };
+  if (!fromPath)
+    return {
+      breadcrumbPath: '/work',
+      breadcrumbLabel: parentPaths[baseCategory].label,
+    };
+  const breadcrumbPath =
+    parentPaths[fromPath].path || parentPaths[baseCategory].path;
+  const breadcrumbLabel =
+    parentPaths[fromPath].label || parentPaths[baseCategory].label;
+  return { breadcrumbPath, breadcrumbLabel };
+};
 const PortfolioPostLayout = ({
   data: { mdx, site },
   pageContext,
@@ -21,28 +48,16 @@ const PortfolioPostLayout = ({
   const { siteUrl } = site.siteMetadata;
   const { previous, next } = pageContext;
   const from = location.state ? location.state.from : undefined;
-  const {
-    tags,
-    title,
-    category,
-    description,
-    headerImg,
-    headerShadow,
-    headerBreadcrumbBg,
-    headerTextColor,
-  } = mdx.frontmatter;
+  const { tags, title, category, description, headerImg } = mdx.frontmatter;
   const ogImage = headerImg.publicURL.endsWith('svg')
     ? 'https://bald.design/home-og-image.jpg'
     : `${siteUrl}${headerImg.publicURL}`;
-  const parentPaths = {
-    caseStudy: '/work',
-    design: '/work/design',
-    dev: '/work/dev',
-  };
   const baseCategory = category[0];
-  const back = parentPaths[from] || parentPaths[baseCategory];
+  const { breadcrumbPath, breadcrumbLabel } = getBreadcrumb(from, baseCategory);
   const prevArticle = previous && previous.frontmatter;
   const nextArticle = next && next.frontmatter;
+  const gatsbyImageData = getImage(headerImg);
+
   return (
     <Layout isFullWidth>
       <Seo
@@ -55,26 +70,37 @@ const PortfolioPostLayout = ({
           },
         ]}
       />
-      <PostHeroImgSection
-        headerImg={headerImg.publicURL}
-        headerTextColor={headerTextColor}
-        headerShadow={headerShadow}
-        headerBreadcrumbBg={headerBreadcrumbBg}
-      >
-        <Link to={back}>Work</Link>
-        <h1
-          style={{ marginTop: '16rem', marginBottom: '19rem', width: '100%' }}
-        >
-          {title}
-        </h1>
-      </PostHeroImgSection>
-      <BlogEntry>
-        <PostContentArea>
+      <PortfolioHeroSection>
+        <div className="text-area">
+          <Link to={breadcrumbPath}>{breadcrumbLabel}</Link>
+          <h1>{title}</h1>
+          <p>{description}</p>
           <ul className="post-tags">
             {tags.map((tag, index) => (
               <LabelPill key={index}>{tag}</LabelPill>
             ))}
           </ul>
+        </div>
+        <div className="image-area">
+          {gatsbyImageData ? (
+            <GatsbyImage
+              image={gatsbyImageData}
+              alt={title}
+              className="gatsby-img"
+              objectFit="cover"
+            />
+          ) : (
+            <img
+              src={headerImg.publicURL}
+              className="non-gatsby-img"
+              alt={title}
+              loading="lazy"
+            />
+          )}
+        </div>
+      </PortfolioHeroSection>
+      <BlogEntry>
+        <PostContentArea>
           <MDXRenderer>{body}</MDXRenderer>
           <PostNav>
             {prevArticle ? (
@@ -121,10 +147,15 @@ export const portfolioQuery = graphql`
         description
         headerImg {
           publicURL
+          childImageSharp {
+            gatsbyImageData(
+              formats: AUTO
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              transformOptions: { cropFocus: CENTER }
+            )
+          }
         }
-        headerShadow
-        headerBreadcrumbBg
-        headerTextColor
       }
     }
     site {

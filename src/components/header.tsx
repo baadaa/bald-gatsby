@@ -15,7 +15,7 @@ const HeaderStyles = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: var(--max-width);
+    /* max-width: var(--max-width); */
     margin: 0 auto;
     padding: 0 1.5rem;
     height: var(--nav-height);
@@ -145,7 +145,7 @@ const nav = [
   },
   {
     label: 'Work',
-    url: '/work',
+    url: '/work/design',
     partialMatch: true,
   },
   // {
