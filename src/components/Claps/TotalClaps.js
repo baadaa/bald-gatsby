@@ -10,7 +10,8 @@ import { inflect } from '../utils';
 const SpanStyles = styled.span`
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: ${(props) =>
+    props.align === 'left' ? 'flex-start' : 'center'};
   align-items: center;
   padding: 0.5rem 0;
   margin-top: 0;
@@ -67,8 +68,10 @@ class TotalClaps extends Component {
     const toBottom = () =>
       isBrowser &&
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    const { align } = this.props;
     return (
       <SpanStyles
+        align={align}
         style={{
           opacity: hasFetchedOnce ? 1 : 0,
         }}

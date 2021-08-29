@@ -11,28 +11,31 @@ import {
   LabelPill,
   PostNav,
 } from '../UIElements';
+import Claps from '../Claps/Claps';
+import TotalClaps from '../Claps/TotalClaps';
 import { truncateStr } from '../utils';
 
 const getBreadcrumb = (fromPath, baseCategory) => {
   const parentPaths = {
     caseStudy: {
-      path: '/work',
+      path: '/work/',
       label: 'Case Studies',
     },
     design: {
-      path: '/work/design',
+      path: '/work/design/',
       label: 'Design Works',
     },
     dev: {
-      path: '/work/dev',
+      path: '/work/dev/',
       label: 'Dev Works',
     },
   };
-  if (!fromPath)
+  if (!fromPath || ['caseStudy', 'dev', 'design'].indexOf(fromPath) === -1) {
     return {
-      breadcrumbPath: '/work',
+      breadcrumbPath: parentPaths[baseCategory].path,
       breadcrumbLabel: parentPaths[baseCategory].label,
     };
+  }
   const breadcrumbPath =
     parentPaths[fromPath].path || parentPaths[baseCategory].path;
   const breadcrumbLabel =
@@ -48,7 +51,8 @@ const PortfolioPostLayout = ({
   const { siteUrl } = site.siteMetadata;
   const { previous, next } = pageContext;
   const from = location.state ? location.state.from : undefined;
-  const { tags, title, category, description, headerImg } = mdx.frontmatter;
+  const { tags, title, category, description, headerImg, slug } =
+    mdx.frontmatter;
   const ogImage = headerImg.publicURL.endsWith('svg')
     ? 'https://bald.design/home-og-image.jpg'
     : `${siteUrl}${headerImg.publicURL}`;
@@ -80,6 +84,7 @@ const PortfolioPostLayout = ({
               <LabelPill key={index}>{tag}</LabelPill>
             ))}
           </ul>
+          <TotalClaps align="left" slug={slug} />
         </div>
         <div className="image-area">
           {gatsbyImageData ? (
@@ -102,6 +107,7 @@ const PortfolioPostLayout = ({
       <BlogEntry>
         <PostContentArea>
           <MDXRenderer>{body}</MDXRenderer>
+          <Claps slug={slug} />
           <PostNav>
             {prevArticle ? (
               <Link
@@ -143,6 +149,7 @@ export const portfolioQuery = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         tags
+        slug
         category
         description
         headerImg {

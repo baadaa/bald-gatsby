@@ -268,7 +268,8 @@ const PostContentArea = styled.section`
   }
   a {
     color: inherit;
-    transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, background-color 0.2s, transform 0.2s,
+      box-shadow 0.2s;
     text-decoration-color: var(--yellow400);
     &:hover {
       color: var(--red600);
@@ -397,21 +398,6 @@ const PostContentArea = styled.section`
     }
   }
 
-  .simple-button {
-    color: #fff;
-    padding: 1.3rem 2rem;
-    font-size: 1.6rem;
-    border: none;
-    border-radius: 5rem;
-    font-family: inherit;
-    margin-right: 1rem;
-    font-weight: 600;
-    width: 100%;
-    transition: transform 0.2s;
-    &:hover {
-      transform: translateY(-0.2rem);
-    }
-  }
   .emb-video {
     height: 0;
     padding-top: 25px;
