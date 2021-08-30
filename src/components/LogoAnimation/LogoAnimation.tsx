@@ -120,22 +120,22 @@ const Piece = styled.div`
   }
   &[data-type='tl'] {
     border-top-left-radius: var(--base-unit);
-    ${animateThis('rY22', '40s', 'normal', 'forwards')};
+    ${animateThis('rY22', 40, 'normal', 'forwards')};
   }
   &[data-type='sq'] {
-    ${animateThis('rX28', '40s', 'normal', 'backwards')};
+    ${animateThis('rX28', 40, 'normal', 'backwards')};
   }
   &[data-type='tr'] {
     border-top-right-radius: var(--base-unit);
-    ${animateThis('rY25', '40s', 'normal', 'forwards')};
+    ${animateThis('rY25', 40, 'normal', 'forwards')};
   }
   &[data-type='bl'] {
     border-bottom-left-radius: var(--base-unit);
-    ${animateThis('rY25', '40s', 'normal', 'backwards')};
+    ${animateThis('rY25', 40, 'normal', 'backwards')};
   }
   &[data-type='br'] {
     border-bottom-right-radius: var(--base-unit);
-    ${animateThis('rX3', '40s', 'normal', 'forwards')};
+    ${animateThis('rX3', 40, 'normal', 'forwards')};
   }
 `;
 
