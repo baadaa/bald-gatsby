@@ -18,33 +18,33 @@ const transformBits = (direction, deg, color) => `
   background: ${color};
 `;
 
-const keyframesRX3 = () => `
+const getVariants = (axis, factor) => `
   0% {
-    ${transformBits('X', '0deg', 'var(--yellow500)')};
+    ${transformBits(axis, '0deg', 'var(--yellow500)')}
   }  
-  3% {
-    ${transformBits('X', '360deg', 'var(--cyan500)')};
+  ${factor}% {
+    ${transformBits(axis, '360deg', 'var(--cyan500)')}
   }
   30% {
-    ${transformBits('X', '360deg', 'var(--cyan500)')};
+    ${transformBits(axis, '360deg', 'var(--cyan500)')}
   }
-  33% {
-    ${transformBits('X', '0deg', 'var(--red500)')};
+  ${30 + factor}% {
+    ${transformBits(axis, '0deg', 'var(--red500)')}
   }
   60% {
-    ${transformBits('X', '0deg', 'var(--red500)')};
+    ${transformBits(axis, '0deg', 'var(--red500)')}
   }
-  63% {
-    ${transformBits('X', '360deg', 'var(--green500)')};
+  ${60 + factor}% {
+    ${transformBits(axis, '360deg', 'var(--green500)')}
   }
   90% {
-    ${transformBits('X', '360deg', 'var(--green500)')};
+    ${transformBits(axis, '360deg', 'var(--green500)')}
   }
-  93% {
-    ${transformBits('X', '0deg', 'var(--yellow500)')};
+  ${90 + factor}% {
+    ${transformBits(axis, '0deg', 'var(--yellow500)')}
   }
   100% {
-    ${transformBits('X', '0deg', 'var(--yellow500)')};
+    ${transformBits(axis, '0deg', 'var(--yellow500)')}
   }
 `;
 
@@ -78,70 +78,8 @@ const keyframesRX28 = () => `
   }
 `;
 
-const keyframesRY22 = () => `
-  0% {
-    ${transformBits('Y', '0deg', 'var(--yellow500)')};
-  }
-  2.2% {
-    ${transformBits('Y', '360deg', 'var(--cyan500)')};
-  }
-  30% {
-    ${transformBits('Y', '360deg', 'var(--cyan500)')};
-  }
-  32.2% {
-    ${transformBits('Y', '0deg', 'var(--red500)')};
-  }
-  60% {
-    ${transformBits('Y', '0deg', 'var(--red500)')};
-  }
-  62.2% {
-    ${transformBits('Y', '360deg', 'var(--green500)')};
-  }
-  90% {
-    ${transformBits('Y', '360deg', 'var(--green500)')};
-  }
-  92.2% {
-    ${transformBits('Y', '0deg', 'var(--yellow500)')};
-  }
-  100% {
-    ${transformBits('Y', '0deg', 'var(--yellow500)')};
-  }
-`;
-
-const keyframesRY25 = () => `
-  0% {
-    ${transformBits('Y', '0deg', 'var(--yellow500)')};
-  }
-  2.5% {
-    ${transformBits('Y', '360deg', 'var(--cyan500)')};
-  }
-  30% {
-    ${transformBits('Y', '360deg', 'var(--cyan500)')};
-  }
-  32.5% {
-    ${transformBits('Y', '0deg', 'var(--red500)')};
-  }
-  60% {
-    ${transformBits('Y', '0deg', 'var(--red500)')};
-  }
-  62.5% {
-    ${transformBits('Y', '360deg', 'var(--green500)')};
-  }
-  90% {
-    ${transformBits('Y', '360deg', 'var(--green500)')};
-  }
-  92.5% {
-    ${transformBits('Y', '0deg', 'var(--yellow500)')};
-  }
-  100% {
-    ${transformBits('Y', '0deg', 'var(--yellow500)')};
-  }
-`;
-
-export {
-  animateThis,
-  keyframesRX3,
-  keyframesRY22,
-  keyframesRY25,
-  keyframesRX28,
-};
+const rX3 = getVariants('X', 3);
+const rY25 = getVariants('Y', 2.5);
+const rY22 = getVariants('Y', 2.2);
+const rX28 = getVariants('X', 2.8);
+export { animateThis, keyframesRX28, rX3, rY25, rY22, rX28 };

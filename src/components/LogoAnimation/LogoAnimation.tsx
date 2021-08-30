@@ -1,17 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  animateThis,
-  keyframesRX3,
-  keyframesRY25,
-  keyframesRY22,
-  keyframesRX28,
-} from './AnimationParams';
+import { animateThis, rX28, rX3, rY25, rY22 } from './AnimationParams';
 
 type LogoAnimProps = {
   size: string;
   noMargin?: boolean;
-  horizontal?: boolean;
   noScale?: boolean;
   click?: any;
   logoOnly?: boolean;
@@ -55,9 +48,7 @@ const Logo = styled.div<LogoAnimProps>`
 
   display: flex;
   align-items: center;
-  flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
-  justify-content: ${(props) => (props.horizontal ? 'center' : '')};
-  flex-wrap: ${(props) => (props.horizontal ? 'wrap' : '')};
+  flex-direction: column;
 
   .logo-container {
     margin-top: ${(props) => (props.noMargin ? '5vh' : '18vh')};
@@ -85,14 +76,11 @@ const Logo = styled.div<LogoAnimProps>`
 
   .logo-phrase-container {
     color: #999;
-    --logo-phrase: ${(props) =>
-      props.horizontal ? `calc(var(--logo-width) * 1)` : 'inherit'};
     font-size: var(--logo-phrase);
     letter-spacing: -0.02em;
     padding-left: 0.5em;
     transform-origin: left;
-    margin-top: ${(props) =>
-      props.horizontal ? '0' : 'calc(var(--logo-phrase) * 0.5)'};
+    margin-top: calc(var(--logo-phrase) * 0.5);
     span {
       font-weight: 700;
       font-size: calc(var(--logo-phrase) * 0.86);
@@ -103,58 +91,57 @@ const Logo = styled.div<LogoAnimProps>`
     }
   }
   cursor: pointer;
-  transition: transform 0.5s cubic-bezier(0.42, 1.14, 0.87, 1.2);
+  transition: transform 0.5s, filter 0.5s;
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    filter: drop-shadow(3px 7px 15px rgba(0, 0, 0, 0.15));
   }
 `;
-type PieceProps = {
-  em?: boolean;
-  tl?: boolean;
-  tr?: boolean;
-  bl?: boolean;
-  br?: boolean;
-  sq?: boolean;
-};
-const Piece = styled.div<PieceProps>`
+const Piece = styled.div`
   width: var(--base-unit);
   height: var(--base-unit);
   box-sizing: border-box;
-  background: ${(props) => (props.em ? `FFF!important` : `var(--cyan)`)};
-  border-top-left-radius: ${(props) => (props.tl ? `var(--base-unit)` : '')};
-  border-top-right-radius: ${(props) => (props.tr ? `var(--base-unit)` : '')};
-  border-bottom-left-radius: ${(props) => (props.bl ? `var(--base-unit)` : '')};
-  border-bottom-right-radius: ${(props) =>
-    props.br ? `var(--base-unit)` : ''};
+  background-color: var(--cyan500);
 
   @keyframes rX3 {
-    ${keyframesRX3}
+    ${rX3}
   }
   @keyframes rY25 {
-    ${keyframesRY25}
+    ${rY25}
   }
   @keyframes rY22 {
-    ${keyframesRY22}
+    ${rY22}
   }
   @keyframes rX28 {
-    ${keyframesRX28}
+    ${rX28}
   }
-  ${(props) =>
-    props.tl ? animateThis('rY22', '40s', 'normal', 'forwards') : ''};
-  ${(props) =>
-    props.sq ? animateThis('rX28', '40s', 'normal', 'backwards') : ''};
-  ${(props) =>
-    props.tr ? animateThis('rY25', '40s', 'normal', 'forwards') : ''};
-  ${(props) =>
-    props.bl ? animateThis('rY25', '40s', 'normal', 'backwards') : ''};
-  ${(props) =>
-    props.br ? animateThis('rX3', '40s', 'normal', 'forwards') : ''};
+  &[data-type='em'] {
+    background-color: transparent;
+  }
+  &[data-type='tl'] {
+    border-top-left-radius: var(--base-unit);
+    ${animateThis('rY22', '40s', 'normal', 'forwards')};
+  }
+  &[data-type='sq'] {
+    ${animateThis('rX28', '40s', 'normal', 'backwards')};
+  }
+  &[data-type='tr'] {
+    border-top-right-radius: var(--base-unit);
+    ${animateThis('rY25', '40s', 'normal', 'forwards')};
+  }
+  &[data-type='bl'] {
+    border-bottom-left-radius: var(--base-unit);
+    ${animateThis('rY25', '40s', 'normal', 'backwards')};
+  }
+  &[data-type='br'] {
+    border-bottom-right-radius: var(--base-unit);
+    ${animateThis('rX3', '40s', 'normal', 'forwards')};
+  }
 `;
 
 const LogoAnimation: React.FC<LogoAnimProps> = ({
   size,
   noMargin,
-  horizontal,
   noScale,
   click,
   logoOnly = false,
@@ -162,7 +149,6 @@ const LogoAnimation: React.FC<LogoAnimProps> = ({
   <Logo
     size={size}
     noMargin={noMargin}
-    horizontal={horizontal}
     noScale={noScale}
     onClick={click}
     onKeyPress={click}
@@ -170,15 +156,15 @@ const LogoAnimation: React.FC<LogoAnimProps> = ({
     <div className="logo-container">
       <div className="logo-column">
         <div className="logo-row">
-          <Piece tl />
+          <Piece data-type="tl" />
         </div>
         <div className="logo-row">
-          <Piece sq />
-          <Piece tr />
+          <Piece data-type="sq" />
+          <Piece data-type="tr" />
         </div>
         <div className="logo-row">
-          <Piece bl />
-          <Piece br />
+          <Piece data-type="bl" />
+          <Piece data-type="br" />
         </div>
       </div>
     </div>
@@ -192,11 +178,10 @@ const LogoAnimation: React.FC<LogoAnimProps> = ({
   </Logo>
 );
 
-const Flip404Animation = ({ size, noMargin, horizontal, noScale, click }) => (
+const Flip404Animation = ({ size, noMargin, noScale, click }) => (
   <Logo
     size={size}
     noMargin={noMargin}
-    horizontal={horizontal}
     noScale={noScale}
     onClick={click}
     onKeyPress={click}
@@ -204,44 +189,44 @@ const Flip404Animation = ({ size, noMargin, horizontal, noScale, click }) => (
     <div className="logo-container error404">
       <div className="logo-column">
         <div className="logo-row">
-          <Piece tr />
-          <Piece tr />
+          <Piece data-type="tr" />
+          <Piece data-type="tr" />
         </div>
         <div className="logo-row">
-          <Piece bl />
-          <Piece sq />
+          <Piece data-type="bl" />
+          <Piece data-type="sq" />
         </div>
         <div className="logo-row">
-          <Piece em />
-          <Piece bl />
-        </div>
-      </div>
-      <div className="logo-column">
-        <div className="logo-row">
-          <Piece tl />
-          <Piece tr />
-        </div>
-        <div className="logo-row">
-          <Piece bl />
-          <Piece br />
-        </div>
-        <div className="logo-row">
-          <Piece em />
-          <Piece em />
+          <Piece data-type="em" />
+          <Piece data-type="bl" />
         </div>
       </div>
       <div className="logo-column">
         <div className="logo-row">
-          <Piece tl />
-          <Piece tl />
+          <Piece data-type="tl" />
+          <Piece data-type="tr" />
         </div>
         <div className="logo-row">
-          <Piece bl />
-          <Piece sq />
+          <Piece data-type="bl" />
+          <Piece data-type="br" />
         </div>
         <div className="logo-row">
-          <Piece em />
-          <Piece br />
+          <Piece data-type="em" />
+          <Piece data-type="em" />
+        </div>
+      </div>
+      <div className="logo-column">
+        <div className="logo-row">
+          <Piece data-type="tl" />
+          <Piece data-type="tl" />
+        </div>
+        <div className="logo-row">
+          <Piece data-type="bl" />
+          <Piece data-type="sq" />
+        </div>
+        <div className="logo-row">
+          <Piece data-type="em" />
+          <Piece data-type="br" />
         </div>
       </div>
     </div>
