@@ -274,6 +274,7 @@ const IntroBoxContainer = styled.section`
   background: #282828;
   display: flex;
   flex-wrap: wrap;
+  overflow-x: hidden;
 `;
 const IndexPage = () => {
   const [curtainIsDown, setCurtainIsDown] = useState(false);

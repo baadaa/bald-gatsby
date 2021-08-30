@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Animated from 'react-mount-animation';
 import LogoAnimation from './LogoAnimation/LogoAnimation';
 
 const InfoWrapperStyles = styled.div`
@@ -13,15 +14,9 @@ const InfoWrapperStyles = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-100vw) rotate3d(0.025, 1, 0, 2.5turn) scale(0.5);
-  opacity: 0;
-  transition: transform 2s cubic-bezier(0.47, 1.64, 0.41, 0.8),
-    opacity 0.5s ease-out;
-  &[data-active='true'] {
-    opacity: 1;
-    transform: translateX(0) rotate3d(0, 0, 0, 0) scale(1);
-  }
+  pointer-events: none;
   .card {
+    pointer-events: all;
     background-color: #2d2d2d;
     width: 100%;
     max-width: 32rem;
@@ -75,23 +70,6 @@ const InfoWrapperStyles = styled.div`
         color: #990000;
       }
     }
-    @keyframes colorLoop {
-      0% {
-        background-color: var(--green500);
-      }
-      25% {
-        background-color: var(--blue500);
-      }
-      50% {
-        background-color: var(--red500);
-      }
-      75% {
-        background-color: var(--yellow500);
-      }
-      100% {
-        background-color: var(--green500);
-      }
-    }
     h5 {
       font-size: 2.4rem;
       margin: 1.5rem 0 0;
@@ -141,12 +119,25 @@ const InfoWrapperStyles = styled.div`
     }
   }
 `;
-
+const mountAnimation = `
+  0% {
+    transform: translateX(-100vw) rotate3d(0.025, 1, 0, 2.5turn) scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(3vw) rotate3d(-.02, -.5, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate3d(0, 0, 0, 0) scale(1);
+  }
+`;
 type SiteInfoProps = { isVisible: boolean; cb: any };
 
 const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
-  <InfoWrapperStyles data-active={isVisible}>
-    <div className="card">
+  <InfoWrapperStyles>
+    <Animated.div show={isVisible} className="card" mountAnim={mountAnimation}>
       <div className="chrome">
         <button className="close" type="button" onClick={cb}>
           &times;
@@ -194,7 +185,7 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
         <kbd>e</kbd>
         <kbd>t</kbd>
       </span>
-    </div>
+    </Animated.div>
   </InfoWrapperStyles>
 );
 

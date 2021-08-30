@@ -1,24 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
+import Animated from 'react-mount-animation';
 
 const CurtainStyles = styled.div`
-  position: fixed;
-  top: var(--nav-height);
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   padding: 2rem;
   animation: pulsing 20s linear infinite;
-  transform: translateY(-105vh);
-  transition: transform 0.75s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 0;
   display: flex;
   align-items: center;
-  &.isDown {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  transition: transform 0.75s ease-in-out, opacity 0.5s ease-in-out;
+
   .curtain-container {
     z-index: 1;
     color: #fff;
@@ -128,62 +124,84 @@ const CurtainStyles = styled.div`
   }
 `;
 
+const mountingAnimation = `
+  0% {
+    transform: translateY(-105vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
 const Curtain = ({ isDown = false, toggle = () => {} }) => (
-  <CurtainStyles className={isDown ? 'isDown' : ''}>
-    <StaticImage
-      src="../../images/goatie.png"
-      quality={70}
-      alt="Pretend I am a goat"
-      objectFit="contain"
-      width={614}
-      height={1280}
-      objectPosition="right"
-      className="goatie"
-      style={{
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-      }}
-    />
-    <div className="curtain-container">
-      <button type="button" className="closeCurtain" onClick={toggle}>
-        &times;
-      </button>
+  <Animated.div
+    show={isDown}
+    mountAnim={mountingAnimation}
+    style={{
+      top: 'var(--nav-height)',
+      position: 'fixed',
+      left: 0,
+      right: 0,
+      bottom: 0,
+    }}
+  >
+    <CurtainStyles>
       <StaticImage
-        src="../../images/bumhan_yu.jpg"
+        src="../../images/goatie.png"
         quality={70}
-        alt="Bumhan Yu"
-        objectFit="cover"
-        width={200}
-        height={200}
-        className="headshot"
+        alt="Pretend I am a goat"
+        objectFit="contain"
+        width={614}
+        height={1280}
+        objectPosition="right"
+        className="goatie"
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+        }}
       />
-      <p>
-        The name is <em>Bumhan</em>, but I go by{' '}
-        <strong
-          style={{
-            fontFamily: 'Work Sans, sans-serif',
-          }}
-        >
-          B
-        </strong>{' '}
-        (as in{' '}
-        <span
-          style={{
-            fontFamily: 'Work Sans, sans-serif',
-            textTransform: 'uppercase',
-            fontSize: '.8em',
-            fontWeight: 700,
-          }}
-        >
-          bald
-        </span>
-        )—a design director who writes code at work, and a husband and dad who
-        loves making silly jokes and fried rice at home.
-      </p>
-    </div>
-  </CurtainStyles>
+      <div className="curtain-container">
+        <button type="button" className="closeCurtain" onClick={toggle}>
+          &times;
+        </button>
+        <StaticImage
+          src="../../images/bumhan_yu.jpg"
+          quality={70}
+          alt="Bumhan Yu"
+          objectFit="cover"
+          width={200}
+          height={200}
+          className="headshot"
+        />
+        <p>
+          The name is <em>Bumhan</em>, but I go by{' '}
+          <strong
+            style={{
+              fontFamily: 'Work Sans, sans-serif',
+            }}
+          >
+            B
+          </strong>{' '}
+          (as in{' '}
+          <span
+            style={{
+              fontFamily: 'Work Sans, sans-serif',
+              textTransform: 'uppercase',
+              fontSize: '.8em',
+              fontWeight: 700,
+            }}
+          >
+            bald
+          </span>
+          )—a design director who writes code at work, and a husband and dad who
+          loves making silly jokes and fried rice at home.
+        </p>
+      </div>
+    </CurtainStyles>
+  </Animated.div>
 );
 
 export default Curtain;
