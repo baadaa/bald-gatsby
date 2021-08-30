@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import Header from './header';
-import { Footer } from './UIElements';
+import Footer from './Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 import EasterEggs from './EasterEggs';
 import SiteInfo from './SiteInfo';
@@ -84,9 +84,7 @@ const Layout: React.FC<LayoutProps> = ({
         {heading && <h1 className="side">{heading}</h1>}
         <div>{children}</div>
       </WrapperStyles>
-      <Footer onClick={() => setSiteInfoIsShowing(true)}>
-        © {new Date().getFullYear()} by Bumhan Yu
-      </Footer>
+      <Footer click={() => setSiteInfoIsShowing(true)} />
       <SiteInfo
         isVisible={siteInfoIsShowing}
         cb={() => setSiteInfoIsShowing(false)}
