@@ -585,7 +585,12 @@ const UsesPage: React.FC = () => (
               <li>
                 <a href="https://midnight-commander.org/">
                   Moonlight Commander
-                </a>
+                </a>{' '}
+                • <a href="http://mama.indstate.edu/users/ice/tree/">Tree</a>
+              </li>
+              <li>
+                <a href="https://htop.dev/">htop</a> •{' '}
+                <a href="https://nicolargo.github.io/glances/">Glances</a>
               </li>
               <li>
                 <a href="https://github.com/so-fancy/diff-so-fancy">
@@ -601,9 +606,7 @@ const UsesPage: React.FC = () => (
                 <a href="https://github.com/agkozak/zsh-z">Z</a>
               </li>
               <li>
-                <a href="https://cmus.github.io/">CMUS</a>
-              </li>
-              <li>
+                <a href="https://cmus.github.io/">CMUS</a> •{' '}
                 <a href="https://github.com/ytdl-org/youtube-dl">youtube-dl</a>
               </li>
             </ul>

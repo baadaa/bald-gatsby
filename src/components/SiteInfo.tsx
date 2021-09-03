@@ -87,6 +87,11 @@ const InfoWrapperStyles = styled.div`
     }
     a {
       color: inherit;
+      text-decoration-style: dotted;
+      text-decoration-color: #999;
+      &:hover {
+        color: var(--yellow500);
+      }
     }
     hr {
       border-bottom: 1px solid #3a3a3a;
@@ -156,7 +161,7 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
       </p>
       <p>
         Repo at <a href="https://github.com/baadaa/bald-gatsby">GitHub</a> &
-        Hosted via <a href="https://www.netlify.com/">Netlify</a>
+        Deployed via <a href="https://www.netlify.com/">Netlify</a>
       </p>
       <p style={{ marginTop: '2rem' }}>
         &copy; {new Date().getFullYear()} by Bumhan Yu
