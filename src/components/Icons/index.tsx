@@ -11,6 +11,7 @@ export * from './IconDirection';
 export * from './IconFigma';
 export * from './IconGitHub';
 export * from './IconPhone';
+export * from './IconMouse';
 export * from './IconMail';
 export * from './IconLinkedIn';
 export * from './IconJs';

@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Seo from '../seo';
 import Layout from '../layout';
+import { IconMouse } from '../Icons';
 import {
   BlogEntry,
   PortfolioHeroSection,
@@ -11,6 +12,7 @@ import {
   LabelPill,
   PostNav,
 } from '../UIElements';
+
 import Claps from '../Claps/Claps';
 import TotalClaps from '../Claps/TotalClaps';
 import { truncateStr } from '../utils';
@@ -85,6 +87,21 @@ const PortfolioPostLayout = ({
             ))}
           </ul>
           <TotalClaps align="left" slug={slug} />
+          <button
+            className="scrollPrompt"
+            type="button"
+            onClick={() => {
+              document.querySelector('#entryArea').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'start',
+              });
+            }}
+          >
+            <IconMouse width="20" height="20" />
+            Scroll down
+            <br />
+          </button>
         </div>
         <div className="image-area">
           {gatsbyImageData ? (
@@ -104,7 +121,7 @@ const PortfolioPostLayout = ({
           )}
         </div>
       </PortfolioHeroSection>
-      <BlogEntry>
+      <BlogEntry id="entryArea">
         <PostContentArea>
           <MDXRenderer>{body}</MDXRenderer>
           <Claps slug={slug} />

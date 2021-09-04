@@ -19,12 +19,14 @@ type PostHeroImgProps = {
 };
 const PortfolioHeroSection = styled.section`
   display: flex;
+  position: relative;
   align-items: stretch;
   height: calc(100vh - var(--nav-height));
   margin-bottom: 7rem;
   .text-area {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
     flex-basis: 500px;
     padding: 1.5rem;
@@ -44,6 +46,52 @@ const PortfolioHeroSection = styled.section`
     height: 100%;
     object-fit: cover;
     margin-bottom: 0;
+  }
+  button.scrollPrompt {
+    position: absolute;
+    bottom: 3rem;
+    outline: none;
+    border: none;
+    color: var(--coolGray500);
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s;
+    &:hover {
+      transform: translateY(-2px);
+    }
+    svg {
+      margin-right: 0.5rem;
+      animation: downBounce 2s infinite linear;
+    }
+    @media screen and (max-width: 960px) {
+      position: static;
+      width: 100%;
+      justify-content: center;
+    }
+    @keyframes downBounce {
+      0% {
+        transform: translateY(-1px);
+      }
+      10% {
+        transform: translateY(4px);
+      }
+      20% {
+        transform: translateY(-1px);
+      }
+      30% {
+        transform: translateY(4px);
+      }
+      100% {
+        transform: translateY(-1px);
+      }
+    }
   }
   a {
     text-decoration: none;
@@ -181,6 +229,7 @@ const BlogEntry = styled.article`
   flex-wrap: wrap;
   max-width: 90rem;
   margin: 0 auto;
+  scroll-margin-top: calc(var(--nav-height) + 3rem);
 `;
 
 const PostContentArea = styled.section`

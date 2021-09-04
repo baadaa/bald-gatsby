@@ -9,7 +9,7 @@ import { flexUnit } from '../components/utils';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import {
-  IconScrollDown,
+  IconMouse,
   IconFigma,
   IconSketch,
   IconPrinciple,
@@ -251,22 +251,30 @@ const ScrollDown = styled.button`
   background: transparent;
   cursor: pointer;
   position: absolute;
-  top: -1.5em;
+  top: -2em;
   left: calc(50% - 1.5rem);
   opacity: 0.85;
-  animation: pulseScale 3s infinite;
+  transition: transform 0.2s;
+  animation: downBounce 2s infinite linear;
   &:hover {
     animation-play-state: initial;
+    transform: scale(1.5);
   }
-  @keyframes pulseScale {
+  @keyframes downBounce {
     0% {
-      transform: scale(1);
+      transform: translateY(-1px);
+    }
+    10% {
+      transform: translateY(4px);
+    }
+    20% {
+      transform: translateY(-1px);
     }
     30% {
-      transform: scale(1.1);
+      transform: translateY(4px);
     }
     100% {
-      transform: scale(1);
+      transform: translateY(-1px);
     }
   }
 `;
@@ -306,7 +314,7 @@ const IndexPage = () => {
             });
           }}
         >
-          <IconScrollDown width="3rem" height="3rem" />
+          <IconMouse width="3rem" height="3rem" />
         </ScrollDown>
         <h3>
           Hello, I am <strong>B</strong>.
