@@ -689,6 +689,10 @@ const UsesPage: React.FC = () => (
               <a href="https://matthewpalmer.net/rocket/">Rocket</a>
             </h3>
             <p>Slack-like emoji typing</p>
+            <h3>
+              <a href="https://getkap.co/">Kap</a>
+            </h3>
+            <p>Screen recording app that MacOS should've had</p>
           </div>
         </section>
       </section>
