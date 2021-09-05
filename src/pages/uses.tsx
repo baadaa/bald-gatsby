@@ -690,9 +690,15 @@ const UsesPage: React.FC = () => (
             </h3>
             <p>Slack-like emoji typing</p>
             <h3>
-              <a href="https://getkap.co/">Kap</a>
+              <a href="https://getkap.co/">Kap</a> •{' '}
+              <a href="https://maccy.app/">Maccy</a> •{' '}
+              <a href="https://matthewpalmer.net/vanilla/">Vanilla</a> •{' '}
+              <a href="https://theunarchiver.com/">The Unarchiver</a>
             </h3>
-            <p>Screen recording app that MacOS should've had</p>
+            <p>
+              Screen recording, clipboard, menu bar, unarchiving apps that macOS
+              should've had
+            </p>
           </div>
         </section>
       </section>
