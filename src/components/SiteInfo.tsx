@@ -105,6 +105,7 @@ const InfoWrapperStyles = styled.div`
     }
     .gr {
       display: inline-block;
+      margin-bottom: 0.3rem;
     }
     kbd {
       display: inline-block;
@@ -189,6 +190,19 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
         <kbd>s</kbd>
         <kbd>e</kbd>
         <kbd>t</kbd>
+      </span>{' '}
+      •{' '}
+      <span className="gr">
+        <kbd>&#8593;</kbd>
+        <kbd>&#8593;</kbd>
+        <kbd>&#8593;</kbd>
+        <kbd>&#8593;</kbd>
+        <kbd>&#8592;</kbd>
+        <kbd>&#8594;</kbd>
+        <kbd>&#8592;</kbd>
+        <kbd>&#8594;</kbd>
+        <kbd>B</kbd>
+        <kbd>A</kbd>
       </span>
     </Animated.div>
   </InfoWrapperStyles>
