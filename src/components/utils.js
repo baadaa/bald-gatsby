@@ -64,3 +64,5 @@ export const inflect =
   (singular, plural = `${singular}s`) =>
   (quantity) =>
     Math.abs(quantity) === 1 ? singular : plural;
+
+export const isBrowser = typeof window !== 'undefined';

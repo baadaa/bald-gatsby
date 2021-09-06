@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { getFirebase } from '../../firebase';
 import { IconClap } from '../Icons';
-import { inflect } from '../utils';
+import { inflect, isBrowser } from '../utils';
 
 // Learned from
 // https://github.com/kyleshevlin/blog/blob/main/src/components/TotalBeardStrokes.js
@@ -64,7 +64,6 @@ class TotalClaps extends Component {
 
   render() {
     const { count, hasFetchedOnce } = this.state;
-    const isBrowser = typeof window !== 'undefined';
     const toBottom = () =>
       isBrowser &&
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });

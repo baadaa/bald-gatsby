@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useKonami } from 'react-konami-code';
+import { isBrowser } from './utils';
 import '../styles/eggs.css';
 
 const EasterEggs = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [errorIsVisible, setErrorIsVisible] = useState(false);
-  const audio = new Audio('/error.mp3');
+  const audio = isBrowser ? new Audio('/error.mp3') : undefined;
   const blur = () => {
     document.querySelector('html').style.filter = 'blur(15px)';
   };
@@ -22,7 +23,7 @@ const EasterEggs = () => {
     setErrorIsVisible(false);
   };
   useEffect(() => {
-    audio.load();
+    if (isBrowser) audio.load();
   }, []);
   useEffect(() => {
     const setFromEvent = (e) => setPosition({ x: e.clientX, y: e.clientY });
@@ -33,7 +34,7 @@ const EasterEggs = () => {
     };
   }, []);
   const showError = () => {
-    audio.play();
+    if (isBrowser) audio.play();
     setErrorIsVisible(true);
   };
   return (
@@ -58,7 +59,7 @@ const EasterEggs = () => {
               left: `${position.x - 130}px`,
               boxShadow: 'var(--hover-shadow)'
             }}
-            onClick={() => audio.play()}
+            onClick={() => isBrowser && audio.play()}
           />
           <span>Type{' '}
             <kbd>r</kbd>
