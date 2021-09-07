@@ -373,6 +373,7 @@ const PostContentArea = styled.section`
   }
 
   img + em,
+  .weather-icons + p em,
   span.gatsby-resp-image-wrapper + em,
   div.emb-video + p em {
     text-align: center;

@@ -16,6 +16,7 @@ tags:
 description: Personalized weather station that tells you everything—the time of sunrise and sunset, as well as current and upcoming weather forecast in hourly and daily increments.
 ---
 
+import { WeatherIcons } from "../../components/WeatherIcons/WeatherIcons";
 import { SimpleButton, ButtonContainer } from "../../components/SimpleButton";
 
 <section class="portfolioDetail">
@@ -84,6 +85,16 @@ While weather forecast is usually only a tap away, no single weather app present
 </ButtonContainer>
 
 ---
+
+### Animated icons with dark mode support
+
+<WeatherIcons />
+
+_SVG weather icons in CSS animation (modified from [amCharts](https://www.amcharts.com/free-animated-svg-weather-icons/) graphics)_
+
+<br />
+
+### Viewing modes: current, hourly, and daily
 
 ![Current weather](./images/weather-ipad.png)
 _Current weather: light and dark mode_
