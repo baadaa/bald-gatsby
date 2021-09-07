@@ -79,7 +79,7 @@ export const WeatherIcons = () => {
   return (
     <IconContainer className="weather-icons" data-darkicons={isDark}>
       <button type="button" onClick={() => setIsDark(!isDark)}>
-        Click for {isDark ? 'Dark' : 'Light'} Mode
+        Click for {!isDark ? 'Dark' : 'Light'} Mode
       </button>
       <Icon01d />
       <Icon01n />
