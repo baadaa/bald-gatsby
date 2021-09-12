@@ -201,7 +201,7 @@ const UsesPage: React.FC = () => (
           <div className="content">
             <h3>
               <a href="https://support.apple.com/kb/SP809?locale=en_US">
-                MacBook Pro 16" 2019 <span>(Catalina 10.15.7)</span>
+                MacBook Pro 16" 2019 <span>(Big Sur 11.5.2)</span>
               </a>
             </h3>
             <p>Primary laptop for design and development work</p>
