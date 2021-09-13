@@ -238,10 +238,16 @@ const PostContentArea = styled.section`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   --subheading-width: 15rem;
+  .portfolioDetail.case + .portfolioDetail.case {
+    margin-top: 1rem;
+  }
   .portfolioDetail {
     display: flex;
     margin-bottom: 2.5rem;
     flex-direction: column;
+    &.case {
+      margin-bottom: 0;
+    }
     code {
       font-size: 0.75em;
       padding: 0.2em 0.4em;
