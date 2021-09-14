@@ -188,6 +188,10 @@ const Wrapper = styled.div`
   padding: ${(props) => (props.extraPadding ? '3rem' : '1.5rem')};
   label {
     cursor: pointer;
+    user-select: none;
+  }
+  input {
+    cursor: pointer;
   }
   .example {
     padding: 2rem;

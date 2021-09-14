@@ -180,19 +180,6 @@ const Row = ({
       const tint = isMainTint
         ? contentHue.hex
         : ColorUtil.hsl(lightnessVariation);
-      const rgbIndex = ['R', 'G', 'B'];
-      const cmykIndex = ['C', 'M', 'Y', 'K'];
-      const colorValue = {
-        hex: ColorUtil(tint).hex(),
-        rgb: ColorUtil(tint)
-          .rgb()
-          .color.map((num, index) => rgbIndex[index] + Math.round(num))
-          .join('<br />'),
-        cmyk: ColorUtil(tint)
-          .cmyk()
-          .color.map((num, index) => cmykIndex[index] + Math.round(num))
-          .join('<br />'),
-      };
 
       return (
         <div className="col" key={`${contentHue.name}row${i}`}>
