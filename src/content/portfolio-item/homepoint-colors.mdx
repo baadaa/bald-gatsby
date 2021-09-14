@@ -1,0 +1,108 @@
+---
+order: 2.3
+title: Homepoint Color Palette
+type: work
+slug: /work/homepoint-colors
+thumbnail: "./images/alex-_ZfLlKxilpw-unsplash_small.jpg"
+headerImg: "./images/alex-_ZfLlKxilpw-unsplash.jpg"
+category:
+  - design
+tags:
+  - UX/UI
+  - identity
+description: Develop a flexible yet robust color system that enables both impactful marketing campaigns and versatile digital products.
+---
+
+import {
+  HomepointIdentityColors,
+  HomepointSupportColors,
+  HomepointSupportTints,
+} from "../../components/Homepoint/HomepointColors";
+import {
+  SingleComboExample,
+  DualComboExample,
+  DefaultTextSamples,
+  LegibleCombinations,
+} from "../../components/Homepoint/ColorExamples";
+
+<section class="portfolioDetail">
+
+### employer
+
+[Homepoint](https://homepointfinancial.com)
+
+</section>
+
+<section class="portfolioDetail">
+
+### roles
+
+Design, development
+
+</section>
+
+<section class="portfolioDetail">
+
+### challenge
+
+As a critical component of the corporate rebrand, marketing department needed a punchy and vibrant set of colors for its campaign needs, yet UX/product teams needed a reliable and predictable palette that maintains consistency. How to bridge the differing needs?
+
+</section>
+
+<section class="portfolioDetail">
+
+### solution
+
+Curate a vivid and vibrant main palette for all things branding and marketing, and craft a standardized set of variant tints to allow for consistent and accessible digital product development.
+
+</section>
+
+<section class="portfolioDetail">
+
+### tools
+
+Figma, `React`
+
+</section>
+
+## Identity Colors
+
+The identity-defining colors of Homepoint brand. Since they are core part of brand identity, one should not create a lighter or darker tint out of them.
+
+<HomepointIdentityColors />
+
+## Support Colors
+
+A complementary set of colors for visual accents and contrast. Each swatch can be used in ten different lightness with `500` being the standard primary tint of each hue. Warm hues are mostly reserved for charts, graphs, and otherwise UI distinctions,
+
+<HomepointSupportColors />
+
+Every support color swatch can be used in ten different lightness, each marked by a unique number: `50` being the lightest and `900` the darkest. Developed primarily for UI/UX needs, this system enables a wide variety of color combinations while ensuring proper contrast for accessbility and maintaining consistency.
+
+<HomepointSupportTints />
+
+## Creating combinations
+
+Multiple lightness of a given hue enables a variety of impactful combinations, which can be especially useful in UI/UX design context.
+
+### Single-color examples
+
+<SingleComboExample />
+
+### Two-color examples
+
+<DualComboExample />
+
+## Color in typography
+
+When presenting written content, it's imperative to maintain proper contrast between background and text color. This standard lightness system makes it easy to ensure accessibility _and_ keep brand consistency.
+
+### Basic color examples
+
+<DefaultTextSamples />
+
+### Legible combination examples
+
+The foreground/background combinations below can be used as body text (unless marked otherwise), as they pass WCAG Level AA requirements.
+
+<LegibleCombinations />
