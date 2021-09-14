@@ -108,10 +108,8 @@ const HomepointColors = () => (
         name="Green"
       />
     </section>
-    <h5>
-      Support Colors <em>(Leading Palette)</em>
-    </h5>
-    <section>
+    <h5>Support Colors</h5>
+    <section style={{ marginBottom: 0 }}>
       <Swatch
         hex="33A1CE"
         cmyk="75/22/0/19"
@@ -193,10 +191,6 @@ const HomepointColors = () => (
         isLeading
       />
     </section>
-    <h5>
-      Support Colors <em>(Tinted Palette)</em>
-    </h5>
-    <TintedTable />
   </Styles>
 );
 const HomepointIdentityColors = () => (

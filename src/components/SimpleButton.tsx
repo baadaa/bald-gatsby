@@ -4,7 +4,7 @@ import styled from 'styled-components';
 type SimpleButtonProps = React.HTMLAttributes<HTMLAnchorElement> & {
   href: string;
   cta: string;
-  variant?: 'green' | 'yellow';
+  variant?: 'green' | 'yellow' | 'gray';
 };
 
 const ButtonStyles = styled.a`
@@ -40,6 +40,14 @@ const ButtonStyles = styled.a`
       color: inherit;
     }
   }
+  &[data-variant='gray'] {
+    background-color: var(--gray100);
+    color: var(--gray700);
+    &:hover {
+      box-shadow: var(--base-shadow);
+      color: inherit;
+    }
+  }
   &:hover {
     transform: translateY(-0.2rem);
     color: inherit;
@@ -57,6 +65,19 @@ const SimpleButton: React.FC<SimpleButtonProps> = ({
     {cta}
   </ButtonStyles>
 );
+const InlineButton: React.FC<SimpleButtonProps> = ({
+  href,
+  cta,
+  variant = 'green',
+}) => (
+  <ButtonStyles
+    href={href}
+    data-variant={variant}
+    style={{ width: 'auto', fontSize: '1.4rem' }}
+  >
+    {cta}
+  </ButtonStyles>
+);
 
 const ButtonContainer = ({ children }) => (
   <div
@@ -71,4 +92,4 @@ const ButtonContainer = ({ children }) => (
   </div>
 );
 
-export { SimpleButton, ButtonContainer };
+export { InlineButton, SimpleButton, ButtonContainer };
