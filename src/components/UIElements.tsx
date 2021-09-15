@@ -378,6 +378,7 @@ const PostContentArea = styled.section`
     }
   }
 
+  .flkty + p em,
   img + em,
   .weather-icons + p em,
   span.gatsby-resp-image-wrapper + em,
