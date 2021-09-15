@@ -2,6 +2,7 @@
 
 - Personal portfolio, resume, blog, and coding playground for/by Bumhan YU—a.k.a "**B** as in _Bald_".
 - Built with [Gatsby](https://www.gatsbyjs.com) upon the [default starter](https://github.com/gatsbyjs/gatsby-starter-default), and a bunch of plugins and packages.
+- This repo is full of copy-pasted old code blocks, non-DRY (moist?) and clumsy statements, and otherwise ugly stuff. Probably not a great learning material anyways, but...
 - **Any code blocks here can be freely copied and reused** for any purposes.
 - **All written text content and creative assets are Bumhan Yu's intellectual property and cannot be copied or/and reused without permission.**
 
