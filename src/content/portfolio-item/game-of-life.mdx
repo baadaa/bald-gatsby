@@ -1,0 +1,92 @@
+---
+order: 6.5
+title: Conway's Game of Life
+type: work
+slug: /work/game-of-life
+thumbnail: "./images/game-of-life-thumb.gif"
+headerImg: "./images/game-of-life-big_adjusted.jpg"
+headerTextColor: "#000"
+category:
+  - dev
+tags:
+  - JavaScript
+  - React
+  - Gatsby
+description: A classic cellular automaton devised by British mathematician John Conway, implemented in JavaScript
+---
+
+import { WeatherIcons } from "../../components/WeatherIcons/WeatherIcons";
+import { SimpleButton, ButtonContainer } from "../../components/SimpleButton";
+
+<section class="portfolioDetail">
+
+### client
+
+Self-initiated
+
+</section>
+
+<section class="portfolioDetail">
+
+### roles
+
+Design, development
+
+</section>
+
+<section class="portfolioDetail">
+
+### built with
+
+Vanilla `JavaScript` for logic, and `React`/`Gatsby` for scaffolding with `styled-components` for styling
+
+</section>
+
+<section class="portfolioDetail">
+
+### Background
+
+After reading John Maeda's blog article “[Life is just a big math problem](https://johnmaeda.medium.com/life-is-just-a-big-math-problem-7c4d823e088f),” I felt inspired to implement this mathematical simulation on my own. It turned out to be a good, fun JavaScript exercise for handling 2-dimensional matrices, and I felt pretty good about the result.
+
+</section>
+
+<section class="portfolioDetail">
+
+### Key Features
+
+<div>
+
+- Fundamental game logic by John Conway
+
+- Loading pre-defined patterns
+
+</div>
+
+</section>
+
+<section class="portfolioDetail">
+
+### TODO
+
+<div>
+
+- Consider using `canvas` rather than `div`s to render the grid
+
+- Allow users to generate and save their own patterns, and have it persist between sessions
+
+</div>
+
+</section>
+
+<ButtonContainer>
+  <SimpleButton
+    cta="Launch live app"
+    href="https://bald-game-of-life.netlify.app/"
+    variant="yellow"
+  />
+  <SimpleButton
+    cta="View GitHub Repo"
+    href="https://github.com/baadaa/game-of-life"
+    variant="green"
+  />
+</ButtonContainer>
