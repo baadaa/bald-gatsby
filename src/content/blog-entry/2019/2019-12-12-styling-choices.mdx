@@ -9,7 +9,7 @@ headerTextColor: "#ffffff"
 tags:
   - code
   - gatsby
-description: "Like anything React, there are a bunch of options for styling in Gatsby: inine styling, global SCSS imports, CSS Modules, CSS-in-JS components, and then some. Here's my exploration into some."
+description: "Like anything React, there are a bunch of options for styling in Gatsby: inine styling, global SCSS imports, CSS Modules, CSS-in-JS components, and then some. Here’s my exploration into some."
 ---
 
 ```
@@ -17,17 +17,17 @@ NOTES (2021-08-22)
 ---
 When I first wrote this, I wanted to keep as much of existing SCSS/CSS
 as possible since I was converting an existing Jekyll repo into Gatsby.
-While the post content is still relevant, I've since rewritten significant
+While the post content is still relevant, I’ve since rewritten significant
 portions of this site and kept only to `css-in-js` approaches.
 ```
 
 ## Global (S)CSS and Variables
 
-As I'm keeping most of pre-existing UI styles from the previous site written `SCSS`, I wanted to reuse as much of the existing code as possible.
+As I’m keeping most of pre-existing UI styles from the previous site written `SCSS`, I wanted to reuse as much of the existing code as possible.
 
 So, in my `gatsby-browser.js` I imported the global base styles from `base.scss`, which contains bare minimum of global styling and imports `_variables.scss` for certain values.
 
-You'll notice the duplicated hex values in SCSS variables and CSS custom properties. I almost wanted to ditch SCSS variables and keep everything only to CSS custom properties, and there was just one reason why: **Color Functions**. SCSS offers built-in color functions such as `lighten()`, `complement()`. While they can easily be accomplished by packages like [this one](https://www.npmjs.com/package/color), I didn't want an extra dependency just for a simple task like this.
+You’ll notice the duplicated hex values in SCSS variables and CSS custom properties. I almost wanted to ditch SCSS variables and keep everything only to CSS custom properties, and there was just one reason why: **Color Functions**. SCSS offers built-in color functions such as `lighten()`, `complement()`. While they can easily be accomplished by packages like [this one](https://www.npmjs.com/package/color), I didn’t want an extra dependency just for a simple task like this.
 
 ```js filename:gatsby-browser.js
 import "./src/styles/base.scss";
@@ -213,4 +213,4 @@ While I do love the convenience of having style declarations and markup in the s
 
 ## Why multiple approaches &mdash; what next
 
-I'm still figuring out what works for me and how best to approach styling. Certainly I won't _need_ global `SCSS` import and perhaps won't _need_ SCSS modules either, as there are other `JS`-ways to solve the problem. Just for the sake of getting more procifient, I'm likely to proceed with styled-components only for the most part, and maybe even attempt to get rid of other external `(S)CSS` files in general, but this has been a practical exercise to build something in different ways in any case.
+I’m still figuring out what works for me and how best to approach styling. Certainly I won’t _need_ global `SCSS` import and perhaps won’t _need_ SCSS modules either, as there are other `JS`-ways to solve the problem. Just for the sake of getting more procifient, I’m likely to proceed with styled-components only for the most part, and maybe even attempt to get rid of other external `(S)CSS` files in general, but this has been a practical exercise to build something in different ways in any case.
