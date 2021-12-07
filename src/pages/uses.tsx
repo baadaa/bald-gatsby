@@ -200,8 +200,8 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Computer</span>
           <div className="content">
             <h3>
-              <a href="https://support.apple.com/kb/SP809?locale=en_US">
-                MacBook Pro 16" 2019 <span>(Big Sur 11.5.2)</span>
+              <a href="https://support.apple.com/kb/SP819?locale=en_US">
+                MacBook Pro 13" 2020 <span>(Big Sur 11.6)</span>
               </a>
             </h3>
             <p>Primary laptop for design and development work</p>
@@ -211,13 +211,6 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <p>Secondary laptop for personal documents and archive</p>
-            <h3>
-              <a href="https://support.hp.com/us-en/document/c06336530">
-                HP Zbook 14u G6{' '}
-                <span>(Windows 10 Pro V.1909 Build 18363.1500)</span>
-              </a>
-            </h3>
-            <p>Company-issued laptop for Windows tasks</p>
             <h3>
               <a href="https://www.pine64.org/pinebook-pro/">
                 Pinebook Pro <span>(Linux Debian)</span>
@@ -230,9 +223,13 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Screens</span>
           <div className="content">
             <h3>
-              <a href="https://support.hp.com/us-en/document/c05802914">
-                HP EliteDisplay E243 <span>(23.8")</span>
-              </a>
+              <a href="https://www.dell.com/en-us/shop/dell-27-monitor-se2722h/apd/210-ayyh/monitors-monitor-accessories">
+                Dell SE2722HX <span>(27")</span>
+              </a>{' '}
+              &bull;{' '}
+              <a href="https://www.dell.com/en-us/shop/dell-24-monitor-s2421hn/apd/210-axhj/monitors-monitor-accessories">
+                Dell S2421NX <span>(23.8")</span>
+              </a>{' '}
             </h3>
             <p>
               Two screens connected to primary MacBook Pro via{' '}
@@ -672,19 +669,24 @@ const UsesPage: React.FC = () => (
             </h3>
             <p>For improved search and automation</p>
             <h3>
-              <a href="https://boostnote.io/">Boostnote</a> •{' '}
-              <a href="https://joplinapp.org/">Joplin</a>
+              <a href="https://obsidian.md/">Obsidian</a>
             </h3>
-            <p>For markdown note-taking</p>
+            <p>
+              For markdown note-taking. Switched from{' '}
+              <a href="https://boostnote.io/">Boostnote</a> and{' '}
+              <a href="https://joplinapp.org/">Joplin</a>.
+            </p>
             <h3>
               <a href="https://bitwarden.com/">Bitwarden</a>
             </h3>
             <p>Open source password manager</p>
             <h3>
-              <a href="https://www.spectacleapp.com/">Spectacle</a> •{' '}
               <a href="https://rectangleapp.com/">Rectangle</a>
             </h3>
-            <p>Simple windows management</p>
+            <p>
+              Simple windows management. Switched from{' '}
+              <a href="https://www.spectacleapp.com/">Spectacle</a>
+            </p>
             <h3>
               <a href="https://matthewpalmer.net/rocket/">Rocket</a>
             </h3>
@@ -825,6 +827,11 @@ const UsesPage: React.FC = () => (
               <li>
                 <a href="https://egopowerplus.com/blower-530cfm/">
                   530 CFM Blower
+                </a>
+              </li>
+              <li>
+                <a href="https://egopowerplus.com/snow-blower-steel-auger-snt2110/">
+                  56V Snow Blower
                 </a>
               </li>
             </ul>
