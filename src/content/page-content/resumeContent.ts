@@ -1,9 +1,24 @@
 export const experiences = [
   {
+    title: 'Sr/Lead Product Designer',
+    company: 'DoubleVerify',
+    industry: 'Software • IT',
+    time: '2021–Present',
+    link: 'https://doubleverify.com',
+    summary:
+      'Maintain and expand design system and its components with a strong emphasis on color system and data visualization. Collaborate with broader product, design, and engineering teams to help establish a stronger UX patterns and solutions. Focus areas include:',
+    bullets: [
+      'Building out UX/UI/IxD patterns and maintaining the design system with semantic versioning',
+      'Ensuring color consistency, accessibility, and flexibility in charts/graphs',
+      'Facilitating collaboration between product, engineering, and design teams',
+      'Prototyping and developing internal proof-of-concepts in React',
+    ],
+  },
+  {
     title: 'Design Director',
     company: 'Homepoint',
     industry: 'Financial Services',
-    time: '2020–Present',
+    time: '2020–2021',
     link: 'https://homepointfinancial.com',
     summary:
       'Responsible for ensuring consistent brand experience via visual, motion, verbal, and UX design. Collaborate with marketing, engineering, and product design teams to  develop solutions that drive measurable results. Guide direct reports and manage external vendors. Accomplishments include:',
