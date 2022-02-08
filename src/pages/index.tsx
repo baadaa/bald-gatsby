@@ -222,7 +222,7 @@ const IntroCopy = styled.div`
     line-height: 1.5;
     font-weight: 200;
     color: #888;
-    max-width: 13em;
+    max-width: 20em;
     margin-bottom: 1em;
   }
   a.resume {
@@ -288,22 +288,24 @@ const IndexPage = () => {
   const [curtainIsDown, setCurtainIsDown] = useState(false);
   const checkEscape = (e) => {
     const { key } = e;
-    if (key === 'Escape') {
-      setCurtainIsDown(false);
+    if (key !== 'Escape') {
+      return null;
     }
+    setCurtainIsDown(false);
   };
   useEffect(() => {
-    if (curtainIsDown) {
-      document.addEventListener('keydown', checkEscape);
-    } else {
-      document.removeEventListener('keydown', checkEscape);
-    }
-  }, [curtainIsDown]);
+    document.addEventListener('keydown', checkEscape);
+    // if (curtainIsDown) {
+    //   document.addEventListener('keydown', checkEscape);
+    // } else {
+    //   document.removeEventListener('keydown', checkEscape);
+    // }
+  }, []);
   return (
     <Layout isFullWidth>
       <Seo
         title="About"
-        description="Bumhan Yu is a NYC-based visual designer and developer with backgrounds in psychology, linguistics, translation, and communications design."
+        description="Bumhan Yu is a NYC-based designer and engineer with backgrounds in psychology, linguistics, translation, and communications design."
         meta={[
           {
             property: `og:image`,
@@ -312,10 +314,7 @@ const IndexPage = () => {
         ]}
       />
       <HeroArea>
-        <LogoAnimation
-          size="8rem"
-          click={() => setCurtainIsDown(!curtainIsDown)}
-        />
+        <LogoAnimation size="8rem" click={() => setCurtainIsDown(true)} />
       </HeroArea>
       <IntroCopy id="introCopyBlock">
         <ScrollDown
@@ -335,7 +334,7 @@ const IndexPage = () => {
         <h5>Nice to meet you.</h5>
         <h1>
           I am a design director and front-end engineer with backgrounds in
-          psychology, linguistics, and branding.
+          psychology, linguistics, and branding. How do I work with you?
         </h1>
         <Link className="resume" to="/resume">
           View Resume

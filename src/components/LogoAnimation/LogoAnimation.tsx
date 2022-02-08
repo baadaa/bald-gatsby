@@ -10,7 +10,10 @@ type LogoAnimProps = {
   logoOnly?: boolean;
 };
 
-const Logo = styled.div<LogoAnimProps>`
+const Logo = styled.button<LogoAnimProps>`
+  background: transparent;
+  border: none;
+  outline: none;
   --logo-width: ${(props) =>
     props.noScale ? `${props.size}!important` : props.size};
   --base-unit: calc(var(--logo-width) / 2);
@@ -92,9 +95,35 @@ const Logo = styled.div<LogoAnimProps>`
   }
   cursor: pointer;
   transition: transform 0.5s, filter 0.5s;
+  &:focus,
   &:hover {
     transform: translateY(-2px);
     filter: drop-shadow(3px 7px 15px rgba(0, 0, 0, 0.15));
+  }
+  &:focus {
+    transform: translateY(-2px) scale(1.05);
+    animation: logoShadowPulse 3s infinite linear;
+  }
+  @keyframes logoShadowPulse {
+    0%,
+    3% {
+      filter: drop-shadow(1px 2px 15px rgba(0, 255, 255, 0.3));
+    }
+    30%,
+    33% {
+      filter: drop-shadow(1px 2px 40px rgba(255, 255, 0, 0.7));
+    }
+    60%,
+    63% {
+      filter: drop-shadow(1px 2px 15px rgba(0, 0, 0, 0.3));
+    }
+    90%,
+    93% {
+      filter: drop-shadow(1px 2px 40px rgba(0, 255, 0, 0.7));
+    }
+    100% {
+      filter: drop-shadow(1px 2px 15px rgba(0, 255, 255, 0.3));
+    }
   }
 `;
 const Piece = styled.div`
