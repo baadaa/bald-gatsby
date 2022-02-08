@@ -44,7 +44,7 @@ const InfoWrapperStyles = styled.div`
     span {
       color: #fff;
     }
-    button,
+    button.close,
     span.button {
       width: 1.4rem;
       height: 1.4rem;
@@ -57,7 +57,7 @@ const InfoWrapperStyles = styled.div`
       outline: none;
       border-radius: 2rem;
     }
-    .close {
+    button.close {
       cursor: pointer;
       background-color: #ff544d;
       line-height: 1;

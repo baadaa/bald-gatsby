@@ -14,6 +14,7 @@ const Logo = styled.button<LogoAnimProps>`
   background: transparent;
   border: none;
   outline: none;
+  margin: 0 auto;
   --logo-width: ${(props) =>
     props.noScale ? `${props.size}!important` : props.size};
   --base-unit: calc(var(--logo-width) / 2);

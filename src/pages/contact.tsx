@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import confetti from 'canvas-confetti';
 import BaldBackgroundSection from '../components/BaldBackgroundSection';
 import LogoAnimation from '../components/LogoAnimation/LogoAnimation';
 import Layout from '../components/layout';
@@ -67,37 +68,71 @@ const HeroArea = styled(BaldBackgroundSection)`
     }
   }
 `;
-const ContactPage = () => (
-  <Layout isFullWidth>
-    <Seo
-      title="Contact"
-      description="Always open to new ideas. Let us connect."
-      meta={[
-        {
-          property: `og:image`,
-          content: 'https://bald.design/contact-og-image.jpg',
-        },
-      ]}
-    />
-    <HeroArea>
-      <LogoAnimation size="8rem" logoOnly noMargin />
-      <h1 style={{ marginTop: '.5em', marginBottom: '.2em' }}>
-        <strong>Hello</strong> there!
-      </h1>
-      <p>Don't hesitate to reach out.</p>
-      <div className="contact">
-        {contactList.map((item, index) => (
-          <a key={`contact${index}`} href={item.link}>
-            {item.icon}
-            {item.label}
-          </a>
-        ))}
-      </div>
-      <Link className="resume" to="/resume">
-        Looking for a resume?
-      </Link>
-    </HeroArea>
-  </Layout>
-);
+const ContactPage = () => {
+  const canvas = React.useRef(null);
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  const myConfetti = confetti.create(canvas.current, {
+    resize: true,
+    useWorker: false,
+  });
+  const runConfetti = () => {
+    myConfetti({
+      angle: randomInRange(55, 125),
+      spread: randomInRange(50, 70),
+      particleCount: randomInRange(50, 100),
+      origin: { y: 0.6 },
+    });
+  };
+  return (
+    <Layout isFullWidth>
+      <Seo
+        title="Contact"
+        description="Always open to new ideas. Let us connect."
+        meta={[
+          {
+            property: `og:image`,
+            content: 'https://bald.design/contact-og-image.jpg',
+          },
+        ]}
+      />
+      <HeroArea>
+        <LogoAnimation
+          size="8rem"
+          logoOnly
+          noMargin
+          click={() => runConfetti()}
+        />
+        <h1 style={{ marginTop: '.5em', marginBottom: '.2em' }}>
+          <strong>Hello</strong> there!
+        </h1>
+        <canvas
+          ref={canvas}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            pointerEvents: 'none',
+          }}
+        />
+        <p>Don't hesitate to reach out.</p>
+        <div className="contact">
+          {contactList.map((item, index) => (
+            <a key={`contact${index}`} href={item.link}>
+              {item.icon}
+              {item.label}
+            </a>
+          ))}
+        </div>
+        <Link className="resume" to="/resume">
+          Looking for a resume?
+        </Link>
+      </HeroArea>
+    </Layout>
+  );
+};
 
 export default ContactPage;
