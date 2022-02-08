@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import BaldBackgroundSection from '../components/BaldBackgroundSection';
@@ -286,6 +286,19 @@ const IntroBoxContainer = styled.section`
 `;
 const IndexPage = () => {
   const [curtainIsDown, setCurtainIsDown] = useState(false);
+  const checkEscape = (e) => {
+    const { key } = e;
+    if (key === 'Escape') {
+      setCurtainIsDown(false);
+    }
+  };
+  useEffect(() => {
+    if (curtainIsDown) {
+      document.addEventListener('keydown', checkEscape);
+    } else {
+      document.removeEventListener('keydown', checkEscape);
+    }
+  }, [curtainIsDown]);
   return (
     <Layout isFullWidth>
       <Seo
