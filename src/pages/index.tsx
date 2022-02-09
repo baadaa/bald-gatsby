@@ -215,6 +215,7 @@ const IntroCopy = styled.div`
     ${flexUnit(2, 20, 40, 'vw', 'font-size')}
     font-weight: 400;
     margin-bottom: 0.7em;
+    letter-spacing: -0.04em;
   }
   h1 {
     ${flexUnit(1.8, 18, 36, 'vw', 'font-size')}
@@ -334,7 +335,7 @@ const IndexPage = () => {
         <h5>Nice to meet you.</h5>
         <h1>
           I am a design director and front-end engineer with backgrounds in
-          psychology, linguistics, and branding. How do I work with you?
+          psychology, linguistics, and branding. What can I help you with?
         </h1>
         <Link className="resume" to="/resume">
           View Resume

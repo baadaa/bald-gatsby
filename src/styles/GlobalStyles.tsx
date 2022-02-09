@@ -345,7 +345,7 @@ h1 {
   text-rendering: optimizeLegibility;
   font-size: 4.8rem;
   line-height: 1.1;
-  letter-spacing: -.5px;
+  letter-spacing: -.0075em;
   margin-bottom: 1em;
   @media screen and (max-width: 768px) {
     text-align: center;
