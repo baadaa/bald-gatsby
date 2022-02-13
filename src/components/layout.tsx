@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
@@ -8,6 +8,7 @@ import Footer from './Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 import EasterEggs from './EasterEggs';
 import SiteInfo from './SiteInfo';
+import { consoleMsg } from './utils';
 
 type LayoutProps = {
   heading?: string;
@@ -63,7 +64,9 @@ const Layout: React.FC<LayoutProps> = ({
   isFullWidth: isPost = false,
 }) => {
   const [siteInfoIsShowing, setSiteInfoIsShowing] = useState(false);
-
+  useEffect(() => {
+    consoleMsg();
+  }, []);
   return (
     <>
       <Helmet>
