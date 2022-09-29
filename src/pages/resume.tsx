@@ -275,7 +275,7 @@ const ResumePage: React.FC = () => (
             communication through diverse channels. Always eager to keep
             learning and growing.
           </p> */}
-          <a className="download" href="/resume_bumhan_yu_2021.pdf">
+          <a className="download" href="/resume_bumhan_yu_2022.pdf">
             Download resume as PDF
           </a>
         </section>
