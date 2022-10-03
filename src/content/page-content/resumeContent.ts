@@ -15,6 +15,21 @@ export const experiences = [
     ],
   },
   {
+    title: 'Mentor/Educator',
+    company: 'Designlab',
+    industry: 'Education',
+    time: '2021–Present',
+    link: 'https://designlab.com/baadaa/',
+    summary:
+      'Teaching and mentoring design students on technical and theoretical topics in design fundamentals and UX/UI practices. Currently teaching:',
+    bullets: [
+      'Design 101',
+      'UI & UX Design',
+      'Design Foundations',
+      'UX Academy',
+    ],
+  },
+  {
     title: 'Design Director',
     company: 'Homepoint',
     industry: 'Financial Services',
