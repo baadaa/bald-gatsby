@@ -136,6 +136,40 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+  const personalWorkQuery = await graphql(`
+    query {
+      allMdx(
+        sort: { fields: frontmatter___order, order: ASC }
+        filter: {
+          frontmatter: { type: { eq: "work" }, category: { eq: "design" } }
+        }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              order
+              category
+              slug
+            }
+          }
+          next {
+            frontmatter {
+              title
+              slug
+            }
+          }
+          previous {
+            frontmatter {
+              title
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
 
   if (blogQuery.errors || caseStudyQuery.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
@@ -145,6 +179,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const caseStudyPosts = caseStudyQuery.data.allMdx.edges;
   const devWorkPosts = devWorkQuery.data.allMdx.edges;
   const designWorkPosts = designWorkQuery.data.allMdx.edges;
+  const personalWorkPosts = personalWorkQuery.data.allMdx.edges;
   blogPosts.forEach(({ node, next, previous }) => {
     createPage({
       path: node.frontmatter.slug,
@@ -153,15 +188,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
-  [caseStudyPosts, devWorkPosts, designWorkPosts].forEach((posts) =>
-    posts.forEach(({ node, next, previous }) => {
-      createPage({
-        path: node.frontmatter.slug,
-        component: path.resolve(
-          './src/components/Portfolio/PortfolioPostLayout.tsx'
-        ),
-        context: { id: node.id, next, previous },
-      });
-    })
+  [caseStudyPosts, devWorkPosts, designWorkPosts, personalWorkPosts].forEach(
+    (posts) =>
+      posts.forEach(({ node, next, previous }) => {
+        createPage({
+          path: node.frontmatter.slug,
+          component: path.resolve(
+            './src/components/Portfolio/PortfolioPostLayout.tsx'
+          ),
+          context: { id: node.id, next, previous },
+        });
+      })
   );
 };

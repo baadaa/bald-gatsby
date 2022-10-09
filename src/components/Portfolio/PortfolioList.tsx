@@ -14,7 +14,7 @@ const ListLayout = styled.div`
   nav {
     position: sticky;
     top: calc(var(--nav-height) + 20px);
-    flex-basis: 20rem;
+    flex-basis: 25rem;
     a {
       color: inherit;
       display: block;
@@ -39,17 +39,23 @@ const ListLayout = styled.div`
     }
     ul {
       list-style: none;
-      max-width: 15rem;
+      max-width: 20rem;
       padding: 0;
       margin: 0;
-      margin-left: auto;
+    }
+    li.last::before {
+      content: '';
+      display: block;
+      margin: 2.5rem 0 2.5rem 1.75rem;
+      width: 3rem;
+      border-top: 2px solid var(--gray100);
     }
   }
   article + article {
     margin-top: 2rem;
   }
   section {
-    margin-left: 5rem;
+    margin-left: 2.5rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -85,9 +91,15 @@ const ListLayout = styled.div`
       z-index: 3;
       padding: 2rem 0 1rem;
       background-color: #fff;
+      ul {
+        flex-wrap: wrap;
+      }
       li {
         margin: 0;
         font-size: 1.3rem;
+      }
+      li.last::before {
+        display: none;
       }
       a {
         padding: 0.5rem 1rem;
@@ -151,6 +163,10 @@ const workSubnav = [
     label: 'Case Studies',
     url: '/work/',
   },
+  {
+    label: 'Personal Projects',
+    url: '/work/personal',
+  },
 ];
 const PortfolioList = ({ category, workItems }) => {
   const isShort = category !== 'caseStudy';
@@ -178,7 +194,10 @@ const PortfolioList = ({ category, workItems }) => {
         <nav>
           <ul>
             {workSubnav.map((item, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                className={index === workSubnav.length - 1 ? 'last' : null}
+              >
                 {item.url ? (
                   <Link to={item.url} activeClassName="current">
                     {item.label}
