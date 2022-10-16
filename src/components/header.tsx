@@ -145,7 +145,7 @@ const nav = [
   },
   {
     label: 'Work',
-    url: '/work/design/',
+    url: '/work/',
     partialMatch: true,
   },
   // {

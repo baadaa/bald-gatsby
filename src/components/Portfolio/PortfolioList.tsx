@@ -174,6 +174,7 @@ const PortfolioList = ({ category, workItems }) => {
     caseStudy: 'Case Studies',
     design: 'Design Works',
     dev: 'Dev Works',
+    personal: 'Personal',
   };
   return (
     <Layout
