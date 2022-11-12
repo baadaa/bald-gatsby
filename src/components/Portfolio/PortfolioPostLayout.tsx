@@ -31,8 +31,15 @@ const getBreadcrumb = (fromPath, baseCategory) => {
       path: '/work/dev/',
       label: 'Dev Works',
     },
+    personal: {
+      path: '/work/personal/',
+      label: 'Personal Projects',
+    },
   };
-  if (!fromPath || ['caseStudy', 'dev', 'design'].indexOf(fromPath) === -1) {
+  if (
+    !fromPath ||
+    ['caseStudy', 'dev', 'design', 'personal'].indexOf(fromPath) === -1
+  ) {
     return {
       breadcrumbPath: parentPaths[baseCategory].path,
       breadcrumbLabel: parentPaths[baseCategory].label,
