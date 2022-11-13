@@ -141,7 +141,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx(
         sort: { fields: frontmatter___order, order: ASC }
         filter: {
-          frontmatter: { type: { eq: "work" }, category: { eq: "design" } }
+          frontmatter: { type: { eq: "work" }, category: { eq: "personal" } }
         }
       ) {
         edges {
