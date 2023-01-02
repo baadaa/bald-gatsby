@@ -195,8 +195,8 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ isVisible, cb }) => (
       <span className="gr">
         <kbd>&#8593;</kbd>
         <kbd>&#8593;</kbd>
-        <kbd>&#8593;</kbd>
-        <kbd>&#8593;</kbd>
+        <kbd>&#8595;</kbd>
+        <kbd>&#8595;</kbd>
         <kbd>&#8592;</kbd>
         <kbd>&#8594;</kbd>
         <kbd>&#8592;</kbd>
