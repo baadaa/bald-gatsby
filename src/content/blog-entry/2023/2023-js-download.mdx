@@ -1,0 +1,209 @@
+---
+title: Downloading multiple files in Node.js
+date: 2023-02-12
+slug: "/blog/downloading-multiple-files-in-node"
+type: blog
+headerImg: "./images/talking.gif"
+headerBg: "#1e607b"
+headerTextColor: "#fff"
+tags:
+  - code
+  - javascript
+  - today I learned
+description: Recently I had to download 70+ files from the web URLs—found as raw text strings. There was no way that I’d copy-paste the URLs 70+ times to browser address bar. How do I automate this simple task?
+---
+
+## Background
+
+Working on an internal presentation, I found [this deck about Atlassian Design team](https://www.slideshare.net/alanstairs/6-to-106-in-4-years-the-story-of-the-atlassian-design-team) via [Slideshare](https://www.slideshare.net/). Lucky me, I thought, that there was even a big `Download Now` button with a kind text that says _download to read offline_. Unfortunately, albeit predictably, it didn’t allow me to download unless I sign up for subscription.
+
+While they _did_ offer a 30-day free trial, I was required to provide credit card info up-front to _activate_ a free trial. I know they’re running a business and need to pay their server bills and what-not, but I didn’t like the idea of giving away my credit card info (or Paypal payment) just to download a reference document—knowing that I’m probably never going to use on a regular basis—
+
+## Process
+
+### 1. Look at the markup and determine the file source
+
+Fine, I won’t be able to download the source `PDF` or `PPT` without paying. Then what about the in-browser preview images? Wouldn’t there be standard image files for the web?
+
+Inspecting via dev tools, I found that the <small>HTML</small> markup for the slides were pretty straightforward.
+
+```html {8-16}
+<!-- Removed irrelevant data attributes and other details for brevity -->
+
+<div id="slide-container">
+  <div class="slide" id="slide-0" data-index="0">...</div>
+  <div class="slide" id="slide-1" data-index="1">...</div>
+  <div class="slide" id="slide-2" data-index="2">...</div>
+  <div class="slide" id="slide-3" data-index="3">...</div>
+  <div class="slide current" id="slide-4" data-index="4">
+    <picture>
+      <source srcset="https://path.to/file-title-5-size.jpg 2048w" ... />
+      <img
+        class="slide-image"
+        src="https://path.to/file-title-5-size.jpg 2048w"
+        ...
+      />
+    </picture>
+  </div>
+  <div class="slide" id="slide-5" data-index="4">...</div>
+  <div class="slide" id="slide-6" data-index="5">...</div>
+  <!-- this goes on until `data-index="70" -->
+</div>
+```
+
+Inside `slide-container` are a series of `slide`s with `data-index` indicating the slide number, each of which containing a `picture` element pointing to a corresponding <small>CDN</small> address. Image file naming convention looked also very clear with comma-separated `slide-title-##-####` format, in which the last parts of the string indicated the slide number and image width.
+
+To test, I manually copy-pasted a few image file <small>URL</small>s for different slides and confirmed that I can indeed access these individual slides as `JPG` assets.
+
+### 2. Try downloading directly inside a browser
+
+To automate around these assets, I needed the full list. Now that I know the naming convention, this part was fairly easy. I first started with a plain `for` loop in the browser console.
+
+```javascript
+for (let i = 1; i < 72; i++) {
+  console.log(`https://path.to/file-title-${i}-2048.jpg`);
+}
+```
+
+```console
+https://path.to/file-title-1-2048.jpg
+https://path.to/file-title-2-2048.jpg
+https://path.to/file-title-3-2048.jpg
+https://path.to/file-title-4-2048.jpg
+...
+```
+
+The snippet above _sort of_ works. The <small>URL</small>s logged in the console are directly clickable and would open up a new tab with the target image in it. With huge pain points though:
+
+1. I need to click the links 71 times to open each file.
+2. I need to hit `CMD` `S` 71 times to save them individually.
+3. Chrome browser automatically converts this as `WEBP` format, but I'd need `JPG`
+
+Admittedly utterly ignorant in Node environment, I’d rather avoid going there but at this point it became evident that I’d have to do something outside the browser.
+
+### 3. Use core Node.js modules
+
+For a throw-away task like this, I didn't want any dependencies here, so the obvious first step was to _create_ a JavaScript file.
+
+```bash
+touch download_slides.js
+```
+
+Of the several resources that Google pointed me to, [this article](https://www.makeuseof.com/node-js-files-download/) and [this blog piece](https://gabrieleromanato.name/nodejs-multiple-file-downloads-with-promises) were the most succinct and practical for my needs.
+
+I started by loading the modules.
+
+```javascript
+const fs = require("fs");
+const https = require("https");
+```
+
+Then generated <small>URL</small> strings and stored them in a variable.
+
+```javascript
+const files = new Array(71)
+  .fill("")
+  .map((item, index) => `https://path.to/file-title-${index + 1}-2048.jpg`);
+```
+
+Created a function that returns a single <small>HTTPS</small> request as a Promise. Each request response will be saved locally via `fs.createWriteStream()` method.
+
+```javascript
+const download = (url, destPath) => {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      const filePath = fs.createWriteStream(destPath);
+      res.pipe(filePath);
+      resolve(true);
+    });
+  });
+};
+```
+
+With those single Promises, created an array that contains all <small>HTTPS</small> requests for assets.
+
+```javascript
+const createDownloadRequests = (urls) => {
+  const requests = [];
+  for (const url of urls) {
+    let urlObj = new URL(url);
+    let parts = urlObj.pathname.split("/");
+    let filename = parts[parts.length - 1];
+    requests.push(download(url, `${filename}`));
+  }
+  return requests;
+};
+```
+
+As a final step, use `Promise.all()` to carry out all downloads.
+
+```javascript
+(async () => {
+  try {
+    const requests = createDownloadRequests(files);
+    await Promise.all(requests);
+  } catch (err) {
+    console.log(err);
+  }
+})();
+```
+
+The **full code** looks like below:
+
+```javascript
+const fs = require("fs");
+const https = require("https");
+const files = new Array(71)
+  .fill("")
+  .map((item, index) => `https://path.to/file-title-${index + 1}-2048.jpg`);
+const download = (url, destPath) => {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      const filePath = fs.createWriteStream(destPath);
+      res.pipe(filePath);
+      resolve(true);
+    });
+  });
+};
+const createDownloadRequests = (urls) => {
+  const requests = [];
+  for (const url of urls) {
+    let urlObj = new URL(url);
+    let parts = urlObj.pathname.split("/");
+    let filename = parts[parts.length - 1];
+    requests.push(download(url, `${filename}`));
+  }
+  return requests;
+};
+(async () => {
+  try {
+    const requests = createDownloadRequests(files);
+    await Promise.all(requests);
+  } catch (err) {
+    console.log(err);
+  }
+})();
+```
+
+### 4. Run the script
+
+```bash
+node download_slides.js
+```
+
+This part was the most obvious part. Running the script brought down all 71 `JPG`s I wanted. I ended up referencing and using only two of those slides. You might _rightfully_ say I could’ve simply downloaded the two particular files rather than going through this hassle. But, hey, I learned a little something about Node with this process. 🤷‍♂️
+
+## What I’d do differently
+
+The way it’s coded, this script is fairly limited in functionality and overly specific to this one use case.
+
+- It does not provide any meaningful feedback. Like:
+  - what the status of each file is
+  - which asset is currently being downloaded
+  - whether the whole download process is completed
+  - whether there was any specific errors, etc.
+- The asset <small>URL</small> strings are mostly hard-coded and cannot be reused for other contexts. Also it requires that I make sense of the file naming convention before running this script.
+
+If I were to face similar needs in the future, I might want to add explicit feedback UI and would try to automate harvesting the target file names.
+
+In any case, the presentation went well and I can come back to this blog post when/if I need to.
