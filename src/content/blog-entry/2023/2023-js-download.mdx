@@ -1,10 +1,10 @@
 ---
 title: Downloading multiple files in Node.js
-date: 2023-02-12
+date: 2023-02-07
 slug: "/blog/downloading-multiple-files-in-node"
 type: blog
-headerImg: "./images/talking.gif"
-headerBg: "#1e607b"
+headerImg: "./images/download_jpgs.svg"
+headerBg: "#4db35e"
 headerTextColor: "#fff"
 tags:
   - code
@@ -17,7 +17,7 @@ description: Recently I had to download 70+ files from the web URLs—found as r
 
 Working on an internal presentation, I found [this deck about Atlassian Design team](https://www.slideshare.net/alanstairs/6-to-106-in-4-years-the-story-of-the-atlassian-design-team) via [Slideshare](https://www.slideshare.net/). Lucky me, I thought, that there was even a big `Download Now` button with a kind text that says _download to read offline_. Unfortunately, albeit predictably, it didn’t allow me to download unless I sign up for subscription.
 
-While they _did_ offer a 30-day free trial, I was required to provide credit card info up-front to _activate_ a free trial. I know they’re running a business and need to pay their server bills and what-not, but I didn’t like the idea of giving away my credit card info (or Paypal payment) just to download a reference document—knowing that I’m probably never going to use on a regular basis—
+While they _did_ offer a 30-day free trial, I was required to provide credit card info up-front to _activate_ a free trial. I know they’re running a business and need to pay their server bills and what-not, but I didn’t like the idea of giving away my credit card info (or Paypal payment) just to download a reference document—knowing that I’m probably never going to use on a regular basis.
 
 ## Process
 
@@ -79,7 +79,7 @@ The snippet above _sort of_ works. The <small>URL</small>s logged in the console
 2. I need to hit `CMD` `S` 71 times to save them individually.
 3. Chrome browser automatically converts this as `WEBP` format, but I'd need `JPG`
 
-Admittedly utterly ignorant in Node environment, I’d rather avoid going there but at this point it became evident that I’d have to do something outside the browser.
+Pathetically ignorant in Node environment, I’d rather stick to browser environment as much as possible but now it felt inevitable that I would have to do this away from the browser.
 
 ### 3. Use core Node.js modules
 
@@ -204,6 +204,6 @@ The way it’s coded, this script is fairly limited in functionality and overly 
   - whether there was any specific errors, etc.
 - The asset <small>URL</small> strings are mostly hard-coded and cannot be reused for other contexts. Also it requires that I make sense of the file naming convention before running this script.
 
-If I were to face similar needs in the future, I might want to add explicit feedback UI and would try to automate harvesting the target file names.
+If I were to face similar needs in the future, I might want to add explicit feedback UI and would try to automate harvesting the target file names. Oh, also in TypeScript. Perhaps in Deno.
 
 In any case, the presentation went well and I can come back to this blog post when/if I need to.
