@@ -194,6 +194,19 @@ const UsesPage: React.FC = () => (
           </li>
         </ul>
       </nav>
+      <span
+        style={{
+          fontSize: '1.2rem',
+          borderRadius: '1rem',
+          display: 'inline-block',
+          padding: '1rem 1.5rem',
+          marginBottom: '3rem',
+          backgroundColor: 'var(--coolGray50)',
+        }}
+      >
+        Some of these items contain Amazon affiliate links, so I could grab
+        coffee when you click them to buy something.
+      </span>
       <section id="hw">
         <h2>Hardware</h2>
         <section className="sub">
@@ -201,7 +214,7 @@ const UsesPage: React.FC = () => (
           <div className="content">
             <h3>
               <a href="https://support.apple.com/kb/SP819?locale=en_US">
-                MacBook Pro 13" 2020 <span>(Big Sur 11.6)</span>
+                MacBook Pro 13" 2020 <span>(Monterey 12.6.3)</span>
               </a>
             </h3>
             <p>Primary laptop for design and development work</p>
@@ -223,11 +236,11 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Screens</span>
           <div className="content">
             <h3>
-              <a href="https://www.dell.com/en-us/shop/dell-27-monitor-se2722h/apd/210-ayyh/monitors-monitor-accessories">
+              <a href="https://amzn.to/3YfSxyH">
                 Dell SE2722HX <span>(27")</span>
               </a>{' '}
               &bull;{' '}
-              <a href="https://www.dell.com/en-us/shop/dell-24-monitor-s2421hn/apd/210-axhj/monitors-monitor-accessories">
+              <a href="https://amzn.to/3Yg0Ydi">
                 Dell S2421NX <span>(23.8")</span>
               </a>{' '}
             </h3>
@@ -249,11 +262,7 @@ const UsesPage: React.FC = () => (
             <h3>
               NAS Drive{' '}
               <span>
-                (
-                <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">
-                  3B+
-                </a>{' '}
-                •{' '}
+                (<a href="https://amzn.to/3YfzapC">3B+</a> •{' '}
                 <a href="https://en.wikipedia.org/wiki/Server_Message_Block">
                   SMB
                 </a>{' '}
@@ -267,37 +276,20 @@ const UsesPage: React.FC = () => (
             <h3>
               Retro Gaming Module{' '}
               <span>
-                (
-                <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">
-                  3B+
-                </a>{' '}
-                • <a href="https://retropie.org.uk/">RetroPie</a> •{' '}
-                <a href="https://retroflag.com/nespi-case-plus.html">
-                  NESPi Case+
-                </a>{' '}
-                •{' '}
-                <a href="https://www.digikey.com/en/products/detail/adafruit-industries-llc/3368/6680553">
-                  Cooling Fan
-                </a>
-                )
+                (<a href="https://amzn.to/3YfzapC">3B+</a> •{' '}
+                <a href="https://retropie.org.uk/">RetroPie</a> •{' '}
+                <a href="https://amzn.to/40I7IlR">NESPi Case+</a> •{' '}
+                <a href="https://amzn.to/3RJDwTB">Cooling Fan</a>)
               </span>
             </h3>
             <h3>
               Photoframe • Pomodoro Timer{' '}
               <span>
-                (
-                <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">
-                  3B+
-                </a>{' '}
-                •{' '}
+                (<a href="https://amzn.to/3YfzapC">3B+</a> •{' '}
                 <a href="https://github.com/baadaa/timer-over-photos">
                   Custom web app{' '}
                 </a>
-                •{' '}
-                <a href="https://www.amazon.com/gp/product/B0153R2A9I/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1">
-                  Touch Screen
-                </a>
-                )
+                • <a href="https://amzn.to/3HGreql">Touch Screen</a>)
               </span>
             </h3>
           </div>
@@ -316,26 +308,20 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <h3>
-              <a href="https://www.bluemic.com/en-us/products/yeti/">
-                Yeti Blue Microphone
-              </a>
+              <a href="https://amzn.to/3YhXeYU">Yeti Blue Microphone</a>
             </h3>
             <ul>
               <li>
-                <a href="https://www.amazon.com/gp/product/B01L3LL95O/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1">
+                <a href="https://amzn.to/3YQNKE3">
                   InnoGear boom suspension stand
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/gp/product/B01FQB3DD8/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1">
-                  Auphonix shock mount
-                </a>
+                <a href="https://amzn.to/3DOj6mk">Auphonix shock mount</a>
               </li>
             </ul>
             <h3>
-              <a href="https://www.amazon.com/Up2Stream-Mini-V2-Speaker-Arylic-Up2stream/dp/B07W7QB2RX">
-                Arylic Up2stream Mini V2
-              </a>
+              <a href="https://amzn.to/3I6VhZv">Arylic Up2stream Mini V2</a>
             </h3>
           </div>
         </section>
@@ -343,61 +329,54 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Photo/Video</span>
           <div className="content">
             <h3>
-              <a href="https://www.usa.canon.com/internet/portal/us/home/products/details/cameras/eos-dslr-and-mirrorless-cameras/dslr/eos-60d">
-                Canon EOS 60D
-              </a>
+              <a href="https://amzn.to/3DOWDFX">Canon EOS 60D</a>
             </h3>
             <p>
               Mostly{' '}
               <a href="https://www.usa.canon.com/internet/portal/us/home/support/self-help-center/eos-webcam-utility">
                 using it as a webcam
               </a>{' '}
-              with a{' '}
-              <a href="https://www.amazon.com/gp/product/B08ZCW4N6V/ref=ppx_yo_dt_b_search_asin_title">
-                table mount arm
-              </a>
+              with a <a href="https://amzn.to/3DMdr03">table mount arm</a>
             </p>
             <ul>
               <li>
-                <a href="https://www.amazon.com/Sigma-Aspherical-Angle-Digital-Cameras/dp/B00005RKSK">
+                <a href="https://amzn.to/40ERslF">
                   Sigma 20mm Wide Angle, f/1.8
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Canon-24-85mm-3-5-4-5-Standard-Cameras/dp/B000053HHD">
+                <a href="https://amzn.to/3lkgJS4">
                   Canon EF 24-85mm Standard Zoom, f/3.5-4.5 USM
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Canon-50mm-1-8-Camera-Lens/dp/B00007E7JU">
+                <a href="https://amzn.to/3llkCpR">
                   Canon EF 50mm Standard, f/1.8 II
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Canon-EF-S-55-250mm-4-0-5-6-Telephoto/dp/B0011NVMO8">
+                <a href="https://amzn.to/3JSFyik">
                   Canon EF-S 55-250mm Telephoto Zoom, f/4.0-5.6 IS II
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Rokinon-FE8M-C-Fisheye-Fixed-Canon/dp/B002LTXQUE">
+                <a href="https://amzn.to/3RHfPel">
                   Rokinson 8mm Fisheye, f/3.5
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Holga-60mm-Lens-Canon-Black/dp/B005OFK89E">
-                  Holga 60mm Toy lens, f/8
-                </a>
+                <a href="https://amzn.to/3HMrILo">Holga 60mm Toy lens, f/8</a>
               </li>
             </ul>
             <h3>
-              <a href="https://en.wikipedia.org/wiki/Panasonic_Lumix_DMC-LX3">
+              <a href="https://amzn.to/3x96eDP">
                 Panasonic Lumix DMC-LX3{' '}
                 <span>(24mm wide angle, f/2.0–2.8)</span>
               </a>
             </h3>
             <p>Leica lens with full manual control can do magic</p>
             <h3>
-              <a href="https://en.wikipedia.org/wiki/Lomo_LC-A">
+              <a href="https://amzn.to/3HGrWnv">
                 Lomo LC-A <span>(32mm, f/2.8)</span>
               </a>
             </h3>
@@ -483,11 +462,6 @@ const UsesPage: React.FC = () => (
             </p>
             <ul>
               <li>
-                <a href="https://chrome.google.com/webstore/detail/go-back-with-backspace/eekailopagacbcdloonjhbiecobagjci">
-                  Go Back with Backspace
-                </a>
-              </li>
-              <li>
                 <a href="https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl">
                   Full Page Screen Capture
                 </a>{' '}
@@ -561,11 +535,6 @@ const UsesPage: React.FC = () => (
             </ul>
             <h3>Linting & Formatting</h3>
             <ul>
-              <li>
-                <a href="https://midnight-commander.org/">
-                  No-Sweat&trade; ESLint & Prettier by Wes Bos
-                </a>
-              </li>
               <li>
                 <a href="https://github.com/prettier/prettier-vscode">
                   Prettier for VS Code
@@ -712,23 +681,19 @@ const UsesPage: React.FC = () => (
             <h3>Monitor stands & mounts</h3>
             <ul>
               <li>
-                <a href="https://www.amazon.com/gp/product/B009S750LA/ref=ppx_yo_dt_b_search_asin_title">
-                  VIVO Dual Monitor Arm
-                </a>
+                <a href="https://amzn.to/40yBYQl">VIVO Dual Monitor Arm</a>
               </li>
               <li>
-                <a href="https://www.amazon.com/gp/product/B08F1ZQSDS/ref=ppx_yo_dt_b_search_asin_title">
+                <a href="https://amzn.to/3lnSBOA">
                   Pannon Foldable Laptop Stand
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/gp/product/B08L3TMM2X/ref=ppx_yo_dt_b_search_asin_title">
-                  BoYata Monitor Stand
-                </a>
+                <a href="https://amzn.to/3JVCkdX">BoYata Monitor Stand</a>
               </li>
             </ul>
             <h3>
-              <a href="https://www.amazon.com/gp/product/B08PP8HYR9/ref=ppx_yo_dt_b_search_asin_title">
+              <a href="https://amzn.to/3X8LMgQ">
                 iVANKY MacBook Pro Docking Station
               </a>
             </h3>
@@ -740,13 +705,8 @@ const UsesPage: React.FC = () => (
             <h3>Printers & Scanners</h3>
             <ul>
               <li>
-                <a href="https://www.amazon.com/HP-Laserjet-Multi-Function-Wireless-W2G55A/dp/B087CB66X1/ref=sr_1_4">
+                <a href="https://amzn.to/3HHCCSM">
                   HP LaserJet MPF M28W (scanner & printer)
-                </a>
-              </li>
-              <li>
-                <a href="https://www.usa.canon.com/internet/portal/us/home/support/details/scanners/support-scanners-canoscan-series/canoscan-lide-25">
-                  Canon CanoScan LiDE 25
                 </a>
               </li>
             </ul>
@@ -768,12 +728,12 @@ const UsesPage: React.FC = () => (
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Apple-Wireless-Keyboard-Silver-MLA22LL/dp/B01NABDNPH">
+                <a href="https://amzn.to/3I6I9DJ">
                   Apple Magic Keyboard 2 (A1644)
                 </a>
               </li>
               <li>
-                <a href="https://www.amazon.com/Apple-Magic-Mouse-Wireless-Rechargable/dp/B016QO5YNG">
+                <a href="https://amzn.to/3I4HouW">
                   Apple Magic Mouse 2 (A1657)
                 </a>
               </li>
@@ -793,9 +753,7 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <h3>
-              <a href="https://www.amazon.com/gp/product/B00IIFW2L4/ref=ppx_yo_dt_b_search_asin_title">
-                Amazon Basic Mesh Chair
-              </a>
+              <a href="https://amzn.to/3llLNRc">Amazon Basic Mesh Chair</a>
             </h3>
             <h3>Cutting mat & blades</h3>
             <h3>T-square & tape measure</h3>
@@ -810,50 +768,52 @@ const UsesPage: React.FC = () => (
           <span className="sub-heading">Gizmos</span>
           <div className="content">
             <h3>
-              <a href="https://www.fixd.com/">FIXD Automotive Sensor</a>
+              <a href="https://amzn.to/3HLKK4z">FIXD Automotive Sensor</a>
             </h3>
             <h3>EGO Power Tools</h3>
             <ul>
               <li>
-                <a href="https://egopowerplus.com/21-inch-self-propelled-mower/">
-                  21" Self-Propelled Mower
-                </a>
+                <a href="https://amzn.to/3HMMk6m">21" Self-Propelled Mower</a>
               </li>
               <li>
-                <a href="https://egopowerplus.com/14-inch-chain-saw/">
-                  14" Chain Saw
-                </a>
+                <a href="https://amzn.to/3I6WShX">14" Chain Saw</a>
               </li>
               <li>
-                <a href="https://egopowerplus.com/blower-530cfm/">
-                  530 CFM Blower
-                </a>
+                <a href="https://amzn.to/3loru5C">530 CFM Blower</a>
               </li>
               <li>
-                <a href="https://egopowerplus.com/snow-blower-steel-auger-snt2110/">
-                  56V Snow Blower
-                </a>
+                <a href="https://amzn.to/3XfjrFL">56V Snow Blower</a>
               </li>
             </ul>
             <h3>Home Security</h3>
             <ul>
               <li>
-                <a href="https://www.amazon.com/gp/product/B08DXD8LSR/ref=ppx_yo_dt_b_search_asin_title">
-                  Eufy Video Doorbell
-                </a>
+                <a href="https://amzn.to/3Ywv502">Eufy Video Doorbell</a>
               </li>
               <li>
-                <a href="https://www.amazon.com/gp/product/B07W1HKYQK/ref=ppx_yo_dt_b_search_asin_title">
-                  Eufy Security Cameras
-                </a>{' '}
-                with{' '}
-                <a href="https://www.amazon.com/gp/product/B08L3NN3W2/ref=ppx_yo_dt_b_search_asin_title">
-                  Solar Panels
-                </a>
+                <a href="https://amzn.to/3RGmyFs">Eufy Security Cameras</a> with{' '}
+                <a href="https://amzn.to/3YylHsB">Solar Panels</a>
               </li>
               <li>
-                <a href="https://www.amazon.com/gp/product/B0868GS77L/ref=ppx_yo_dt_b_search_asin_title">
+                <a href="https://amzn.to/40ESApp">
                   ICNX Solar Powered Flood Light
+                </a>
+              </li>
+            </ul>
+            <h3>Grooming</h3>
+            <ul>
+              <li>
+                <a href="https://amzn.to/3lnTyXa">
+                  Skull Shaver Pitbull Silver
+                </a>
+              </li>
+              <li>
+                <a href="https://amzn.to/3Yla5ty">HeadBlade</a>
+              </li>
+              <li>
+                <a href="https://amzn.to/40CWQWw">Barbasol Shaving Cream</a> and{' '}
+                <a href="https://amzn.to/3XjLSCm">
+                  Every Man Jack Post-Shave Lotion
                 </a>
               </li>
             </ul>
