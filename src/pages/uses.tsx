@@ -198,14 +198,13 @@ const UsesPage: React.FC = () => (
         style={{
           fontSize: '1.2rem',
           borderRadius: '1rem',
-          display: 'inline-block',
-          padding: '1rem 1.5rem',
-          marginBottom: '3rem',
-          backgroundColor: 'var(--coolGray50)',
+          display: 'block',
+          textAlign: 'right',
+          opacity: 0.6,
+          marginBottom: '2rem',
         }}
       >
-        Some of these items contain Amazon affiliate links, so I could grab
-        coffee when you click them to buy something.
+        Some of these items contain Amazon affiliate links.
       </span>
       <section id="hw">
         <h2>Hardware</h2>
