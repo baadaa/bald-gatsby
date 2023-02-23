@@ -389,17 +389,18 @@ const UsesPage: React.FC = () => (
               <a href="https://youtu.be/wKW9bIMB-Mo">Supernote A6</a>
             </h3>
             <p>
-              Neat e-ink touch device with pressure sensitivity. Lovely little
-              device for note-taking and reading books.
-            </p>
-            <h3>
+              Neat e-ink tablet for note-taking and managing ebooks. Switched
+              from{' '}
               <a href="https://www.ebay.com/p/1451261732">
                 Sharp E-note WG-S50
               </a>
+            </p>
+            <h3>
+              <a href="https://amzn.to/3ZciuiP">NEO2 Alphasmart</a>
             </h3>
             <p>
-              Surprisingly versatile and powerful. PIA: Japanese-only UI,
-              unusable in underlit conditions.
+              Personal best solution for Distraction-free writing. Amazing
+              battery life, impeccable build quality.
             </p>
           </div>
         </section>
@@ -500,6 +501,10 @@ const UsesPage: React.FC = () => (
               </a>
             </h3>
             <p>Really neat visual DevTools</p>
+            <h3>
+              <a href="https://arc.net/">Arc Browser</a>
+            </h3>
+            <p>A surprisingly ground-breaking take on web browsing.</p>
             <h3>
               <a href="https://apps.apple.com/us/app/gmail-email-by-google/id422689480">
                 Gmail for iOS
