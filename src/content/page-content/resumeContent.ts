@@ -6,12 +6,13 @@ export const experiences = [
     time: '2021–Present',
     link: 'https://doubleverify.com',
     summary:
-      'Maintain and expand design system and its components with a strong emphasis on color system and data visualization. Collaborate with broader product, design, and engineering teams to help establish a stronger UX patterns and solutions. Focus areas include:',
+      'IC role with a heavy emphasis on DesignOps and leadership support. Maintain and expand design system and its components while developing governance and success metrics around them. Collaborate with broader product, design, and engineering teams to help establish a stronger UX patterns and solutions. Focus areas include:',
     bullets: [
       'Building out UX/UI/IxD patterns and maintaining the design system with semantic versioning',
       'Ensuring color consistency, accessibility, and flexibility in charts/graphs',
       'Facilitating collaboration between product, engineering, and design teams',
       'Prototyping and developing internal proof-of-concepts in React',
+      'Helping to manage projects and guiding junior designers',
     ],
   },
   {
@@ -93,6 +94,14 @@ export const experiences = [
   },
 ];
 export const education = [
+  {
+    major: 'Business',
+    school: 'd.MBA',
+    degree: 'Certificate',
+    time: '2023',
+    summary:
+      'Business training specifically built for designers, covering business concepts, models and methods, strategy, and metrics. ',
+  },
   {
     major: 'Communications Design',
     school: 'Pratt Institute',
